@@ -1,0 +1,300 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米商城-确认订单</title>
+    <link rel="icon" href="./img/icon.jpg">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/knoworder.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/list.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/common.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/index-footer.css">
+    <link rel="stylesheet" href="__PUBLIC__/Common/font-awesome/css/font-awesome.min.css" />
+    <script type="text/JavaScript" src="__PUBLIC__/Common/jquery.js"> </script>
+</head>
+<body>
+    <!-- 添加地址 -->
+<div id="form2" class="haform1">
+    <form method="post" style="width: 366px;height: 500px;">
+        <div id="fuck">
+            <select name="pro" id="pro" style="height: 42px;width:49%;margin-bottom: 10px;">
+            </select>
+        </div>
+        <textarea name="text" id="" cols="30" rows="5" placeholder="详细地址" ></textarea>
+        <br>
+        <input class="haform1finp" type="text" name="name" placeholder="姓名">
+        <input class="haform1finp" type="text" name="tel" placeholder="手机号">
+        <input class="haform1finp" type="text" name="pos" placeholder="邮编">
+        <input class="haform1finp" type="text" name="tig" placeholder="地址标签">
+        <label><input class="haform1frad" type="radio" name="def" value='1'>默认</label>
+        <label><input checked class="haform1frad" type="radio" name="def" value='2'>不默认</label>
+        <div class="haf1sub">
+        <div class="cs"></div>
+            <input id="haf1subinp" type="button" value="提交">
+            <span onmousedown="form2.style.display='none';">取消</span>
+        </div>
+    </form>
+</div>
+    <header>
+        <div class="hmain">
+            <div class="hmlogo"><a href="{:U('Index/index')}"><img src="__PUBLIC__/Home/img/logo.png" width="48"></a></div>
+            <div class="hmtitle">
+                <span>确认订单</span>
+            </div>
+            <div class="hmorder">
+                <a href="#">我的订单</a>
+            </div>
+            <if condition="$userInfo neq 0">
+                <div class="hmuser">
+                     <a style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;width:80px;float:left;padding-left:5px" class="a" href="{:U('Personal/personal')}">{$userInfo["name"]}
+                    </a> 
+                    <span style="float:right;line-height:40px;padding-right:5px;" class="fa fa-angle-down"></span>  
+                    <div class="hmuserul">
+                        <ul>
+                            <li><a href="{:U('Personal/personal')}">个人中心</a></li>
+                            <li><a href="{:U('Personal/personal',array('where'=>'appraise'))}">评价晒单</a></li>
+                            <li><a href="{:U('Personal/personal',array('where'=>'commodity'))}">我的喜欢</a></li>
+                            <li><a href="{:U('Personal/personal',array('where'=>'edituserinfo'))}">小米账户</a></li>
+                            <li><a href="{:U('Login/loginOut')}">退出登录</a></li>
+                        </ul>
+                    </div>
+                </div>
+            <else />
+                <span class="hm-fg right">|</span>
+                <a href="{:U('Register/register')}" class="hmlogin right">注册</a>
+                <span class="hm-fg right">|</span>
+                <a href="{:U('Login/login')}" class="hmlogin right">登录</a>
+            </if>      
+        </div>
+    </header>
+    <div class="order">
+        <form action="{:U('ConfirmOrder/addOrder')}" method="post">
+            <div class="omain">
+                <div class="omaddress">
+                    <p class="omatitle">收货地址</p><br>
+                    <div class="omamain">
+                        <input id="in1" type="hidden" value="" name="pid">
+                    <foreach name="huo" item="ss">
+                        <div id="p0{$ss.id}" onmousedown="in1.value='{$ss.id}';show1({$ss.id});" class="omamnum">
+                            <dl>
+                                <dt>
+                                    <span></span>
+                                    <span>{$ss.name}</span>
+                                </dt>
+                                <dd>{$ss.phone}</dd>
+                                <dd>{$ss.pro},{$ss.city},{$ss.are},{$ss.town}</dd>
+                                <dd>{$ss.code}</dd>
+                            </dl>
+                        </div>
+                    </foreach>
+                        <div class="omamnum2">
+                            <span onmousedown="form2.style.display='block';"><i class="fa fa-plus-circle"></i></span>
+                            <br>
+                            添加新地址
+                        </div>
+                    </div>
+                </div>
+                <div class="ompay">
+                    <div class="ompayleft">
+                        <h3>支付方式</h3>
+                    </div>
+                    <div class="ompayright">
+                        在线支付 （支持微信支付、支付宝、银联、财付通、小米钱包等）
+                    </div>
+                </div>
+                <div class="ompay">
+                    <div class="ompayleft">
+                        <h3>配送方式</h3>
+                    </div>
+                    <div class="ompayright">
+                        快递配送（免运费）
+                    </div>
+                </div>
+                <div class="omgoodstitle">
+                    <div class="omgoodstitleleft">
+                        <h3>商品</h3>
+                    </div>
+                    <div class="omgoodstitleright">
+                        <a href="{:U('ShopCart/showShopCart')}">返回购物车 > </a>
+                    </div>
+                </div>
+            <foreach name="lasn" item="li">
+                <div class="omgoods">
+                    <div class="omgoodsmain">
+                        <div class="omgm-img"><img width="30" src="__PUBLIC__/Home/imgs/{$li.cover}"></div>
+                        <div class="omgm-name">
+                            <a href="{:U('Detail/detail', array('gid'=>$li['gid']))}">{$li.name}&nbsp;{$li.colorname}</a>
+                        </div>
+                        <div class="omgm-price">
+                            {$li.price} * {$li.num}
+                        </div>
+                        <div class="omgm-total">
+                            {$li.sum}元
+                        </div>
+                    </div>
+                </div>
+            </foreach>
+                
+                <div class="omgcount">
+                    <ul>
+                        <li><span class="omgcountspan1">商品件数：</span>{$total}件</li>
+                        <li><span class="omgcountspan1">金额总计：</span>{$tote}元</li>
+                        <li><span class="omgcountspan2">应付总额：</span><span class="omgcountspan3">{$tote}</span>元</li>
+                    </ul>
+                </div>
+                <div class="omgbutton">
+                    <input type="submit" value="去结算" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- 为你推荐开始 -->
+    <if condition="$recommend neq 0">
+    <div style="background:#f5f5f5;margin-top:-20px">
+        <div class="wntj">
+            <span class="left">为你推荐</span>
+            <div class="right">
+                <span id="w1" style="border:1px solid #e0e2e8; color:#e0e2e8" class="fa fa-angle-left left" onmousedown="
+                w3.style='transform:translateX(0px);';
+                w1.style='border:1px solid #e0e2e8;color:#e0e2e8;';
+                w2.style='border:1px solid #000;color:#000;'"></span>  
+                <span id="w2" style="border:1px solid black;" class="fa fa-angle-right left" onmousedown="
+                w3.style='transform:translateX(-1226px);';
+                w2.style='border:1px solid #e0e2e8;color:#e0e2e8;';
+                w1.style='border:1px solid #000;color:#000;'"></span>
+            </div>
+        </div>
+        <div class="wntj-list">
+            <div id="w3" class="wntj-list-main">
+                    <foreach name="recommend" item="vo" key="k">
+                        <in name="k" value="0,5">
+                            <div class="wntj-list-main-td1 left">
+                                <a class="wntj-list-main-td-a1" href="{:U('Detail/detail', array('gid'=>$vo['id']))}"><img width="140px" height="140px" src="__PUBLIC__/imgs/{$vo[id]}/{$vo[cover]}" /></a><br>
+                                <a class="wntj-list-main-td-a2" href="{:U('Detail/detail', array('gid'=>$vo['id']))}">{$vo.name}</a>
+                                <p style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:0 10px" class="wntj-list-main-td-p1">{$vo.goodsinfo}</p>
+                                <p class="wntj-list-main-td-p2">{$vo.price}元</p>
+                            </div>
+                        <else />
+                            <div class="wntj-list-main-td2 left">
+                                <a class="wntj-list-main-td-a1" href="{:U('Detail/detail', array('gid'=>$vo['id']))}"><img width="140px" height="140px" src="__PUBLIC__/imgs/{$vo['id']}/{$vo[cover]}" /></a><br>
+                                <a class="wntj-list-main-td-a2" href="{:U('Detail/detail', array('gid'=>$vo['id']))}">{$vo.name}</a>
+                                <p style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:0 10px" class="wntj-list-main-td-p1">{$vo.goodsinfo}</p>
+                                <p class="wntj-list-main-td-p2">{$vo.price}元</p>
+                            </div>
+                        </in>
+                    </foreach>
+            </div>
+        </div>
+    </div>
+    </if>
+    <!-- 为你推荐结束 -->
+    <include file="Common/footer" />
+<script>
+
+    $.get(
+        '{:U('ConfirmOrder/address')}',
+        {upid:0},
+        function(data) {
+            console.log(data);
+            var option = '';
+            option += '<option value="-1">--请选择--</option>';
+            for(var i = 0; i<data.length; i++){
+                option += '<option value="'+data[i].id+'">'+data[i].name+'</option>';
+            }
+
+            $('#pro').append(option);
+    }, 'json');
+
+    $('#fuck').on('change', 'select', function () {
+
+        var that = $(this);
+
+        $(this).nextAll('select:visible').remove();
+
+        if(!$('select[data-id='+$(that).val()+']').show().length){
+            $.get(
+               '{:U('ConfirmOrder/address')}', 
+                { upid:$(this).val() },
+                function (data) {
+                    if (data.length) {
+
+                    var select = '<select data-id="'+$(that).val()+'" name="city" id="city" style="height: 42px;width:49%;margin-bottom: 10px;">';
+                    select += '<option value="-1">--请选择--</option>';
+                    for(var i = 0; i<data.length; i++) {
+                        select += '<option value="'+data[i].id+'">'+data[i].name+'</option>';
+                    }
+                    select += '</select>';
+
+                    that.after(select);
+                    }
+
+                },
+                'json'
+            );
+        }
+    });
+
+    $('#haf1subinp').click(function () {
+
+        var res = [];
+
+        res['name'] = $('input[name=name]').val();
+        res['tel'] = $('input[name=tel]').val();
+        res['pos'] = $('input[name=pos]').val();
+        res['tig'] = $('input[name=tig]').val();
+        var def = $('input[name=def]');
+        def.each(function () {
+            if ( $(this).is(':checked') ) {
+                res['def'] = $(this).val();
+              
+            }
+        });
+
+        var address = '';
+
+        $('#fuck').find('select').each(function () {
+
+             address += $(this).val()+',';
+
+        });
+
+        // console.log(address);
+        // console.log(def);
+        $.post(
+            '{:U('ConfirmOrder/adddizhi')}',
+             {
+                cateId:address,
+                name:$('input[name=name]').val(),
+                tel:$('input[name=tel]').val(),
+                pos:$('input[name=pos]').val(),
+                tig:$('input[name=tig]').val(),
+                text:$('input[name=text]').val(),
+                // defs:def,
+
+
+            },
+             function (data){
+                if ( data == 1 ) {
+                    $('#form2').hide();
+                } else {
+                    $('.cs p').remove();
+                    $('.cs').append('<p style="color:red;">添加失败</p>');
+                }
+             },
+             'json'
+        );
+
+    });
+
+    function show1(num){
+        for(i=0;i<1000;i++){
+            if($('#p0'+i).length){
+                $('#p0'+i).css('border','1px solid #b0b0b0');
+            }
+        }
+        $('#p0'+num).css('border','1px solid orange');//触发以后信息块
+    }
+
+
+
+</script>

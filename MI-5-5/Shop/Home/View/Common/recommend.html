@@ -1,0 +1,19 @@
+<if condition="$recommend neq 0">
+    <foreach name="recommend" item="vo" key="k">
+        <in name="k" value="0,5">
+            <div class="wntj-list-main-td1 left">
+                <a class="wntj-list-main-td-a1" href="{:U('Detail/detail',array('gid'=>$vo[id]))}"><img width="140px" height="140px" src="__PUBLIC__/imgs/{$vo[id]}/{$vo[cover]}" /></a><br>
+                <a class="wntj-list-main-td-a2" href={:U('Detail/detail',array('gid'=>$vo[id]))}">{$vo.name}</a>
+                <p style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:0 10px" class="wntj-list-main-td-p1">{$vo.goodsinfo}</p>
+                <p class="wntj-list-main-td-p2">{$vo.price}元</p>
+            </div>
+        <else />
+            <div class="wntj-list-main-td2 left">
+                <a class="wntj-list-main-td-a1" href="{:U('Detail/detail',array('gid'=>$vo[id]))}"><img width="140px" height="140px" src="__PUBLIC__/imgs/{$vo[id]}/{$vo[cover]}" /></a><br>
+                <a class="wntj-list-main-td-a2" href="{:U('Detail/detail',array('gid'=>$vo[id]))}">{$vo.name}</a>
+                <p style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:0 10px" class="wntj-list-main-td-p1">{$vo.goodsinfo}</p>
+                <p class="wntj-list-main-td-p2">{$vo.price}元</p>
+            </div>
+        </in>
+    </foreach>
+</if>

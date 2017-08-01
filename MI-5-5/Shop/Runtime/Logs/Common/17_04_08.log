@@ -1,0 +1,18 @@
+[ 2017-04-08T06:51:39+08:00 ] 192.168.42.27 /MI-4-20/index.php/SUn
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000204s ]
+ERR: 无法加载模块:SUn
+
+[ 2017-04-08T12:45:49+08:00 ] 192.168.42.27 /MI-4-20/index.php/MI-4-20/index.php/Home/Index/index.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000244s ]
+ERR: 无法加载模块:MI-4-20
+
+[ 2017-04-08T12:46:40+08:00 ] 192.168.42.27 /MI-4-20/index.php/MI-4-20/index.php/Home/Index/index.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000216s ]
+ERR: 无法加载模块:MI-4-20
+

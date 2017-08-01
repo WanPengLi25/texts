@@ -1,0 +1,114 @@
+<br/>
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" /> 权限管理 &gt; <span>查看权限</span>
+	</div>
+	<div class="rightmain">
+		<div class="Aut_addmain">
+			<h2 class="text-center">权限列表</h2>
+			<div class="Aut_showform">
+				<form class="form-inline" method="get">
+				  	<div class="form-group">
+				    	<font>查询方式</font>
+					  	<select class="form-control" name="status">
+						  	<option value="1">序号</option>
+						<if condition="$status eq 0">
+						  	<option selected value="0">权限名</option>
+						<else />
+							<option value="0">权限名</option>
+						</if>
+						</select>
+				  	</div>
+				  	<div class="form-group">
+				    	<input type="text" class="form-control" name="info" value="{$info}">
+				  	</div>
+				  	<button type="submit" class="btn btn-success">查询</button>
+				</form>
+			</div>
+			<table style="text-align:center; font-size:14px;" class="table table-condensed table-striped">
+				<tr>
+					<th style="width:5%" class="text-center">序号</th>
+					<th style="width:30%" class="text-center">规则</th>
+					<th style="width:30%" class="text-center">权限名</th>
+					<th class="text-center">状态</th>
+					<th class="text-center">操作</th>
+				</tr>
+		<if condition="$list neq 0">
+			<foreach name="list" item="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.name}</td>
+					<td>{$vo.title}</td>
+				<if condition="$vo.status eq 1">
+					<td style="cursor:pointer" data-stat="{$vo.status}"><font class="text-success">启用</font></td>
+				<else />
+					<td style="cursor:pointer" data-stat="{$vo.status}"><font class="text-danger">禁用</font></td>
+				</if>
+					<td>
+						<a class="btn btn-primary btn-sm btn-info" href="{:U('Auth/updataAuth', 'id='.$vo['id'])}">编辑</a>
+						<a name="del" data-id="{$vo.id}" class="btn btn-primary btn-sm btn-danger" href="javascript:;">删除</a>
+					</td>
+				</tr>
+			</foreach>
+		<else />
+				<tr>
+					<td colspan='5'><h3 class="text-center text-danger">没有数据！</h3></td>
+				</tr>
+		</if>
+			</table>
+			<div class="manu">
+				{$page}
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	//获取table下所有tr
+	var objs = $('table').find('tr');
+	for(i = 1 ; i<objs.length; i++) {
+		//为删除按钮绑定事件
+		$(objs[i]).find('a[name=del]').on('click', function () {
+			//储存对象
+			var that = $(this);
+			//ajax请求
+			$.get(
+				"{:U('Auth/delAuth')}",
+				{'id': that.attr('data-id')},
+				function (data) {
+					//成功后删除一行
+					if(data > 0) {
+						that.parent().parent().remove();
+					}
+				},
+				'json'
+			);
+		});
+
+		//为状态绑定事件
+		$(objs[i]).children('td').eq(3).on('click', function () {
+			//存储对象
+			var that = $(this);
+			//获取id
+			// that.prevAll().eq(2).html();
+			//ajax请求
+			$.get(
+				"{:U('Auth/changeStat')}",
+				{
+					'id':that.prevAll('td').eq(2).html(),
+					'status':that.attr('data-stat'),
+				},
+				function (data) {
+
+					if(data['stat'] > 0) {
+						console.log(data);
+						that.html(data['info']);
+						that.attr('data-stat', data['res']);
+					}
+				},
+				'json'
+			);
+		});
+	}
+
+</script>

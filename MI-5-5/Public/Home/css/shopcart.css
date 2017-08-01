@@ -1,0 +1,316 @@
+header{
+    width:100%;
+    height:100px;
+    border-bottom:2px solid darkorange;
+}
+.hmain{
+    width:1226px;
+    height:74px;
+    position:relative;
+    display:line-block;
+    margin:0 auto;
+}
+/*头部logo*/
+.hmlogo{
+    width:93px;
+    height:48px;
+    float:left;
+    margin-top:26px;
+}
+/*头部标题*/
+.hmtitle{
+    width:500px;
+    height:48px;
+    font-family:'宋体';
+    vertical-align:bottom;
+    line-height:48px;
+    float:left;
+    margin-top:26px;
+}
+.hmtitle span:first-child{
+    font-size:30px;
+}
+.hmtitle span:last-child{
+    color:#797979;
+    font-size:12px;
+}
+/*我的订单*/
+.hmorder{
+    width:48px;
+    height:40px;
+    text-align:center;
+    font-size:12px;
+    line-height:40px;
+    padding:0 5px;
+    margin-top:34px;
+    float:right;
+}
+.hmorder a{
+    color:#999;
+}
+.hmorder a:hover{
+    color:orange;
+}
+/*个人中心*/
+.hmuser{
+    width:120px;
+    height:40px;
+    background:#fff;
+    text-align: center;
+    line-height:40px;
+    font-size: 13px;
+    margin:34px 6px 0;
+    position:relative;
+    float:right;
+    cursor:pointer;
+}
+.hmuser a{
+    color:#b0b0b0;
+}
+.hmuser span{
+    font-size:16px;
+    padding-left:5px;
+}
+.hmuser:hover{
+    background:white;
+    color:darkorange;
+}
+.hmuser:hover .a{
+    color:darkorange;
+}
+.hmuser:hover .hmuserul{
+    display:block;
+}
+.hmuserul{
+    width:120px;
+    /*height:40px;*/
+    background:white;
+    position:absolute;
+    display:none;
+    z-index:100;
+    top:40px;
+}
+.hmuserul ul li{
+    width:60px;
+    height:24px;
+    line-height:24px;
+    padding:3px 30px;
+}
+.hmuserul ul li a{
+    color:black;
+}
+.hmuserul ul li:hover a{
+    color:darkorange;
+}
+/*登录、注册*/
+.hmlogin{
+    background:white;
+    line-height:40px;
+    color:#999;
+    font-size:12px;
+    margin:34px 6px 0;
+}
+.hm-fg{
+    margin-top:12px;
+    color:#999;
+    margin-top:43px;
+}
+/*购物车商品列表*/
+.sclist{
+    width:100%;
+    background:#f5f5f5;
+    padding-top:50px;
+    padding-bottom:50px;
+}
+.sclmain{
+    width:1226px;
+    background:#f5f5f5;
+    margin:0 auto;
+}
+.sclmaintop{
+    width:1200px;
+    height:70px;
+    background:white;
+    padding-right:26px;
+}
+.sclmaintop ul li{
+    height:70px;
+    font-size:14px;
+    color:#424242;
+    line-height:70px;
+    float:left;
+}
+.sclmaintop ul li:nth-child(1){
+    width:138px;
+    text-align:center;
+}
+.sclmaintop ul li:nth-child(1) a{
+    color:red;
+}
+.sclmaintop ul li:nth-child(2){
+    width:398px;
+}
+.sclmaintop ul li:nth-child(3){
+    width:92px;
+    text-align:center;
+    padding-right:84px;
+}
+.sclmaintop ul li:nth-child(4){
+    width:168px;
+    
+    text-align:center;
+}
+.sclmaintop ul li:nth-child(5){
+    width:138px;
+    padding-right:81px;
+    text-align:center;
+}
+.sclmaintop ul li:nth-child(6){
+    width:98px;
+    text-align:center;
+}
+/*商品*/
+.sclmainlist{
+    width:1200px;
+    height:86px;
+    background:white;
+    padding:15px 26px 15px 0;
+    overflow:hidden;
+    border-top:1px solid #e0e0e0;
+}
+.sclmainlist ul li{
+    height:86px;
+    font-size:14px;
+    color:#424242;
+    float:left;
+}
+.sclmainlist ul li:nth-child(1){
+    width:80px;
+    padding-left:29px;
+    padding-right:29px;
+}
+.sclmainlist ul li:nth-child(2){
+    width:398px;
+}
+.sclmainlist ul li:nth-child(2) h3{
+    overflow:hidden;
+    font-family:'宋体';
+    font-size:18px;
+    line-height:35px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.sclmainlist ul li:nth-child(2) h3 a{
+    color:#424242;
+}
+.sclmainlist ul li:nth-child(2) p{
+    font-size:12px;
+    color:#757575;
+    word-spacing:break-word;
+}
+.sclmainlist ul li:nth-child(3){
+    width:92px;
+    line-height:70px;
+    font-size:16px;
+    text-align:center;
+    padding-right:84px;
+}
+.sclmainlist ul li:nth-child(4){
+    width:168px;
+    text-align:center;
+}
+.sclml4{
+    width:166px;
+    height:40px;
+    border:1px solid #e0e0e0;
+    margin-top:15px;
+    float:left;
+}
+.sclml4 a{
+    width:38px;
+    height:38px;
+    line-height:38px;
+    font-size:25px;
+    color:black;
+    cursor:pointer;
+    display:#757575;
+    float:left;
+}
+.sclml4 input{
+    width:90px;
+    height:38px;
+    border:0;
+    text-align:center;
+    color:#424242;
+    font-size:18px;
+    display:block;
+    float:left;
+}
+.sclmainlist ul li:nth-child(5){
+    width:138px;
+    padding-right:81px;
+    line-height:70px;
+    font-size:18px;
+    color:orange;
+    text-align:center;
+}
+.sclmainlist ul li:nth-child(6){
+    width:98px;
+    text-align:center;
+    line-height:70px;
+    font-size:18px;
+}
+.sclmainlist ul li:nth-child(6) a{
+    color:#757575;
+}
+/*结算*/
+.scmsubmit{
+    width:1226px;
+    height:50px;
+    background:white;
+    text-align:right;
+    overflow:hidden;
+    margin:20px auto 0;
+}
+/*统计总数*/
+.scmsleft{
+    width:250px;
+    height:50px;
+    text-align:right;
+    font-size:14px;
+    line-height:50px;
+    color:#757575;
+    float:left;
+}
+.scmsleft a{
+    font-size:14px;
+    color:orange;
+    padding-right:20px;
+    border-right:1px solid #a5a5a5;
+}
+.scmsleft span{
+    padding-left:20px;
+}
+.scmsmiddle{
+    height:50px;
+    color:orange;
+    line-height:50px;
+    float:right;
+    display:block;
+}
+.scmsmiddle span{
+    font-size:30px;
+}
+.scmsubmit input{
+    width:200px;
+    height:50px;
+    border:0;
+    line-height:50px;
+    color:white;
+    text-align:center;
+    font-size:20px;
+    background:darkorange;
+    display:block;
+    float:right;
+    margin-left:50px;
+}

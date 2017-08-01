@@ -1,0 +1,843 @@
+[ 2017-04-22T00:29:17+08:00 ] 192.168.42.1 /MI-4-20/index.php/Home
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007275s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000754s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000790s ]
+ERR: SQLSTATE[HY000] [2002] No route to host
+
+[ 2017-04-22T00:35:05+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001795s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010810s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010865s ]
+SQL: SHOW COLUMNS FROM `mi_goods` [ RunTime:0.0317s ]
+SQL: SHOW COLUMNS FROM `mi_type` [ RunTime:0.0021s ]
+SQL: SELECT `id` FROM `mi_type` WHERE ( typename="手机" )  [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `mi_goods` [ RunTime:0.0022s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and name like "%小米%" and tid=54 ) ORDER BY sale desc LIMIT 6   [ RunTime:0.0016s ]
+SQL: SHOW COLUMNS FROM `mi_goods_version` [ RunTime:0.0020s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=25 ) LIMIT 1   [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `mi_goods_pic_color` [ RunTime:0.0021s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=31 )  [ RunTime:0.0013s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=26 ) LIMIT 1   [ RunTime:0.0013s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=32 )  [ RunTime:0.0013s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=32 ) LIMIT 1   [ RunTime:0.0015s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=42 )  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and name like "%红米%" and tid=54 ) ORDER BY sale desc LIMIT 6   [ RunTime:0.0015s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=30 ) LIMIT 1   [ RunTime:0.0014s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=39 )  [ RunTime:0.0013s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=35 ) LIMIT 1   [ RunTime:0.0017s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=47 )  [ RunTime:0.0017s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=36 ) LIMIT 1   [ RunTime:0.0011s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=48 )  [ RunTime:0.0013s ]
+SQL: SELECT `id` FROM `mi_type` WHERE ( typename="平板" )  [ RunTime:0.0014s ]
+SQL: SELECT `id` FROM `mi_type` WHERE ( typename="笔记本" )  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid in (34,33) ) ORDER BY sale desc LIMIT 6   [ RunTime:0.0015s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=27 ) LIMIT 1   [ RunTime:0.0015s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=33 )  [ RunTime:0.0015s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and name like "%电视%" ) ORDER BY sale desc LIMIT 6   [ RunTime:0.0015s ]
+SQL: SELECT `id` FROM `mi_type` WHERE ( typename="盒子" )  [ RunTime:0.0015s ]
+SQL: SELECT `id` FROM `mi_type` WHERE ( typename="音箱" )  [ RunTime:0.0016s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid in (36,43) ) ORDER BY sale desc LIMIT 6   [ RunTime:0.0014s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=39 ) LIMIT 1   [ RunTime:0.0014s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=52 )  [ RunTime:0.0015s ]
+SQL: SELECT `id` FROM `mi_type` WHERE ( typename="路由器" )  [ RunTime:0.0016s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid=37 ) ORDER BY sale desc LIMIT 6   [ RunTime:0.0015s ]
+SQL: SELECT `id` FROM `mi_type` WHERE ( typename="智能硬件" )  [ RunTime:0.0015s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid=38 ) ORDER BY sale desc LIMIT 6   [ RunTime:0.0015s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=33 ) LIMIT 1   [ RunTime:0.0015s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=44 )  [ RunTime:0.0016s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( recommend=1 ) ORDER BY sale desc LIMIT 10   [ RunTime:0.0018s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=25 ) LIMIT 1   [ RunTime:0.0012s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=31 )  [ RunTime:0.0014s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=26 ) LIMIT 1   [ RunTime:0.0015s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=32 )  [ RunTime:0.0014s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=27 ) LIMIT 1   [ RunTime:0.0016s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=33 )  [ RunTime:0.0014s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=30 ) LIMIT 1   [ RunTime:0.0016s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=39 )  [ RunTime:0.0015s ]
+SQL: SHOW COLUMNS FROM `mi_friendlinks` [ RunTime:0.0024s ]
+SQL: SHOW COLUMNS FROM `mi_friendlinks` [ RunTime:0.0019s ]
+SQL: SELECT * FROM `mi_friendlinks` LIMIT 6   [ RunTime:0.0016s ]
+SQL: SHOW COLUMNS FROM `mi_type_group` [ RunTime:0.0021s ]
+SQL: SELECT * FROM `mi_type_group` WHERE ( status=1 and vs=0 ) LIMIT 10   [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid in (32,54,31) ) ORDER BY sale desc LIMIT 18   [ RunTime:0.0025s ]
+SQL: SELECT `id` FROM `mi_goods_version` WHERE ( gid=25 ) LIMIT 1   [ RunTime:0.0012s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=31 )  [ RunTime:0.0014s ]
+SQL: SELECT `id` FROM `mi_goods_version` WHERE ( gid=26 ) LIMIT 1   [ RunTime:0.0015s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=32 )  [ RunTime:0.0016s ]
+SQL: SELECT `id` FROM `mi_goods_version` WHERE ( gid=30 ) LIMIT 1   [ RunTime:0.0015s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=39 )  [ RunTime:0.0016s ]
+SQL: SELECT `id` FROM `mi_goods_version` WHERE ( gid=32 ) LIMIT 1   [ RunTime:0.0017s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=42 )  [ RunTime:0.0012s ]
+SQL: SELECT `id` FROM `mi_goods_version` WHERE ( gid=34 ) LIMIT 1   [ RunTime:0.0013s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=45 )  [ RunTime:0.0015s ]
+SQL: SELECT `id` FROM `mi_goods_version` WHERE ( gid=35 ) LIMIT 1   [ RunTime:0.0015s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=47 )  [ RunTime:0.0014s ]
+SQL: SELECT `id` FROM `mi_goods_version` WHERE ( gid=36 ) LIMIT 1   [ RunTime:0.0016s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=48 )  [ RunTime:0.0015s ]
+SQL: SELECT `id` FROM `mi_goods_version` WHERE ( gid=40 ) LIMIT 1   [ RunTime:0.0016s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=53 )  [ RunTime:0.0012s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid in (33,34) ) ORDER BY sale desc LIMIT 18   [ RunTime:0.0013s ]
+SQL: SELECT `id` FROM `mi_goods_version` WHERE ( gid=27 ) LIMIT 1   [ RunTime:0.0015s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=33 )  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid in (35,36) ) ORDER BY sale desc LIMIT 18   [ RunTime:0.0017s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid in (37,38) ) ORDER BY sale desc LIMIT 18   [ RunTime:0.0015s ]
+SQL: SELECT `id` FROM `mi_goods_version` WHERE ( gid=33 ) LIMIT 1   [ RunTime:0.0016s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=44 )  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid in (39,40,41) ) ORDER BY sale desc LIMIT 18   [ RunTime:0.0013s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid in (42,43) ) ORDER BY sale desc LIMIT 18   [ RunTime:0.0014s ]
+SQL: SELECT `id` FROM `mi_goods_version` WHERE ( gid=39 ) LIMIT 1   [ RunTime:0.0013s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=52 )  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid in (44,45) ) ORDER BY sale desc LIMIT 18   [ RunTime:0.0014s ]
+SQL: SELECT `id` FROM `mi_goods_version` WHERE ( gid=37 ) LIMIT 1   [ RunTime:0.0014s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=50 )  [ RunTime:0.0015s ]
+SQL: SELECT `id` FROM `mi_goods_version` WHERE ( gid=38 ) LIMIT 1   [ RunTime:0.0013s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=51 )  [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid in (46,47,48) ) ORDER BY sale desc LIMIT 18   [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid in (49,50,51) ) ORDER BY sale desc LIMIT 18   [ RunTime:0.0015s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status = 1 and tid in (52,53) ) ORDER BY sale desc LIMIT 18   [ RunTime:0.0014s ]
+SQL: SHOW COLUMNS FROM `mi_shuffing` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `mi_shuffing` WHERE ( status=1 ) LIMIT 6   [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `mi_board` [ RunTime:0.0019s ]
+SQL: SELECT * FROM `mi_board` WHERE ( status=1 and type=0 ) LIMIT 1   [ RunTime:0.0013s ]
+SQL: SELECT * FROM `mi_board` WHERE ( status=1 and type=1 ) LIMIT 3   [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status=1 ) ORDER BY sale desc LIMIT 10   [ RunTime:0.0017s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=25 ) LIMIT 1   [ RunTime:0.0012s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=31 )  [ RunTime:0.0014s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=26 ) LIMIT 1   [ RunTime:0.0014s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=32 )  [ RunTime:0.0015s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=27 ) LIMIT 1   [ RunTime:0.0014s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=33 )  [ RunTime:0.0014s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=30 ) LIMIT 1   [ RunTime:0.0011s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=39 )  [ RunTime:0.0013s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=32 ) LIMIT 1   [ RunTime:0.0015s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=42 )  [ RunTime:0.0013s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=33 ) LIMIT 1   [ RunTime:0.0015s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=44 )  [ RunTime:0.0013s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=34 ) LIMIT 1   [ RunTime:0.0014s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=45 )  [ RunTime:0.0014s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=35 ) LIMIT 1   [ RunTime:0.0242s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=47 )  [ RunTime:0.0013s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=36 ) LIMIT 1   [ RunTime:0.0014s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=48 )  [ RunTime:0.0014s ]
+SQL: SELECT `id`,`price` FROM `mi_goods_version` WHERE ( gid=37 ) LIMIT 1   [ RunTime:0.0016s ]
+NOTIC: [2] Missing argument 1 for Think\Model::limit(), called in /usr/local/apache2/htdocs/MI-4-20/Shop/Common/Common/function.php on line 103 and defined /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1829 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1830 行.
+NOTIC: [8] Undefined variable: offset /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1833 行.
+SQL: SELECT `cover` FROM `mi_goods_pic_color` WHERE ( vid=50 )  [ RunTime:0.0012s ]
+SQL: SELECT * FROM `mi_type_group` WHERE ( tids not like "%,%" and status=1  and vs=2 )  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( status=1 and tid=38 ) LIMIT 1   [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mi_type_group` WHERE ( tids like "%,%" and status=1  and vs=2 )  [ RunTime:0.0013s ]
+SQL: SELECT * FROM `mi_type` WHERE ( id=33 ) LIMIT 1   [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( tid=33 ) LIMIT 1   [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mi_type` WHERE ( id=38 ) LIMIT 1   [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mi_goods` WHERE ( tid=38 ) LIMIT 1   [ RunTime:0.0014s ]
+SQL: SELECT * FROM `mi_type` WHERE ( id=56 ) LIMIT 1   [ RunTime:0.0015s ]
+SQL: SELECT * FROM `mi_type` WHERE ( id=58 ) LIMIT 1   [ RunTime:0.0018s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.012629s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.012753s ]
+NOTIC: [8] Undefined variable: top /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 182 行.
+NOTIC: [8] Undefined variable: top /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 183 行.
+NOTIC: [8] Use of undefined constant xm - assumed 'xm' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 204 行.
+NOTIC: [8] Use of undefined constant xm - assumed 'xm' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 204 行.
+NOTIC: [8] Use of undefined constant xm - assumed 'xm' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 204 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 205 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 205 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 205 行.
+NOTIC: [8] Use of undefined constant hm - assumed 'hm' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 214 行.
+NOTIC: [8] Use of undefined constant hm - assumed 'hm' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 214 行.
+NOTIC: [8] Array to string conversion /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 214 行.
+NOTIC: [8] Undefined variable: Array /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 214 行.
+NOTIC: [8] Use of undefined constant pb - assumed 'pb' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 224 行.
+NOTIC: [8] Use of undefined constant pb - assumed 'pb' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 224 行.
+NOTIC: [8] Use of undefined constant pb - assumed 'pb' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 224 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 225 行.
+NOTIC: [8] Use of undefined constant ds - assumed 'ds' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 234 行.
+NOTIC: [8] Use of undefined constant hz - assumed 'hz' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 244 行.
+NOTIC: [8] Use of undefined constant hz - assumed 'hz' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 244 行.
+NOTIC: [8] Use of undefined constant hz - assumed 'hz' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 244 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 245 行.
+NOTIC: [8] Use of undefined constant ly - assumed 'ly' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 254 行.
+NOTIC: [8] Use of undefined constant zn - assumed 'zn' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 264 行.
+NOTIC: [8] Use of undefined constant zn - assumed 'zn' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 264 行.
+NOTIC: [8] Use of undefined constant zn - assumed 'zn' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 264 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 265 行.
+NOTIC: [8] Use of undefined constant tids - assumed 'tids' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 294 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant cover - assumed 'cover' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant cover - assumed 'cover' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant cover - assumed 'cover' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant cover - assumed 'cover' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant cover - assumed 'cover' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant cover - assumed 'cover' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant cover - assumed 'cover' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant tids - assumed 'tids' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 294 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant cover - assumed 'cover' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant tids - assumed 'tids' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 294 行.
+NOTIC: [8] Use of undefined constant tids - assumed 'tids' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 294 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant cover - assumed 'cover' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant tids - assumed 'tids' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 294 行.
+NOTIC: [8] Use of undefined constant tids - assumed 'tids' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 294 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant cover - assumed 'cover' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant tids - assumed 'tids' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 294 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant cover - assumed 'cover' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 296 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant cover - assumed 'cover' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 297 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 300 行.
+NOTIC: [8] Use of undefined constant tids - assumed 'tids' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 294 行.
+NOTIC: [8] Use of undefined constant tids - assumed 'tids' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 294 行.
+NOTIC: [8] Use of undefined constant tids - assumed 'tids' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 292 行.
+NOTIC: [8] Use of undefined constant goods - assumed 'goods' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 294 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 391 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 391 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 392 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 399 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 399 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 399 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 399 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 391 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 391 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 392 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 399 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 399 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 399 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 398 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 399 行.
+NOTIC: [8] Use of undefined constant tids - assumed 'tids' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 411 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 411 行.
+NOTIC: [8] Use of undefined constant tid - assumed 'tid' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 434 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4f9978a1457321b98e171887b12c7277.php 第 434 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.295932s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.296086s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000226s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000259s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.001425s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000340s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000008s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.001532s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000723s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000914s ]
+
+[ 2017-04-22T00:35:12+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000572s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001358s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000105s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000149s ]
+NOTIC: [8] Use of undefined constant Register - assumed 'Register' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+NOTIC: [8] Use of undefined constant register - assumed 'register' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+NOTIC: [2] Division by zero /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.091204s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.091258s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000117s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000141s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001229s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001308s ]
+
+[ 2017-04-22T00:35:12+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/getVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000372s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000413s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000358s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000449s ]
+
+[ 2017-04-22T00:35:15+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/registerPhoneAjax.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000206s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000270s ]
+SQL: SHOW COLUMNS FROM `mi_user` [ RunTime:0.0026s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ [ SQL语句 ] : select * from mi_user where phone = 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+ [ SQL语句 ] : select * from mi_user where phone = 
+
+[ 2017-04-22T00:35:18+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/registerPhoneAjax.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000186s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000238s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000265s ]
+SQL: SHOW COLUMNS FROM `mi_user` [ RunTime:0.0024s ]
+ERR: 1054:Unknown column 'qw' in 'where clause'
+ [ SQL语句 ] : select * from mi_user where phone = qw
+ERR: 1054:Unknown column 'qw' in 'where clause'
+ [ SQL语句 ] : select * from mi_user where phone = qw
+
+[ 2017-04-22T00:35:19+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/registerEmailAjax.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000189s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000271s ]
+SQL: SHOW COLUMNS FROM `mi_user` [ RunTime:0.0023s ]
+SQL: select * from mi_user where email = '' [ RunTime:0.0013s ]
+NOTIC: [8] Undefined offset: 0 /usr/local/apache2/htdocs/MI-4-20/Shop/Home/Model/RegisterModel.class.php 第 120 行.
+
+[ 2017-04-22T00:35:29+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/registerEmailAjax.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000050s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000704s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000321s ]
+SQL: SHOW COLUMNS FROM `mi_user` [ RunTime:0.0024s ]
+SQL: select * from mi_user where email = '32342' [ RunTime:0.0014s ]
+NOTIC: [8] Undefined offset: 0 /usr/local/apache2/htdocs/MI-4-20/Shop/Home/Model/RegisterModel.class.php 第 120 行.
+
+[ 2017-04-22T00:35:30+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000260s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000289s ]
+NOTIC: [8] Undefined variable: id /usr/local/apache2/htdocs/MI-4-20/Shop/Home/Controller/RegisterController.class.php 第 102 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000076s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.071917s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.071958s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000088s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000127s ]
+
+[ 2017-04-22T00:35:32+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000267s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000236s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000264s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000046s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000075s ]
+NOTIC: [8] Use of undefined constant Register - assumed 'Register' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+NOTIC: [8] Use of undefined constant register - assumed 'register' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+NOTIC: [2] Division by zero /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004274s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004300s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000072s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000094s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000468s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000587s ]
+
+[ 2017-04-22T00:35:32+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/getVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000340s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000387s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000468s ]
+
+[ 2017-04-22T00:35:49+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/registerPhoneAjax.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000691s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001007s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001127s ]
+SQL: SHOW COLUMNS FROM `mi_user` [ RunTime:0.0024s ]
+SQL: select * from mi_user where phone = 111111 [ RunTime:0.0014s ]
+NOTIC: [8] Undefined offset: 0 /usr/local/apache2/htdocs/MI-4-20/Shop/Home/Model/RegisterModel.class.php 第 106 行.
+
+[ 2017-04-22T00:35:49+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/registerEmailAjax.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000194s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000266s ]
+SQL: SHOW COLUMNS FROM `mi_user` [ RunTime:0.0022s ]
+SQL: select * from mi_user where email = '' [ RunTime:0.0014s ]
+NOTIC: [8] Undefined offset: 0 /usr/local/apache2/htdocs/MI-4-20/Shop/Home/Model/RegisterModel.class.php 第 120 行.
+
+[ 2017-04-22T00:35:58+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/registerEmailAjax.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000344s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001330s ]
+SQL: SHOW COLUMNS FROM `mi_user` [ RunTime:0.0029s ]
+SQL: select * from mi_user where email = '1149951080@qq.com' [ RunTime:0.0015s ]
+NOTIC: [8] Undefined offset: 0 /usr/local/apache2/htdocs/MI-4-20/Shop/Home/Model/RegisterModel.class.php 第 120 行.
+
+[ 2017-04-22T00:35:58+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000236s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000280s ]
+NOTIC: [8] Undefined variable: id /usr/local/apache2/htdocs/MI-4-20/Shop/Home/Controller/RegisterController.class.php 第 102 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000077s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003963s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003993s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000075s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000098s ]
+
+[ 2017-04-22T00:36:00+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000183s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000268s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000042s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000071s ]
+NOTIC: [8] Use of undefined constant Register - assumed 'Register' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+NOTIC: [8] Use of undefined constant register - assumed 'register' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+NOTIC: [2] Division by zero /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004226s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004253s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000074s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000095s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000348s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000398s ]
+
+[ 2017-04-22T00:36:00+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/getVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000206s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000297s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000325s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000381s ]
+
+[ 2017-04-22T00:36:12+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/registerPhoneAjax.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000191s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000290s ]
+SQL: SHOW COLUMNS FROM `mi_user` [ RunTime:0.0028s ]
+SQL: select * from mi_user where phone = 3254643546 [ RunTime:0.0014s ]
+NOTIC: [8] Undefined offset: 0 /usr/local/apache2/htdocs/MI-4-20/Shop/Home/Model/RegisterModel.class.php 第 106 行.
+
+[ 2017-04-22T00:36:15+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/registerEmailAjax.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000186s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000232s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000259s ]
+SQL: SHOW COLUMNS FROM `mi_user` [ RunTime:0.0027s ]
+SQL: select * from mi_user where email = 'fdsf' [ RunTime:0.0014s ]
+NOTIC: [8] Undefined offset: 0 /usr/local/apache2/htdocs/MI-4-20/Shop/Home/Model/RegisterModel.class.php 第 120 行.
+
+[ 2017-04-22T00:36:18+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000237s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000265s ]
+NOTIC: [8] Undefined variable: id /usr/local/apache2/htdocs/MI-4-20/Shop/Home/Controller/RegisterController.class.php 第 102 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000054s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003576s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003607s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000094s ]
+
+[ 2017-04-22T00:36:20+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000992s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001213s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000047s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000078s ]
+NOTIC: [8] Use of undefined constant Register - assumed 'Register' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+NOTIC: [8] Use of undefined constant register - assumed 'register' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+NOTIC: [2] Division by zero /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004447s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004491s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000072s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000094s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000373s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000419s ]
+
+[ 2017-04-22T00:36:20+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/getVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000184s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000257s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000368s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000412s ]
+
+[ 2017-04-22T00:36:21+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/getVerify.html?0.6852137960959226
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000215s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000306s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000292s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000331s ]
+
+[ 2017-04-22T00:36:22+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/getVerify.html?0.41678766370750964
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000304s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000232s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000368s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000418s ]
+
+[ 2017-04-22T00:36:23+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/getVerify.html?0.7060359751340002
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000185s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000267s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000324s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000357s ]
+
+[ 2017-04-22T00:36:33+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/registerPhoneAjax.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000360s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000344s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+SQL: SHOW COLUMNS FROM `mi_user` [ RunTime:0.0023s ]
+ERR: 1054:Unknown column 'rew' in 'where clause'
+ [ SQL语句 ] : select * from mi_user where phone = rew
+ERR: 1054:Unknown column 'rew' in 'where clause'
+ [ SQL语句 ] : select * from mi_user where phone = rew
+
+[ 2017-04-22T00:36:34+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/registerEmailAjax.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000186s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000236s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000263s ]
+SQL: SHOW COLUMNS FROM `mi_user` [ RunTime:0.0025s ]
+SQL: select * from mi_user where email = 'trew' [ RunTime:0.0015s ]
+NOTIC: [8] Undefined offset: 0 /usr/local/apache2/htdocs/MI-4-20/Shop/Home/Model/RegisterModel.class.php 第 120 行.
+
+[ 2017-04-22T00:36:35+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000189s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000329s ]
+NOTIC: [8] Undefined variable: id /usr/local/apache2/htdocs/MI-4-20/Shop/Home/Controller/RegisterController.class.php 第 102 行.
+SQL: SHOW COLUMNS FROM `mi_user` [ RunTime:0.0024s ]
+NOTIC: [8] Undefined index: validate /usr/local/apache2/htdocs/MI-4-20/ThinkPHP/Library/Think/Model.class.php 第 1185 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000030s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000099s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026640s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026709s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000743s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000771s ]
+
+[ 2017-04-22T00:36:38+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/register.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000327s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000502s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000590s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000074s ]
+NOTIC: [8] Use of undefined constant Register - assumed 'Register' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+NOTIC: [8] Use of undefined constant register - assumed 'register' /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+NOTIC: [2] Division by zero /usr/local/apache2/htdocs/MI-4-20/Shop/Runtime/Cache/Home/4abdfac7f9e632b4b3ada11b700b3da4.php 第 19 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004095s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004122s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000072s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000093s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000621s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000689s ]
+
+[ 2017-04-22T00:36:38+08:00 ] 192.168.42.27 /MI-4-20/index.php/Home/Register/getVerify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000283s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000312s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000310s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000354s ]
+

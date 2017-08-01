@@ -1,0 +1,228 @@
+<br/>
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" /> 用户管理 &gt; 查看用户 &gt; <span>查看管理员</span>
+	</div>
+	<div class="rightmain">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Sun/css/chenxustyle.css">
+		<center>
+			<h2>管理员列表</h2>
+			<form action="{:U('Admin/adminList')}" method="post">
+				<div>
+					<div class="col-xs-4">
+    					<input type="text" class="form-control" placeholder="请输入序号" name="id" />
+  					</div>
+  					<div class="col-xs-4">
+    					<input type="text" class="form-control" placeholder="请输入用户名" name="keyword" />
+  					</div>
+  					<div class="col-xs-1">
+						<button class="btn btn-info btn-search">查找</button> 
+  					</div>  
+				</div>
+			</form>
+			<div class="Boa_rigthbox">
+					<a href="{:U('Admin/addadmin')}" class="btn btn-info">添加管理员</a>
+				</div>
+
+			<br/>           
+           <!--  <div class="text-center">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">添加管理员</button>        
+            </div> -->
+
+            <!-- <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content animated bounceInRight">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+                            </button>
+                            <h4 class="modal-title">添加管理员</h4>
+                        </div> 
+                                                                             
+                         <div class="modal-body">                                           
+                        <form class="form-horizontal" method="post" action="{:U(Admin/addAdmin)}">
+							<div class="form-group" style="width:450px;height:60px;">
+					    		<label for="input" class="col-sm-2 control-label">姓名</label>
+						   		 <div class="col-sm-10">
+						      		<input type="text" class="form-control" id="name" name="name" placeholder="请输入管理员名字">
+						    	</div>
+							</div>
+							<div class="form-group" style="width:450px;height:60px;">
+							    <label for="input" class="col-sm-2 control-label">密码</label>
+							    <div class="col-sm-10">
+							      	<input type="password" class="form-control" id="pass" name="pass" placeholder="请输入密码">
+							    </div>
+							</div>
+							<div class="form-group" style="width:450px;height:60px;">
+							    <label for="input" class="col-sm-2 control-label">电话</label>
+							    <div class="col-sm-10">
+							      	<input type="text" class="form-control" id="phone" name="phone" placeholder="请输入电话">
+							    </div>
+							</div>
+							<div class="form-group" style="width:450px;height:60px;">
+							    <label for="input" class="col-sm-2 control-label">邮箱</label>
+							    <div class="col-sm-10">
+							      	<input type="text" class="form-control" id="email" name="email" placeholder="请输入邮箱">
+							    </div>
+							</div>
+							<!--显示状态
+		   					<!-- <div class="form-group" style="width:450px;height:60px;">
+							    <label for="input" class="col-sm-2 control-label">状态</label>
+							    <select class="form-control col-sm-10" style="width:345px; margin-left: 15px" name="status" id="status">
+							    	<option>--请选择--</option>
+								  	<option value="4">正常</option>
+								  	<option value="3">禁用</option>
+								</select>
+							</div>					
+							<div class="modal-footer">
+                            	<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                            	<button type="submit" class="btn btn-primary add">提交</button>
+                            </div>               
+						</form>
+                        </div>
+					</div>
+                </div>        
+            </div>   -->                                                                             
+			
+			<table class="table table-hover ">
+				<tr>
+					<th class="text-center">序号</th>
+					<th class="text-center">用户名</th>
+					<th class="text-center">手机号</th>
+					<th class="text-center">邮箱</th>
+					<th class="text-center">注册时间</th>
+					<th class="text-center">状态</th>
+					<th class="text-center">操作</th>
+				</tr>
+				<foreach name="adminlist" item="vo">
+					<tr class="text-center">
+						<td>{$vo.id}</td>
+						<td>{$vo.name}</td>
+						<td>{$vo.phone}</td>
+						<td>{$vo.email}</td>
+						<td>{$vo.addtime}</td>
+						<if condition='$vo.status eq 3'>
+							<td class="status Adm_cursor" data-status="{$vo.status}"><font class="text-danger">禁用</font></td>
+						<else />
+							<td class="status Adm_cursor" data-status="{$vo.status}"><font class="text-success">启用</font></td>
+						</if>
+						
+						<td>
+							<a href="javascript:;" data-id="{$vo.id}" class="del btn btn-danger">删除</a>
+						</td>
+					</tr>
+				</foreach>
+			</table>
+			<div id="page" class="manu">
+				{$show}
+			</div>
+		</center>
+		<script type="text/javascript" src="__PUBLIC__/Common/jquery.js"></script>
+
+		<script>
+
+			//给删除按钮添加点击事件
+			$('table .del').click(function(){
+
+				// alert(1);调试
+				var that = $(this);
+
+				$.get(
+					'{:U("Admin/ajaxDeleteAdmin")}',//URL
+
+					{id: that.attr('data-id')},//发送数据
+
+					function (data) {
+
+						// console.log(data);
+						
+						if (data==1) {
+
+							//点击删除a标签所在的那一行
+							that.parent().parent().remove();
+						} else {
+
+							alert('删除失败');
+						}
+
+					},
+					'json'
+
+				);
+			});
+
+			//给提交按钮添加点击事件
+			//$('form .add').click(function(){
+
+			//alert(1);
+				
+			// 	var that = $(this);
+
+			// 	var name = $('#name').val();
+			// 	var pass = $('#pass').val();
+			// 	var phone = $('#phone').val();
+			// 	var email = $('#email').val();
+			// 	var status = $('#status').val();
+	
+			// 	$.post(
+			// 		'{:U("Admin/addAdmin")}',//URL
+
+			// 		// {id: that.attr('data-id')},//发送数据
+			// 		{ name: "123", pass: "pass", phone: "phone", email: "email", status: "status" },
+
+			// 		function (data) {
+
+			// 			// console.log(data);
+						
+			// 			if (data==1) {
+
+			// 				alert('添加成功');
+
+			// 			} else {
+
+			// 				alert('添加失败');
+			// 			}
+
+			// 		},
+			// 		'json'
+
+			// 	);
+			// });
+
+			//给状态绑定点击事件
+			//获取table下所有tr
+			var objs = $('table').find('tr');
+			for(i = 1 ; i<objs.length; i++) {
+
+				//给状态绑定事件
+				$(objs[i]).children('td').eq(5).on('click', function () {
+					// alert(1);
+					//把$this存起来
+					var that = $(this);
+
+					//ajax请求
+					$.get(
+						'{:U("Admin/changeStat")}',//URL
+						{
+							'id':that.prevAll().eq(4).html(),
+							'status':that.attr('data-status'),
+						},
+						function (data) {
+
+							if(data['stat'] > 0) {
+
+								console.log(data);
+								that.html(data['info']);
+								that.attr('data-status', data['res']);
+							}
+						},
+						'json'
+					);
+				});
+			}
+
+		</script>
+
+		<script type="text/javascript" src="__PUBLIC__/Common/bookstrap/js"></script>
+	</div>
+</div>

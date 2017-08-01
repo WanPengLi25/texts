@@ -1,0 +1,160 @@
+<br />
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" />{$title}
+	</div>
+	<div class="rightmain">
+		<div class="ind_main center-block">
+			<h2 class="text-center">查看分类</h2>
+
+			<form style="width:70%;margin:10px auto" action="{:U('Type/selectType')}" class="form-inline">
+	  			<div class="form-group">
+	    			<input name="id" type="text" class="form-control" id="exampleInputEmail3" placeholder="序号" value="{$id}">
+	  			</div>
+	  			<div class="form-group">
+	    			<input name="typename" type="text" class="form-control" id="exampleInputPassword3" placeholder="分类名" value="{$typename}">
+	  			</div>
+	  			<select name="status" value="" class="form-control">
+	  				<option value=" ">--请选择--</option>
+	  			<if condition="$status eq 1">
+	  				<option selected value="1">启用</option>
+	  			<else />
+	  				<option value="1">启用</option>
+	  			</if>
+	  			<if condition="$status eq 0">
+	  				<option selected value="0">禁用</option>
+	  			<else />
+	  				<option value="0">禁用</option>
+	  			</if>
+				</select>
+	  			<button type="submit" class="btn btn-primary">搜索</button>
+
+	  			<button type="button" style="margin-left:60px" class="btn btn-success" data-toggle="modal" data-target="#add" data-target=".bs-example-modal-lg">添加分类</button>
+			</form>
+			<table style="width:100%;margin:0 auto;text-align:center" class="table table-hover">
+				<tr>
+					<th class="text-center">序号</th>
+					<th class="text-center">分类名</th>
+					<th class="text-center">状态</th>
+					<th class="text-center">操作</th>
+				</tr>
+				<if condition="$type neq 0">
+					<foreach name="type" item="v">
+						<tr>
+							<td>{$v.id}</td>
+							<td>{$v.typename}</td>
+							<td>
+								<if condition='$v.status eq 0'>
+									<a class="status text-danger" href="javascript:;"data-id="{$v.id}" data-status="{$v.status}">禁用</a>
+								<elseif condition='$v.status eq 1' />
+									<a class="status text-success" href="javascript:;"data-id="{$v.id}" data-status="{$v.status}">启用</a>
+								</if>
+							</td>
+							<td>
+								<button type="button" data-id="{$v.id}" data-brands="{$v.typename}" class="bj btn btn-primary" data-toggle="modal" data-target="#details">编辑</button>
+								
+								<a  class="delete btn btn-danger"  href="javascript:;"  data-id="{$v.id}">删除</a>
+							</td>
+						</tr>
+					</foreach>
+				<else />
+					<tr><td colspan="4" style="font-size:20px" class="text-danger text-center">没有数据TT</td></tr>
+				</if>
+			</table>
+			<div  class="manu">
+				{$show}
+			</div>	
+		</div>
+	</div>
+</div>
+<!-- 添加品牌的模态框 -->
+<div id="add" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  	<div class="modal-dialog modal-lg" role="document">
+    	<div class="modal-content">
+    		<center>
+    		<h2>添加分类</h2>
+	      		<form action="{:U('Type/addType')}" method="post">
+	      			<span class="lead">分类名:</span>
+					<input  type="text" name="typename" />
+					<span class="text-danger"></span>
+					<button style="margin:20px 10px 20px 20px" class="btn btn-success btn-primary btn-sm">确认添加</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	      		</form>
+      		</center>
+    	</div>
+  	</div>
+</div>
+<!-- 编辑品牌的模态框 -->
+<div id="details" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<center>
+				<h2 class="text-center">编辑分类</h2>
+				<form action="{:U('Type/saveType')}" method="post">
+					<input type="hidden" class="ids" name="id" value="">
+					<span class="lead">分类名:</span>
+					<input value=""class="brand" type="text" name="typename" />
+					<button style="margin:20px 10px 20px 20px" class="btn btn-success btn-primary btn-sm">确认编辑</button>
+					<button  type="button" class=" btn btn-default" data-dismiss="modal">取消</button>
+				</form>
+			</center>
+		</div>
+	</div>
+</div>
+
+<script>
+	
+	// 删除分类的AJAX
+	$('.delete').click( function() {
+		var that = $(this);
+		$.get(
+			'{:U("Type/ajaxDeleteType")}',
+			{id:that.attr('data-id')},
+			function ( data ) {
+				if ( data == 1 ) {
+					that.parent().parent().remove();
+				} else {
+					alert('删除失败');
+				}
+			},
+				'json'
+		);
+	});
+	// 修改状态
+	$('.status').click( function() {
+		var that = $(this);
+		$.get(
+			'{:U("Type/ajaxStatusType")}',
+			{
+				id:that.attr('data-id'),
+				status:that.attr('data-status'),
+			},
+			function ( data ) {
+				if ( data == 1 ) {
+					if (that.attr('data-status') == 0 ) {
+						// console.log(data);
+						that.text('启用');
+						that.attr('data-status', '1');
+						that.attr('class','text-success');
+					} else if ( that.attr('data-status') == 1 ) {
+						that.text('禁用');
+						that.attr('data-status', '0');
+						that.attr('class','text-danger');
+					}
+					// console.log('成功');
+				} else {
+					alert('修改失败');
+				}
+			},
+			'json'
+		);
+	});
+	// 编辑
+	$('.bj').click( function() {
+		var that = $(this);
+		$ss = that.attr('data-brands');
+		$id = that.attr('data-id');
+		$('.ids').attr('value',$id);
+		$('.brand').attr('value',$ss);
+	});
+</script>

@@ -1,0 +1,227 @@
+<br/>
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" /> 评论管理 &gt; <span>评论回复列表</span>
+	</div>
+	<div class="rightmain">
+	<!-- 加载css样式 -->
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/bootstrap/css">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Sun/css/chenxustyle.css">
+		<!-- 加载dropzone默认样式 -->
+		<link rel="stylesheet" href="__PUBLIC__/Common/dropzone/css/dropzone.css" />
+
+		
+
+	<!-- 加载js样式 -->
+		<script type="text/javascript" src="__PUBLIC__/Common/jquery.js"></script>
+		<!-- 加载dropzone的js -->
+		<script src="__PUBLIC__/Common/dropzone/js/dropzone.js"></script>
+
+		
+	
+		<center>
+			<h2>评论回复列表</h2>
+
+			<div class="Boa_addboard">
+				<div class="Boa_leftbox">
+					<!--搜索部分开始-->
+					<form action="{:U('Board/boardList')}" method="post">
+						<div>
+							<div class="col-xs-3">
+		    					<input type="text" class="form-control" placeholder="请输入序号" name="id" />
+		  					</div>
+		  					<div class="col-xs-3">
+		    					<input type="text" class="form-control" placeholder="请输入站点名称" name="keyword" />
+		  					</div>
+		  					<div class="Boa_searchbox">
+								<button class="btn btn-info btn-search">查找</button> 
+		  					</div>  
+						</div>
+					</form>
+					<br/>
+					<!--搜索部分结束-->
+				</div>	
+			</div>
+			<br/>
+			<table class="table table-hover">
+				<tr>
+					<th class="text-center">序号</th>
+					<th class="text-center">用户名</th>
+					<th class="text-center">商品信息</th>
+					<th class="text-center">用户对商品的评价</th>
+					<th class="text-center">商品评星</th>
+					<th class="text-center">买家秀</th>
+					<th class="text-center">点赞数</th>
+					<th class="text-center">评论时间</th>
+					<th class="text-center">状态</th>
+					<th class="text-center">操作</th>
+				</tr>
+				<foreach name="evaluatelist" item="vo">
+					<tr class="text-center">
+						<td>{$vo.id}</td>
+						<td>{$vo.uid}</td>
+						<td>{$vo.oid}</td>
+						<td>{$vo.evaluate}</td>
+						<td>{$vo.star}</td>
+						<td>{$vo.pic}</td>
+						<td>{$vo.fab}</td>
+						<td>{$vo.time}</td>
+
+						<if condition='$vo.status eq 0'>
+							<td style="cursor: pointer" class="status" data-status="{$vo.status}"><font class="text-danger">不显示</font></td>
+						<else />
+							<td style="cursor: pointer" class="status" data-status="{$vo.status}"><font class="text-success">显示</font></td>
+						</if>
+						
+						<td>						                 
+                            <a name="editC" class="btn btn-primary mybtn" data-toggle="modal" data-target="#model" data-id="{$vo.id}" data-uid="{$vo.uid}">回复</a>
+
+							<div id="model" class="modal fade .bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			  					<div class="modal-dialog modal-lg" role="document">
+							    	<div class="modal-content">
+										<div class="panel-heading">回复评论</div>
+										  	<form method="post" id="form">
+											  	<div class="panel-body" name="crewB">
+														<textarea class="form-control" name="textarea" id="textarea" rows="3" placeholder="请输入您要回复的内容"></textarea>
+											  	</div>
+											  	<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+											        <button id="submit" type="submit" class="btn btn-primary">提交</button>
+
+											  	</div>
+										  	</form>
+										
+							    	</div>
+			  					</div>
+							</div>
+							<a href="javascript:;" data-id="{$vo.id}" class="del btn btn-danger">删除</a>
+						</td>
+					</tr>
+				</foreach>
+			</table>
+			<div id="page" class="manu">
+				{$show}
+			</div>
+			
+
+		</center>
+		
+		<!-- 写js -->
+		<script>
+		
+			//给删除按钮添加点击事件
+			$('table .del').click(function (){
+
+				// alert(1);
+				var that = $(this);
+
+				$.get(
+					'{:U("Board/ajaxDeleteBoard")}',//URL
+
+					{id: that.attr('data-id')},//发送数据
+
+					function (data) {
+
+						// console.log(data);
+						
+						if (data==1) {
+
+							//点击删除a标签所在的那一行
+							that.parent().parent().remove();
+						} else {
+
+							alert('删除失败');
+						}
+
+					},
+					'json'
+
+				);
+			});
+
+			//给状态绑定点击事件
+			//获取table下所有tr
+			var objs = $('table').find('tr');
+			for(i = 1 ; i<objs.length; i++) {
+
+				//给状态绑定事件
+				$(objs[i]).children('td').eq(8).on('click', function () {
+					// alert(1);
+					//把$this存起来
+					var that = $(this);
+
+					//ajax请求
+					$.get(
+						'{:U("Evaluate/changeStat")}',//URL
+						{
+							'id':that.prevAll().eq(7).html(),
+							'status':that.attr('data-status'),
+						},
+						function (data) {
+
+							if(data['stat'] > 0) {
+
+								console.log(data);
+								that.html(data['info']);
+								that.attr('data-status', data['res']);
+							}
+						},
+						'json'
+					);
+				});
+
+			}
+
+			//给回复按钮绑定事件
+			$(".mybtn").click(function(){
+
+				var that = $(this);
+				// alert(1);
+
+				var id = that.attr('data-id');
+				var uid = that.attr('data-uid');
+				console.log(id);
+				console.log(uid);
+
+				$('#form').attr("action","{:U('Reply/addReply?id="id"&uid="uid"')}");
+				//$('#form').attr("action",":U('Evaluate/add')");
+			});
+
+
+
+			//为回复模态框中的保存按钮绑定事件
+			// $('#submitC').on('click', function () {
+
+			// 	saveUpdate('crewB', "{:U('Evaluate/updateCrew')}");
+
+			// });
+
+			// function saveUpdate (find, to) {
+
+			// 	// var val = [];
+			// 	// var i = 0;
+			// 	// $('div[name='+find+'] input[type=checkbox]').each(function () {
+			// 	// 	if( $(this).is(':checked') ) {
+			// 	// 		val[i] = $(this).val();
+			// 	// 		i++;
+			// 	// 	}
+			// 	// });
+
+			// 	$.post(
+			// 		to,
+			// 		{
+			// 			id:$('input[type=hidden]').val(),
+			// 			val:val
+			// 		},
+			// 		function (data) {
+			// 			alert(data[1]);
+			// 			// console.log(data);
+			// 		},
+			// 		'json'
+			// 	);
+			// }
+
+		</script>
+
+	</div>
+</div>

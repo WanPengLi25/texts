@@ -1,0 +1,128 @@
+
+    <include file="Common:head" />
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/list.min.css">
+    <!-- 搜索导航条 -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="" data-stat-id="b0bcd814768c68cc" onclick="">首页</a>
+            <span class="sep">&gt;</span>
+            <a href="" data-stat-id="588e2d2dc47aa943" onclick=" ">全部结果</a>
+            <span class="sep">&gt;</span>
+            <span>{$search}</span> 
+        </div>
+    </div>
+    <!-- 搜索导航条结束 -->
+    <!-- 面包屑 -->
+    <div class="container">
+        <div class="filter-box">
+            <div class="filter-list-wrap">
+                <dl class="filter-list clearfix filter-list-row-7">
+                    <dt>分类：</dt>
+                    <dd class="active">全部</dd>
+                <foreach name="searcha" item="sc">
+                    <dd>
+                        <a href="" onclick="">{$sc.typename}</a>
+                    </dd>
+                </foreach>
+                </dl>
+                <a class="more J_filterToggle" href="javascript:;"  onclick="">更多<i class="iconfont"></i>
+                </a>
+            </div>
+
+            <div class="filter-list-wrap">
+                <dl class="filter-list clearfix">
+                    <dt>品牌：</dt>
+                    <dd class="active">全部</dd>
+                <foreach name="searcha" item="sc">
+                    <dd>
+                        <a href=" " onclick="">{$sc.brands}</a>
+                    </dd>
+                </foreach>              
+                </dl>
+            </div>
+        </div>
+    </div>
+    <!-- 面包屑结束 -->
+    <!-- 商品展示 -->
+    <div class="content">
+        <div class="container">
+            <div class="order-list-box clearfix">
+                <ul class="order-list">
+                    <li class="active first">
+                        <a href="{:U('Search/searchshow',array('recommend'=>1,'search'=>$search))}" class="Recommend">推荐</a>
+                    </li>
+                    <li class="up">
+                        <a id="price" href="{:U('Search/searchshow',array('price'=>$price,'search'=>$search))}" >价格 </a>
+                    </li>
+                </ul>
+                <!-- <ul class="type-list">
+                    <li>
+                        <a href="{:U('Search/searchshow',array('invertory'=>1,'search'=>$search))}" rel="nofollow" data-stat-id="805eb212f5f9eb91" onclick="">
+                            <span class="checkbox">
+                                <i class="iconfont">√</i>
+                            </span>
+                            仅显示有货商品
+                        </a>
+                    </li>
+                </ul> -->
+            </div>
+            <div class="goods-list-box">
+                <div class="goods-list clearfix">
+                <foreach name="searcha" item="sc">                  
+                    <div class="goods-item">
+                        <div class="figure figure-img">
+                            <a href=" " data-stat-id="ea4163af8d487aa0" onclick="">
+                                <img src="__PUBLIC__/imgs/{$sc.id}/{$sc.cover}" width="200" height="200">
+                            </a>
+                        </div>
+                        <p class="desc"></p> 
+                        <h2 class="title">
+                            <a href="{:U('Detail/detail',array('gid'=>$sc['id']))}">{$sc.name}</a>
+                        </h2>
+                        <p class="price">{$sc.price} 元 起</p>
+                        <div class="thumbs">
+                            <ul class="thumb-list">
+                                <li data-config=" ">
+                                    <a data-stat-id="efb530fe034a2407" onclick=" ">
+                                    <foreach name="sc[pic]" item="vo">
+                                        <img src="__PUBLIC__/imgs/{$sc.id}/{$sc.basename}-{$vo}" width="34" height="34" alt="小米MIX 黑色">
+                                    </foreach>
+                                    </a>
+                                </li>                        
+                            </ul>
+                        </div>
+                        <div class="actions clearfix">
+                            <a class="btn-like J_likeGoods" data-cid="1164400010" href="javascript: void(0);" data-stat-id="ff751b1fdf797192" onclick="喜欢">
+                                <i class="iconfont"></i> 
+                                <span>喜欢</span>
+                            </a>
+                            <a class="btn-buy btn-buy-detail J_buyGoods" href=" " data-stat-id="b6bfa4025651fea8" onclick="">
+                                <span>立即购买</span> 
+                                <i class="iconfont"></i>
+                            </a>                    
+                        </div>
+                        <div class="flags"></div>
+                        <div class="notice"></div>
+                    </div>
+                </foreach>     
+            </div>
+        </div>
+    </div>
+    <!-- <div class="xm-pagenavi numbers">
+        {$show}
+    </div> -->
+    <!-- 商品展示结束 -->
+
+    <include file="Common:footer" />
+
+    <!-- .modal-globalSites END -->
+    <script src="__PUBLIC__/Home/js/jquery-1.10.2.min.js"></script>
+    <script>
+
+        
+
+    </script>   
+    
+
+    </body>
+</html>     

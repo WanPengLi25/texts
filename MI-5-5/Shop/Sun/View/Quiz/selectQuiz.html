@@ -1,0 +1,114 @@
+<br>
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" />{$title}
+	</div>
+	<div class="rightmain">
+		<div class="ind_main center-block">
+			<h2 class="text-center">查看提问</h2>
+			<table class="table table-hover">
+				<tr>
+					<th>序号</th>
+					<th>用户</th>
+					<th>商品</th>
+					<th>内容</th>
+					<th>时间</th>
+					<th>操作</th>
+				</tr>
+				<foreach name="quzi" item="v">
+					<tr>
+						<td>{$v.id}</td>
+						<td>{$v.name}</td>
+						<td>{$v.g}</td>
+						<td>{$v.content}</td>
+						<td>{$v.time}</td>
+						<td>
+							<button type="button" data-id="{$v.id}" data-uid="{$v.uid}" class="quiz btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">查看回复</button>
+						</td>
+					</tr>
+				</foreach>
+				<input class="yid" type="hidden" name="id">
+				<input class="yuid" type="hidden" name="uid">
+			</table>
+			<div  class="manu">
+				{$show}
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- Large modal -->
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+    	<center>	
+	    	<p style="font-size:35px;text-align:center;color:#0E6DB0">查看回复</p>
+	      	<!-- <input style="margin-bottom:30px" type="text" class="text" readonly="true"> -->
+	      	<textarea style="margin-bottom:30px" name="texts" id="" class="reply texts" cols="30" rows="10" readonly="true"></textarea>
+	      	<a class="cs" style="visibility:visible;display:block;height:40px; width:18%;text-align:center;line-height:40px;margin-top:20px;margin-bottom:40px; background:darkorange;color:#fff" onclick="tws(this)"  href="javascript:;">回复</a>
+	      	 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      	</center>
+    </div>
+  </div>
+</div>
+<script>
+$('.quiz').click( function(){
+	var that = $(this);
+	$id = that.attr('data-id');
+	$uid = that.attr('data-uid');
+	$('.yid').attr('value',$id);
+	$('.yuid').attr('value',$uid);
+	$.get(
+		'{:U("Quiz/ajaxQuiz")}',
+		{
+			id:that.attr('data-id'),
+			uid:that.attr('data-uid'),
+		},
+		function( data ) {
+			if ( data !== 0 ) {
+
+				$('.texts').html(data);
+				$('.texts').attr('readonly',true);
+				// $('.cs').css('visibility','hidden');
+				$('.cs').html('提问已回复');
+				$('.cs').attr('onclick','');
+				$('.cs').css('background','#04CF3D');
+
+			} else {
+				$('.texts').attr('readonly',false);
+				$('.texts').html('');
+				$('.cs').css('visibility','visible');	
+				
+			}
+		},
+		'json'
+	);
+});
+// 回复
+function tws(obj)
+{
+	$.get(
+		'{:U("Quiz/ajaxTws")}',
+		{
+			id:$('.yid').attr('value'),
+			uid:$('.yuid').attr('value'),
+			text:$('.reply').val(),
+		},
+		function( data ) {
+			if ( data == 0 ) {
+				alert('请输入回复内容');
+			} else {
+				// $('.cs').css('visibility','hidden');
+				$('.texts').html(data);
+				$('.texts').attr('readonly',true);
+				$('.cs').html('回复成功');
+				$('.cs').attr('onclick','');
+				$('.cs').css('background','#04CF3D');
+			}
+		},
+		'json'
+	);
+};
+</script>

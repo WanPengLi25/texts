@@ -1,0 +1,213 @@
+.noblock{
+    display:none;
+}
+/*面包屑*/
+.goodspug{
+    width:100%;
+    height:40px;
+    background:#f5f5f5;
+}
+.GPmain{
+    width:1226px;
+    height:40px;
+    line-height:40px;
+    font-size:12px;
+    color:#999;
+    margin:0 auto;
+}
+.GPmain a{
+    font-size:12px;
+    color:#999;
+}
+/*商品详情*/
+.goods{
+    width:100%;
+    height:550px;
+    background:#fff;
+    padding:40px 0 0;
+}
+/*商品详情主体*/
+.goodsmain{
+    width:1226px;
+    height:550px;
+    margin:0 auto;
+}
+/*商品详情主体左*/
+.GMleft{
+    width:792px;
+    height:550px;
+    float:left;
+    position:relative;
+}
+.GMleftmin{
+    width:64px;
+    float:left;
+}
+.GMleftmin-no{
+    width:60px;
+    height:60px;
+    border:1px solid orange;
+    text-align:center;
+    cursor:pointer;
+    padding:4px;
+    margin-bottom:14px;
+}
+.GMleftmax{
+    width:482px;
+    height:482px;
+    text-align:center;
+    position:absolute;
+    right:123px;
+}
+.GMright{
+    width:434px;
+    height:550px;
+    float:left;
+}
+.GMright h1,.GMright p{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.GMright p{
+    font-size:14px;
+    color:#777;
+}
+.GMRprice{
+    width:100%;
+    height:66px;
+    color:orange;
+    border-top:1px solid #777;
+    border-bottom:1px solid #777;
+    margin-top:20px;
+}
+.GMRprice span{
+    font-size:30px;
+    line-height:66px;
+}
+.GMRcolor{
+    width:100%;
+    height:70px;
+    padding-top:18px;
+}
+.GMRcolor p{
+    font-size:14px;
+    color:#777;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.GMRcolorimg{
+    width:100%;
+    height:38px;
+    padding-top:12px;
+}
+.GMRcolorimg div{
+    width:38px;
+    height:38px;
+    margin-right:10px;
+    float:left;
+    cursor:pointer;
+}
+.GMRbotton{
+    width:100%;
+    height:50px;
+    margin-top:20px;
+}
+.GMRbotton a:first-child{
+    width:261px;
+    height:50px;
+    font-size:18px;
+    color:white;
+    text-align:center;
+    line-height:50px;
+    background:darkorange;
+    display:block;
+    float:left;
+}
+.GMRbotton a:last-child{
+    width:140px;
+    height:50px;
+    font-size:18px;
+    color:white;
+    text-align:center;
+    line-height:50px;
+    background:#b9b9b9;
+    display:block;
+    float:right;
+}
+.GMRreview{
+    width:100%;
+    height:50px;
+    border-top:1px solid #b9b9b9;
+    border-bottom:1px solid #b9b9b9;
+    margin-top:20px;
+}
+.GMRreview a{
+    width:144px;
+    height:20px;
+    text-align:center;
+    line-height:20px;
+    font-size:12px;
+    color:#595959;
+    margin-top:15px;
+    float:left;
+    display:block;
+}
+.GMRreviewa1{
+    border-right:1px solid #b9b9b9;
+}
+/*评论*/
+.goodsreview{
+    width:1158px;
+    /*height:550px;*/
+    overflow:hidden;
+    padding:0 34px 20px2;
+    margin:0 auto;
+}
+.GVnum{
+    width:1158px;
+    height:200px;
+    /*border:1px solid orange;*/
+    padding-top:20px;
+    margin-bottom:20px;
+}
+/*顶部*/
+.GVNtop{
+    width:1000px;
+    height:50px;
+    /*background:green;*/
+    line-height:50px;
+    margin:0 auto;
+}
+.GVNTleft{
+    width:200px;
+    height:50px;
+    vertical-align:bottom;
+    color:#757575;
+    padding-left:20px;
+    float:left;
+}
+.GVNTleft h2 span{
+    font-size:14px;
+    font-weight:500;
+}
+.GVNTright{
+    width:500px;
+    height:50px;
+    vertical-align:bottom;
+    text-align:right;
+    font-size:12px;
+    /*background: yellow;*/
+    padding-right:20px;
+    float:right;
+}
+/*主体*/
+.GVNmain{
+    width:960px;
+    height:100px;
+    border:1px solid orange;
+    /*background:green;*/
+    padding:10px 20px;
+    margin:10px auto 0;
+}

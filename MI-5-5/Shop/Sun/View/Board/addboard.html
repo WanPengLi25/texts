@@ -1,0 +1,161 @@
+<br/>
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" /> 站点管理 &gt; 广告列表 &gt;  <span>添加广告</span>
+	</div>
+	<div class="rightmain">
+	<!-- 加载css样式 -->
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/bootstrap/css">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Sun/css/chenxustyle.css">
+		<!-- 加载dropzone默认样式 -->
+		<link rel="stylesheet" href="__PUBLIC__/Common/dropzone/css/dropzone.css" />
+
+	<!-- 加载js样式 -->
+		<script type="text/javascript" src="__PUBLIC__/Common/jquery.js"></script>
+		<!-- 加载dropzone的js -->
+		<script src="__PUBLIC__/Common/dropzone/js/dropzone.js"></script>
+
+		<center>
+			<h2>添加广告</h2>
+		</center>
+		<!--表单开始-->
+		<form class="form-inline myform" method="post" enctype="multipart/form-data" action="{:U('Board/addboard')}">
+		  	<div class="form-group">
+				<label for="input" class="control-label">站点名称</label>
+		    	<input type="text" class="form-control" name="name">
+		  	</div>
+		  	<div class="form-group">
+				<label for="input" class="control-label">链接</label>
+		    	<input type="text" class="form-control" name="link">
+		  	</div>
+		  	<!--站点类型-->
+		  	<div class="form-group">
+		    	<label for="input" class="control-label">站点类型</label>
+		    	<select class="form-control" name="type">
+		    		<option>--请选择--</option>
+					<option value="0">logo</option>
+					<option value="1">固定广告</option>
+					<option value="2">智能硬件广告</option>
+					<option value="3">搭配</option>
+					<option value="4">配件</option>
+					<option value="5">周边</option>
+				</select>
+		  	</div>
+
+		  	<!--状态-->
+			<div class="form-group">
+		    <label for="input" class="control-label">状态</label>
+		    	<select class="form-control" name="status">
+		    		<option>--请选择--</option>
+					<option value="1">启用</option>
+					<option value="0">禁用</option>
+				</select>
+		  	</div>
+		  	<div class="form-group" style="margin-left: 100px">
+		  		<a href="{:U('Board/boardList')}" class="btn btn-primary" role="button">返回广告列表</a>
+		  	</div>
+			<br/>
+
+		  	<!--显示图片上传-->
+			<label for="input" class="control-label">上传图片</label>
+			<div class="dropzone"></div>
+			<br/>
+
+		  	<!--显示添加按钮-->
+			<button type="submit" class="btn btn-info">添加</button>
+			<input type="reset" class="btn btn-warning" value="重置" onclick="document.getElementById('myform').reset()"/>
+			
+		</form>
+		<script>
+			
+			//使用dropzone.js
+			Dropzone.autoDiscover = false;//防止报"Dropzone already attached."的错误
+
+
+	        $(".dropzone").dropzone({
+
+	        	//请求一个PHP来做上传
+		        url: "__URL__/upload/",
+
+		        //是否显示删除图片按钮
+		        addRemoveLinks: true,
+
+		        //删除按钮样子
+		        dictRemoveLinks: "x",
+
+		        //取消上传样式
+		        dictCancelUpload: "x",
+
+		        //<input type="text" name="pic">
+		        paramName:"url",//$_FILES['url']
+
+		        //最大文件上传数
+		        maxFiles: 1,
+
+		        //文件的大小,单位M
+		        maxFilesize: 5,
+
+		        //可以上传哪些类型
+		        acceptedFiles: "image/*",//  'video/*' 上传视频
+		        init: function() {
+
+		            //res为服务器响应回来的数据
+		            //res 是php返回文件信息
+		            //file 是一个dropzone提供一个属性，这个属性可以在dropzone所有方法都使用
+		            this.on("success", function(file, res) {
+
+
+		            	console.log(file);
+		            	console.log(res);
+		            	console.log(typeof res);//string
+
+		            	var obj = JSON.parse(res);
+
+
+		            	//res为dropzone.js返回的图片路经
+	                	file.path = res;
+
+
+		            	//拿到图片路径
+		            	var filePath = obj['details'].savepath + obj['details'].savename;
+
+		            	
+		            	if( obj.status == 200 ){
+
+	                   	 //将服务器得到的数据生成一个隐藏域。做添加的时候就可以获取到
+	                    	var input = '<input type="hidden" name="url[]" value="'+filePath+'" />';
+
+	                    	$('.myform').append(input);
+
+		                }else{
+		                    alert('上传失败');
+		                }
+
+		            	// console.log(filePath);
+
+		                
+		            });
+
+
+		            //每次删除图片都会触发这个方法
+		            this.on("removedfile", function(file) {
+		                
+		            	console.log(file.path);
+		                // alert(1);
+
+		              $.ajax({
+		                  url: "__URL__/upload/",//改成你的php删除图片的路径
+		                  type: "post",
+
+		                  //file.path可以获取到点击删除按钮的那张图片
+		                  data: { 'path': file.path }
+		                });
+		            });
+
+		        }
+	    	});
+		</script>
+		
+
+	 	
+

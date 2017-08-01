@@ -1,0 +1,129 @@
+<br/>
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" /> 用户管理 &gt; 查看用户 &gt; <span>查看用户</span>
+	</div>
+	<div class="rightmain">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Sun/css/chenxustyle.css">
+		<center>
+			<h2>用户列表</h2>
+			<form action="{:U('User/userList')}" method="post">
+				<div>
+					<div class="col-xs-3">
+    					<input type="text" class="form-control" placeholder="请输入序号" name="uid" />
+  					</div>
+  					<div class="col-xs-3">
+    					<input type="text" class="form-control" placeholder="请输入用户名" name="keyword" />
+  					</div>
+  					<div class="Use_search">
+						<button class="btn btn-info btn-search">查找</button> 
+  					</div>  
+				</div>
+			</form>
+			<br/>
+			<table class="table table-hover text-center">
+				<tr>
+					<th class="text-center">序号</th>
+					<th class="text-center">用户名</th>
+					<th class="text-center">手机号</th>
+					<th class="text-center">邮箱</th>
+					<th class="text-center">注册时间</th>
+					<th class="text-center">注册地点</th>
+					<th class="text-center">状态</th>
+					<th class="text-center">操作</th>
+				</tr>
+				<foreach name="list" item="vo">
+					<tr>
+						<td>{$vo.uid}</td>
+						<td>{$vo.name}</td>
+						<td>{$vo.phone}</td>
+						<td>{$vo.email}</td>
+						<td>{$vo.addtime}</td>
+						<td>{$vo.area}</td>
+						<if condition='$vo.status eq 3'>
+							<td class="status Use_cursor" data-status="{$vo.status}"><font class="text-danger">禁用</font></td>
+						<else />
+							<td class="status Use_cursor" data-status="{$vo.status}"><font class="text-success">启用</font></td>
+						</if>
+						<td>
+							<a href="{:U('User/edit','uid='.$vo['uid'])}" data-id="{$vo.uid}&{$vo.name}&{$vo.pass}" class="edit btn btn-info">编辑</a>
+							<a href="javascript:;" data-id="{$vo.uid}" class="del btn btn-danger">删除</a>
+
+						</td>
+					</tr>
+				</foreach>
+			</table>
+			<div id="page" class="manu">
+				{$show}
+			</div>
+		</center>
+		<script type="text/javascript" src="__PUBLIC__/Common/jquery.js"></script>
+
+		<script>
+
+			//给删除按钮添加点击事件
+			$('table .del').click(function(){
+
+				// alert(1);调试
+				var that = $(this);
+
+				$.get(
+					'{:U("User/ajaxDeleteUser")}',//URL
+
+					{id: that.attr('data-id')},//发送数据
+
+					function (data) {
+
+						// console.log(data);
+						
+						if (data==1) {
+
+							//点击删除a标签所在的那一行
+							that.parent().parent().remove();
+						} else {
+
+							alert('删除失败');
+						}
+
+					},
+					'json'
+
+				);
+			});
+
+			//给状态绑定点击事件
+			//获取table下所有tr
+			var objs = $('table').find('tr');
+			for(i = 1 ; i<objs.length; i++) {
+
+				//给状态绑定事件
+				$(objs[i]).children('td').eq(6).on('click', function () {
+					// alert(1);
+					//把$this存起来
+					var that = $(this);
+
+					//ajax请求
+					$.get(
+						'{:U("User/changeStat")}',//URL
+						{
+							'uid':that.prevAll().eq(5).html(),
+							'status':that.attr('data-status'),
+						},
+						function (data) {
+
+							if(data['stat'] > 0) {
+
+								console.log(data);
+								that.html(data['info']);
+								that.attr('data-status', data['res']);
+							}
+						},
+						'json'
+					);
+				});
+			}	
+
+		</script>
+	</div>
+</div>

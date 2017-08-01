@@ -1,0 +1,297 @@
+<br/>
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" /> 用户组管理 &gt; <span>查看用户组</span>
+	</div>
+	<div class="rightmain">
+		<div class="Aut_addmain">
+			<h2 class="text-center">用户组列表</h2>
+			<div class="Aut_showform">
+				<form class="form-inline" method="get">
+				  	<div class="form-group">
+				    	<font>查询方式</font>
+					  	<select class="form-control" name="status">
+						  	<option value="1">序号</option>
+						<if condition="$status eq 0">
+						  	<option selected value="0">组名</option>
+						<else />
+							<option value="0">组名</option>
+						</if>
+						</select>
+				  	</div>
+				  	<div class="form-group">
+				    	<input type="text" class="form-control" name="info" value="{$info}">
+				  	</div>
+				  	<button type="submit" class="btn btn-success">查询</button>
+				</form>
+			</div>
+			<table style="text-align:center; font-size:14px;" class="table table-condensed table-striped">
+				<tr>
+					<th style="width:5%" class="text-center">序号</th>
+					<th class="text-center">组名</th>
+					<th class="text-center">状态</th>
+					<th style="width:25%" class="text-center">操作</th>
+				</tr>
+		<if condition="$list['list'] neq 0">
+			<foreach name="list.list" item="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.title}</td>
+				<if condition="$vo.status eq 1">
+					<td style="cursor:pointer" data-stat="{$vo.status}"><font class="text-success">启用</font></td>
+				<else />
+					<td style="cursor:pointer" data-stat="{$vo.status}"><font class="text-danger">禁用</font></td>
+				</if>
+					<td>
+						<a name="editC" class="btn btn-primary btn-sm btn-success" data-toggle="modal" data-target="#model" data-id="{$vo.id}">编辑组员</a>
+						<a name="editA" class="btn btn-primary btn-sm btn-success" data-toggle="modal" data-target="#model1" data-id="{$vo.id}">编辑权限</a>
+						<a name="editE" class="btn btn-primary btn-sm btn-success" data-toggle="modal" data-target="#model2" data-id="{$vo.id}">编辑</a>
+						<a name="del" data-id="{$vo.id}" class="btn btn-primary btn-sm btn-danger" href="javascript:;">删除</a>
+					</td>
+				</tr>
+			</foreach>
+		<else />
+				<tr>
+					<td colspan='5'><h3 class="text-center text-danger">没有数据！</h3></td>
+				</tr>
+		</if>
+			</table>
+			<div class="manu">
+				{$list[0]}
+			</div>
+		</div>
+		<div id="model" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		  	<div class="modal-dialog modal-sm" role="document">
+		    	<div class="modal-content">
+		    		<div class="panel panel-info">
+					  	<div class="panel-heading">编辑组员</div>
+					  	<input type="hidden" value="">
+					  	<div class="panel-body" name="crewB">
+					  	</div>
+					  	<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					        <button id="submitC" type="button" class="btn btn-primary">保存修改</button>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+		</div>
+		<div id="model1" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		  	<div class="modal-dialog modal-sm" role="document">
+		    	<div class="modal-content">
+		    		<div class="panel panel-info">
+					  	<div class="panel-heading">编辑权限</div>
+					  	<!-- <input type="hidden" value=""> -->
+					  	<div class="panel-body" name="authB">
+					  	</div>
+					  	<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					        <button id="submitA" type="button" class="btn btn-primary">保存修改</button>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+		</div>
+		<div id="model2" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		  	<div class="modal-dialog modal-sm" role="document">
+		    	<div class="modal-content">
+		    		<div class="panel panel-info">
+					  	<div class="panel-heading">编辑</div>
+					  	<input type="hidden" value="">
+					  	<div class="panel-body">
+					  		<div class="form-group">
+						    	<label for="title"><h4>组名</h4></label>
+						    	<input type="text" class="form-control" id="title" placeholder="组名：中文，1~20" name="title">
+						  	</div>
+					  	</div>
+					  	<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					        <button id="submitE" type="button" class="btn btn-primary">保存修改</button>
+					  	</div>
+					</div>
+		    	</div>
+		  	</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	//获取table下所有tr
+	var objs = $('table').find('tr');
+	for(i = 1 ; i<objs.length; i++) {
+		//为删除按钮绑定事件
+		$(objs[i]).find('a[name=del]').on('click', function () {
+			//储存对象
+			var that = $(this);
+			//ajax请求
+			$.get(
+				"{:U('AuthGroup/delAuthGroup')}",
+				{'id': that.attr('data-id')},
+				function (data) {
+					if( data[0] == 1 ){
+						alert(data[1]);
+						that.parent().parent().remove();
+					} else {
+						alert(data[1]);
+					}
+				},
+				'json'
+			);
+		});
+
+		//为状态绑定事件
+		$(objs[i]).children('td').eq(2).on('click', function () {
+			//存储对象
+			var that = $(this);
+			//ajax请求
+			$.get(
+				"{:U('AuthGroup/changeStat')}",
+				{
+					'id':that.prevAll('td').eq(1).html(),
+					'status':that.attr('data-stat'),
+				},
+				function (data) {
+					if(data['stat'] > 0) {
+						that.html(data['info']);
+						that.attr('data-stat', data['res']);
+					}
+				},
+				'json'
+			);
+		});
+
+		//为编辑组员按钮绑定事件
+		$(objs[i]).find('a[name=editC]').on('click', function () {
+			//为模态框指定id
+			$('input[type=hidden]').val($(this).attr('data-id'));
+			//ajax
+			$.get(
+				"{:U('AuthGroup/findCrew')}",
+				{id:$(this).attr('data-id')},
+				function (data) {
+					// 初始化变量
+					var str = '';
+					// 检查返回的数据
+					console.log(data);
+					if( data[0] == '' && data[1] == ''){
+						str += '<p class="text-center text-danger">没有数据</p>';
+					} else {
+						// 制作内容
+						for( var i = 0; i < data[0].length; i++ ) {
+							str +='<label class="checkbox-inline"><input type="checkbox" title="rule" value="'+data[0][i]['id']+'" name="crew[]">'+data[0][i]['name']+'</label><br>';
+						}
+						for( i = 0; i < data[1].length; i++ ) {
+							str +='<label class="checkbox-inline"><input checked type="checkbox" title="rule" value="'+data[1][i]['id']+'" name="crew[]">'+data[1][i]['name']+'</label><br>';
+						}
+					} 
+					//写入模态框
+					$('.panel-body[name=crewB]').empty().append(str);
+				},
+				'json'
+			);
+
+		});
+
+		//为编辑权限按钮绑定事件
+		$(objs[i]).find('a[name=editA]').on('click', function () {
+			//为模态框指定id
+			$('input[type=hidden]').val($(this).attr('data-id'));
+			//ajax
+			$.get(
+				"{:U('AuthGroup/findAuth')}",
+				{id:$(this).attr('data-id')},
+				function (data) {
+					// 初始化变量
+					var str = '';
+					// 检查返回的数据
+					if( data[1] == ''){
+						str += '<p class="text-center text-danger">没有数据</p>';
+					} else {
+						// 制作内容
+						for( var i = 0; i < data[0].length; i++ ) {
+							str +='<label class="checkbox-inline"><input type="checkbox" title="rule" value="'+data[0][i]['id']+'" name="auth[]">'+data[0][i]['name']+' '+data[0][i]['title']+'</label><br>';
+						}
+						for( i = 0; i < data[1].length; i++ ) {
+							str +='<label class="checkbox-inline"><input checked type="checkbox" title="rule" value="'+data[1][i]['id']+'" name="auth[]">'+data[1][i]['name']+' '+data[1][i]['title']+'</label><br>';
+						}
+					} 
+					//写入模态框
+					$('.panel-body[name=authB]').empty().append(str);
+				},
+				'json'
+			);
+
+		});
+		//为编辑按钮绑定事件
+		$(objs[i]).find('a[name=editE]').on('click', function () {
+			//为模态框指定id
+			$('input[type=hidden]').val($(this).attr('data-id'));
+			$('#title').val( $(this).parent().prevAll('td').eq(1).html() );
+
+		});
+	}
+
+	//为编辑组员模态框中的保存按钮绑定事件
+	$('#submitC').on('click', function () {
+
+		saveUpdate('crewB', "{:U('AuthGroup/updateCrew')}");
+
+	});
+	//为编辑权限模态框中的保存按钮绑定事件
+	$('#submitA').on('click', function () {
+
+		saveUpdate('authB', "{:U('AuthGroup/updateAuth')}");
+
+	});
+	$('#submitE').on('click', function () {
+
+		
+		var groupname = $('#title').val();
+		$.post(
+			"{:U('AuthGroup/updateGroup')}",
+			{
+				id:$('input[type=hidden]').val(),
+				title:groupname
+			},
+			function (data) {
+				if( data[0] == 1 ){
+					var id = $('input[type=hidden]').val();
+					$('a[data-id='+id+']').eq(0).parent().prevAll('td').eq(1).text(groupname);
+					alert(data[1]);
+				} else {
+					alert(data[1]);
+				}
+			},
+			'json'
+		);
+
+	});
+
+	function saveUpdate (find, to) {
+
+		var val = [];
+		var i = 0;
+		$('div[name='+find+'] input[type=checkbox]').each(function () {
+			if( $(this).is(':checked') ) {
+				val[i] = $(this).val();
+				i++;
+			}
+		});
+
+		$.post(
+			to,
+			{
+				id:$('input[type=hidden]').val(),
+				val:val
+			},
+			function (data) {
+				alert(data[1]);
+				// console.log(data);
+			},
+			'json'
+		);
+
+
+	}
+
+</script>

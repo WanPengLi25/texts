@@ -1,0 +1,53 @@
+.space{
+    width:100%;
+    height:13px;
+}
+.useredit{
+    width:500px;
+    height:auto;
+    border:1px solid darkorange;
+    margin:20px auto 50px;
+    padding:0 20px;
+    font-family: '宋体';
+}
+.useredit h1{
+    text-align: center;
+    color:#3f3f3f;
+    font-size: 25px;
+    line-height:50px;
+}
+.usereditform{
+    width:350px;
+    height:auto;
+    /*border:1px solid red;    */
+    font-size:18px;
+    vertical-align: middle;
+    margin:0 auto;
+    padding-left:40px;
+}
+.usereditform span{padding-top:3px;}
+.usereditform input{
+    width:200px;
+    height:25px;
+    border:1px solid #9f9f9f;
+    margin-top:-3px;
+    padding-left:10px;
+}
+.usereditbotton{
+    width:200px;
+    margin:0 auto;
+    padding:10px;
+}
+.usereditbotton input{
+    width:80px;
+    height:30;
+    font-size: 16px;
+    color:orange;
+    border:1px solid darkorange;
+    background: white;
+    padding:0;
+}
+.usereditbotton input:hover{
+    background:darkorange;
+    color:white;
+}

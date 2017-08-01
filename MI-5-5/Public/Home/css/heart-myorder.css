@@ -1,0 +1,208 @@
+/*我的订单标题*/
+.horder{
+    width:882px;
+    height:68px;
+    margin:0 auto;
+}
+.horder span:first-child{
+    line-height:68px;
+    font-size:30px;
+    color:#757575;
+}
+.horder span:last-child{
+    font-size:14px;
+    color:#454545;
+}
+/*导航*/
+.horderfix{
+    width:882px;
+    height:56px;
+    margin:0 auto 10px;
+}
+.horderfixp{
+    width:500px;
+    height:56px;
+    float:left;
+    line-height:56px;
+}
+.horderfixp a{
+    color:#757575;
+}
+.horderfixp span{
+    color:#757575;
+    padding:0 10px;
+}
+.horderfix a:hover{
+    color:darkorange;
+}
+.horderfix-search{
+    width:302px;
+    height:40px;
+    float:right;
+    margin-top:8px;
+}
+.horderfix-search form input{
+    width:223px;
+    height:40px;
+    border:1px solid #e0e0e0;
+    font-size:12px;
+    line-height:40px;
+    padding:0 10px;
+}
+/*搜索按钮*/
+.horderfix-search-button{
+    width:49px;
+    height:40px;
+    border:1px solid #e0e0e0;
+    border-left:0px;
+    color:#404040;
+    background:white;
+    vertical-align:-1px;
+    padding-left:5px;
+    margin-left:-5px;
+    /*margin-top:-5px;*/
+}
+.horderfix-search-button p{
+    font-size:20px;
+    text-align:right;
+    /*line-height:50px;*/
+}
+.horderfix-search-button:hover{
+    background:orange;
+    color:white;
+}
+.horderfix-search form input:hover{
+    border:1px solid #a0a0a0;
+}
+.horderfix-search form input:hover+button{
+    border:1px solid #a0a0a0;
+    border-left:0px;
+}
+.horderfix-search form input:focus{
+    border:1px solid orange;
+}
+.horderfix-search form input:focus+button{
+    border:1px solid orange;
+    border-left:0px;
+}
+/*订单主体*/
+.hordermain{
+    width:880px;
+    border:1px solid darkorange;
+    margin:0 auto 20px;
+}
+/*订单状态*/
+.homainst{
+    width:820px;
+    height:27px;
+    background:#fffaf7;
+    padding:25px 30px 1px 30px;
+}
+.homainst span{
+    font-size:20px;
+    color:orange;
+}
+/*基本信息*/
+.homainmsg{
+    width:880px;
+    height:54px;
+    background:#fffaf7;
+    border-bottom:1px solid darkorange;
+    vertical-align:bottom;
+}
+.homainmsg div:first-child{
+    width:560px;
+    height:30px;
+    font-size:14px;
+    line-height:30px;
+    color:#454545;
+    float:left;
+    padding:0 10px 24px 30px;
+}
+.homainmsg div:last-child{
+    width:240px;
+    height:30px;
+    text-align:right;
+    font-size:14px;
+    color:#454545;
+    float:left;
+    padding:0 30px 24px 10px;
+}
+.homainmsg div:last-child b{
+    color:orange;
+    font-size:25px;
+}
+/*订单商品列表*/
+.homlist{
+    width:880px;
+}
+.homlistleft{
+    width:540px;
+    padding:0 30px;
+    float:left;
+}
+.homlleftl{
+    width:422px;
+    height:80px;
+    margin:10px 0;
+}
+.homllimg{
+    width:80px;
+    height:80px;
+    float:left;
+}
+.homllmsg{
+    width:332px;
+    height:44px;
+    font-size:14px;
+    color:#454545;
+    padding:18px 0 18px 10px;
+    float:left;
+}
+.homllmsg a{
+    font-size:14px;
+    color:#454545;
+}
+.homlistright{
+    width:220px;
+    height:190px;
+    float:left;
+    padding:20px 30px 0 30px;
+}
+.homlistright a{
+    width:118px;
+    height:28px;
+    background:#f25807;
+    line-height:28px;
+    text-align:center;
+    font-size:12px;
+    color:white;
+    border:1px solid #757575;
+    margin-bottom:10px;
+    display:block;
+    float:right;
+}
+.homlistright a:last-child{
+    background:white;
+    color:#757575;
+}
+.homlistright a:last-child:hover{
+    background:#757575;
+    color:white;
+}
+/*分页*/
+.homlistrightbran{
+    width:800px;
+    height:40px;
+    line-height:40px;
+    font-family:'宋体';
+    font-size:20px;
+    padding:10px 0;
+    margin:0 auto;
+}
+.homlistrightbran a{
+    color:#404040;
+}
+.homlistrightbran a:hover{
+    color:darkorange;
+}

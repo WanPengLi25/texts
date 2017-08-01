@@ -1,0 +1,196 @@
+
+    <include file="Common/head" />
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/list.css">
+    <!-- 搜索导航条 -->
+    <div class="breadcrumbs">
+        <div style="width:1226px" class="container">
+            <a href="{:U('GoodsList/showGoodsList',array('tid'=>0))}">首页</a>
+            <span class="">&gt;</span>
+            {$msg['typename']}
+        </div>
+    </div>
+    <!-- 搜索导航条结束 -->
+    <!-- 面包屑 -->
+    <div style="width:1226px;font-size:16px" class="container">
+        <div class="filter-box">
+        <if condition="$msg['binfo']['bview'] neq 0">
+            <div style="width:1226px" class="filter-selected-list-wrap">
+                <dl class="selected-list clearfix">
+                    <dt>已选：</dt>
+                    <dd><a href="{:U('GoodsList/showGoodsList',array('tid'=>$msg['tid']))}">品牌：{$msg['binfo']['bname']}<i class="iconfont">×</i></a></dd>            
+                </dl>
+            </div>
+        </if>
+        <if condition="$msg['tview'] neq 0">
+            <div name="type" style="height:45px;overflow:hidden" class="filter-list-wrap">
+                <dl class="filter-list clearfix filter-list-row-7">
+                    <dt>分类：</dt>
+                    <dd class="active">全部</dd>
+                    <if condition="$msg['typeList'][0] neq 0">
+                        <foreach name="msg['typeList'][0]" item="vo">
+                            <dd>
+                                <a href="{:U('GoodsList/showGoodsList',array('tid'=>$vo['tids']))}">{$vo.groupname}</a>
+                            </dd>
+                        </foreach>
+                    </if>
+                    <if condition="$msg['typeList'][1] neq 0">
+                        <foreach name="msg['typeList'][1]" item="vi">
+                            <dd>
+                                <a href="{:U('GoodsList/showGoodsList',array('tid'=>$vi['id']))}">{$vi.typename}</a>
+                            </dd>
+                        </foreach>
+                    </if>
+                </dl>
+                <a class="more" href="javascript:;"  onclick="shrink(this)">更多<i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </if>
+        <if condition="$msg['binfo']['bview'] eq 0">
+            <if condition="$msg['brands'] neq 0">
+                <div name="brands" style="height:40px;overflow:hidden;" class="filter-list-wrap">
+                    <dl class="filter-list clearfix">
+                        <dt>品牌：</dt>
+                        <dd class="active">全部</dd>
+                        <foreach name="msg['brands']" item="vo">
+                            <dd class="active"><a href="{:U('GoodsList/showGoodsList',array('tid'=>$msg['tid'],'bid'=>$vo['id']))}">{$vo['brands']}</a></dd>
+                        </foreach>
+                    </dl>
+                </div>
+            </if>            
+        </if>
+        </div>
+    </div>
+    <!-- 面包屑结束 -->
+    <!-- 商品展示 -->
+    <div style="background:#f5f5f5;padding:15px 0;font-size:16px" class="content">
+        <div style="width:1226px" class="container">
+            <div class="order-list-box clearfix">
+                <ul class="order-list">
+                    <li class="active first">
+                        <a href="{:U('GoodsList/showGoodsList',array('tid'=>$msg['tid'],'bid'=>$msg['binfo']['bid'],'recommend'=>1))}" class="Recommend">推荐</a>
+                    </li>
+                    <li class="up">
+                        <a id="price" href="{:U('GoodsList/showGoodsList',array('tid'=>$msg['tid'],'bid'=>$msg['binfo']['bid'],'order'=>$msg['order']))}" >价格 <font class="fa fa-angle-up"></font></a>
+                    </li>
+                </ul>
+            </div>
+        <if condition="$msg['list'] neq 0">
+            <div class="goods-list-box">
+                <div class="goods-list clearfix">
+                <foreach name="msg['list']" item="li">                  
+                    <div class="goods-item">
+                        <div name="bigPic" class="figure figure-img">
+                            <a href="{:U('Detail/detail',array('gid'=>$li['id']))}">
+                                <img src="__PUBLIC__/imgs/{$li['id']}/{$li['basename']}-{$li['pic'][0]}" width="200" height="200">
+                            </a>
+                        </div>
+                        <p class="desc"></p> 
+                        <h2 class="title">
+                            <a href="{:U('Detail/detail',array('gid'=>$li['id']))}">{$li['name']}</a>
+                        </h2>
+                        <p class="price">{$li['price']}元 起</p>
+                        <div class="thumbs">
+                            <ul class="thumb-list">
+                            <for start="0" end="$li['num']">
+                                <li name="smailPic">
+                                    <a>
+                                        <img src="__PUBLIC__/imgs/{$li['id']}/{$li['basename']}-{$li['pic'][$i]}" width="34" height="34">
+                                    </a>
+                                </li>
+                            </for>
+                            </ul>
+                        </div>
+                        <div class="actions clearfix">
+                            <a class="btn-like J_likeGoods">
+                                <i class="fa fa-heart-o"></i> 
+                                <span>喜欢</span>
+                            </a>
+                            <a class="btn-buy btn-buy-detail J_buyGoods" href="{:U('Detail/detail',array('gid'=>$li['id']))}">
+                                <span>立即购买</span> 
+                                <i class="fa fa-shopping-cart"></i>
+                            </a>                    
+                        </div>
+                        <div class="flags"></div>
+                        <div class="notice"></div>
+                    </div>
+                </foreach>
+                </div>  
+            </div>
+        <else />
+            <h1 style="text-align:center;color:red;padding-bottom:20px">没有找到相关商品TT</h1>
+        </if> 
+        </div>
+        <div style="font-size:18px;" class="sabrosus">
+            {$page}
+        </div>
+    </div>
+    <!-- 为你推荐开始 -->
+    <if condition="$recommend neq 0">
+    <div style="background:#f5f5f5;margin-top:-20px">
+        <div class="wntj">
+            <span class="left">为你推荐</span>
+            <div class="right">
+                <span id="w1" style="border:1px solid #e0e2e8; color:#e0e2e8" class="fa fa-angle-left left" onmousedown="
+                w3.style='transform:translateX(0px);';
+                w1.style='border:1px solid #e0e2e8;color:#e0e2e8;';
+                w2.style='border:1px solid #000;color:#000;'"></span>  
+                <span id="w2" style="border:1px solid black;" class="fa fa-angle-right left" onmousedown="
+                w3.style='transform:translateX(-1226px);';
+                w2.style='border:1px solid #e0e2e8;color:#e0e2e8;';
+                w1.style='border:1px solid #000;color:#000;'"></span>
+            </div>
+        </div>
+        <div class="wntj-list">
+            <div id="w3" class="wntj-list-main">
+                    <foreach name="recommend" item="vo" key="k">
+                        <in name="k" value="0,5">
+                            <div class="wntj-list-main-td1 left">
+                                <a class="wntj-list-main-td-a1" href="{:U('Detail/detail', array('gid'=>$vo['id']))}"><img width="140px" height="140px" src="__PUBLIC__/imgs/{$vo[id]}/{$vo[cover]}" /></a><br>
+                                <a class="wntj-list-main-td-a2" href="{:U('Detail/detail', array('gid'=>$vo['id']))}">{$vo.name}</a>
+                                <p style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:0 10px" class="wntj-list-main-td-p1">{$vo.goodsinfo}</p>
+                                <p class="wntj-list-main-td-p2">{$vo.price}元</p>
+                            </div>
+                        <else />
+                            <div class="wntj-list-main-td2 left">
+                                <a class="wntj-list-main-td-a1" href="{:U('Detail/detail', array('gid'=>$vo['id']))}"><img width="140px" height="140px" src="__PUBLIC__/imgs/{$vo['id']}/{$vo[cover]}" /></a><br>
+                                <a class="wntj-list-main-td-a2" href="{:U('Detail/detail', array('gid'=>$vo['id']))}">{$vo.name}</a>
+                                <p style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:0 10px" class="wntj-list-main-td-p1">{$vo.goodsinfo}</p>
+                                <p class="wntj-list-main-td-p2">{$vo.price}元</p>
+                            </div>
+                        </in>
+                    </foreach>
+            </div>
+        </div>
+    </div>
+    </if>
+    <!-- 为你推荐结束 -->
+    <!-- 商品展示结束 -->
+
+    <include file="Common/footer" />
+
+    <!-- .modal-globalSites END -->
+    <script>
+
+        //收缩按钮
+        function shrink(obj)
+        {
+            if( $('div[name=type]').css('height') == '45px' ){
+                $('div[name=type]').css('height','auto');
+            } else {
+                $('div[name=type]').css('height','45px');
+            }
+        }
+
+        //切换图片
+        $('li[name=smailPic]').mouseover(function () {
+            var url = $(this).find('img').attr('src');
+            $(this).parent().parent().parent().find('div[name=bigPic]').find('img').attr('src', url);
+
+        });
+        //
+
+    </script>   
+    
+
+    </body>
+</html>     

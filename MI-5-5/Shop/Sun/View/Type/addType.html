@@ -1,0 +1,31 @@
+﻿<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" />{$title}
+	</div>
+	<div class="rightmain">
+		<div class="ind_main center-block">
+			<h2 class="text-center">添加分类</h2>
+			
+			<form action="{:U('Type/addType')}" method="post">
+				<span class="lead">分类名:</span>
+				<input type="text" name="typename" />
+				<span class="text-danger"></span><br>
+				<button class="btn btn-success btn-primary btn-sm">添加分类</button>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+	var inputs = document.getElementsByTagName('input');
+	// console.log(inputs);
+	inputs[0].onfocus = function () {
+		// console.log(1);
+		var span = document.createElement('span');
+		// console.log(span);
+		span.innerHTML = '请输入六位中文字符';
+		this.parentNode.insertBefore(span,this.nextSibling);
+	}
+	inputs[0].onblur = function () {
+		this.parentNode.removeChild(this.nextSibling);
+	}
+</script>

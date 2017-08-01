@@ -1,0 +1,463 @@
+<br>
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" />{$title}
+	</div>
+	<div class="rightmain">
+		<div class="ind_main center-block">
+			<h2 class="text-center">查看商品</h2>
+
+		<form style="width:50%;margin:0 auto" class="form-inline" action="{:U('Goods/selectGoods')}" method="get">
+  			<div class="form-group" >
+    			<input style="width:190px" name="id" type="text" class="form-control" id="exampleInputEmail3" placeholder="序号">
+  			</div>
+  			<!-- <div class="form-group">
+    			<input style="width:190px" name="typename" type="text" class="form-control" id="exampleInputPassword3" placeholder="分类名">
+    		</div> -->
+    		<!-- <div class="form-group">
+    			<input style="width:190px" name="brands" type="text" class="form-control" id="exampleInputPassword3" placeholder="商品名">
+  			</div> -->
+  			<select name="status" class="form-control">
+  				<option selected="true" disabled="disabled">--状态--</option>
+  				<option value="1">上架中</option>
+  				<option value="2">已下架</option>
+			</select>
+			<select name="recommend" class="form-control">
+  				<option selected="true" disabled="disabled">--推荐--</option>
+  				<option value="1">推荐</option>
+  				<option value="2">不推荐</option>
+			</select>
+			<select name="sale" class="form-control">
+  				<option selected="true" disabled="disabled">--销量--</option>
+  				<option value="1">正序</option>
+  				<option value="2">倒序</option>
+			</select>
+  			<button type="submit" class="btn btn-success">搜索</button>
+		</form>
+		<br>
+			<table class="table table-hover">
+				<tr>
+					<th>序号</th>
+					<th>商品名</th>
+					<!-- <th>封面</th> -->
+					<!-- <th>分类名</th> -->
+					<!-- <th>品牌名</th> -->
+					<th>状态</th>
+					<th>推荐</th>
+					<th>销量</th>
+					<th>版本</th>
+					<th>详情</th>
+					<th>参数</th>
+					<th>操作</th>
+					<th> </th>
+				</tr>
+				<foreach name="goods" item="v">
+					<tr>
+						<td>{$v.id}</td>
+						<td>{$v.name}</td>
+					<!-- 	<td>
+							<img style="width:40px" src="__ROOT__/Public/imgs/{$v.id}/157-0.jpg" />
+						</td> -->
+						<!-- <td>照片</td> -->
+						<!-- <td>{$v.tid}</td> -->
+						<!-- <td>{$v.bid}</td> -->
+						<td>
+							<if condition='$v.status eq 0'>
+								<a class="status text-danger" href="javascript:;" data-id="{$v.id}" data-status="{$v.status}">已下架</a>
+							<elseif condition='$v.status eq 1' />
+								<a class="status text-success" href="javascript:;" data-id="{$v.id}" data-status="{$v.status}">上架中</a>
+							</if>
+						</td>
+						<td>
+							<if condition='$v.recommend eq 0'>
+								<a class="recommend text-danger" href="javascript:;" data-id="{$v.id}" data-recommend="{$v.recommend}">不推荐</a>
+							<elseif condition='$v.recommend eq 1' />
+								<a class="recommend text-success" href="javascript:;" data-id="{$v.id}" data-recommend="{$v.recommend}">推荐中</a>
+							</if>
+						</td>
+						<td>{$v.sale}</td>
+						<td>
+							<button type="button" data-id="{$v.id}" class="version btn btn-primary" data-toggle="modal" data-target="#version">查看版本</button>
+						</td>
+						<td>
+							<button type="button" data-id="{$v.id}" class="xqing btn btn-primary" data-toggle="modal" data-target="#xqing">查看详情</button>
+						</td>
+						<td>
+							<button type="button" data-id="{$v.id}" class="parameter btn btn-primary" data-toggle="modal" data-target="#parameter">查看参数</button>
+						</td>
+						<td>
+							<button type="button" data-id="{$v.id}" data-tid="{$v.tid}" data-bid="{$v.bid}" data-goodsinfo="{$v.goodsinfo}" data-name="{$v.name}" class="savas btn btn-primary" data-toggle="modal" data-target="#savas">编辑</button>
+							
+							<a  class="delete btn btn-danger"  href="javascript:;"  data-id="{$v.id}">删除</a>
+						</td>
+					</tr>
+				</foreach>
+			</table>
+			<div  class="manu">
+				{$show}
+			</div>	
+		</div>
+	</div>
+</div>
+<!-- 查看版本的模态框 -->
+<div id="version" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  	<div class="modal-dialog modal-lg" role="document">
+    	<div class="modal-content">
+    		<button type="button" style="float:right;" class="btn btn-default" data-dismiss="modal">关闭</button>
+    		<center>
+    			<h2 class="text-center">查看版本</h2>
+				<table class="versions table table-hover">
+					<tr>
+						<th>版本名</th>
+						<th>版本描述</th>
+						<th>价格</th>
+						<th>颜色名</th>
+						<th>颜色</th>
+						<th>库存</th>
+						<th>图片</th>
+					</tr>
+					
+				</table>
+			</center>
+   	 	</div>
+  	</div>
+</div>
+
+<!-- 查看详情 -->
+<div id="xqing" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  	<div class="modal-dialog modal-lg" role="document">
+    	<div class="modal-content">
+    	<button type="button" style="float:right;" class="btn btn-default" data-dismiss="modal">关闭</button>
+     		<center>
+    			<h2 class="text-center">查看详情</h2>
+				<div class="pic">
+
+				</div>
+			</center>
+    	</div>
+  	</div>
+</div>
+<!-- 查看参数 -->
+<!-- <div id="parameter" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  	<div class="modal-dialog modal-lg" role="document">
+    	<div class="modal-content">
+    		<button type="button" style="float:right;" class="btn btn-default" data-dismiss="modal">关闭</button>
+     		<center>
+    			<h2 class="text-center">查看参数</h2>
+				<div class="parameter">
+
+					<table class="canshu table table-hover">
+					<tr>
+						<th>参数</th>
+						<th>值</th>
+					</tr>	
+				</table>
+				</div>
+			</center>
+    	</div>
+  	</div>
+</div> -->
+<!-- 查看参数 -->
+<div id="parameter" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  	<div class="modal-dialog modal-lg" role="document">
+    	<div class="modal-content">
+    		<button type="button" style="float:right;" class="btn btn-default" data-dismiss="modal">关闭</button>
+    			<h2 class="text-center">查看参数</h2>
+					<form action="{:U('Goods/ajaxSubmitGoods')}" method="post" class="canshu form-inline">
+						
+					</form>
+			</center>
+    	</div>
+  	</div>
+</div>
+<!-- 编辑商品 -->
+<div id="savas" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  	<div class="modal-dialog modal-lg" role="document">
+    	<div class="modal-content">
+    		<button type="button" style="float:right;" class="btn btn-default" data-dismiss="modal">关闭</button>
+     		<center>
+    			<h2 class="text-center">编辑商品</h2>
+				<div>
+					<form class="form-inline"  action="{:U('Goods/saveGoods')}" method="post">
+					<input class="gids" type="hidden" name="gid" value=""> 
+						<label>分类名:</label>
+						<select name="tid" class="select form-control">
+						
+						</select>
+						<label>品牌名:</label>
+						<select name="bid" class="brands form-control">
+							
+						</select><br><br>
+  						<div class="form-group">
+					    <label for="exampleInputName2">商品名:</label>
+					    <input type="text" name="gname" class="gname form-control" id="exampleInputName2">
+					  </div>
+					  <div class="form-group">
+					    <label for="exampleInputEmail2">商品描述:</label>
+					    <input name="goodsinfo" type="text" class="goodsinfo form-control" id="exampleInputEmail2">
+					  </div><br><br>
+					  <button type="submit" class="btn btn-default">确认编辑</button><br><br>
+					</form>
+				</div>
+			</center>
+    	</div>
+  	</div>
+</div>
+<script>
+	// 修改上架状态
+	$('.status').click( function() {
+		var that = $(this);
+		$.get(
+			'{:U("Goods/ajaxStatusGoods")}',
+			{
+				id:that.attr('data-id'),
+				status:that.attr('data-status'),
+			},
+			function ( data ) {
+				if ( data == 1 ) {
+					if (that.attr('data-status') == 0 ) {
+						// console.log(data);
+						that.text('上架中');
+						that.attr('data-status', '1');
+						that.attr('class','text-success');
+					} else if ( that.attr('data-status') == 1 ) {
+						that.text('已下架');
+						that.attr('data-status', '0');
+						that.attr('class','text-danger');
+					}
+					// console.log('成功');
+				} else {
+					alert('修改失败');
+				}
+			},
+			'json'
+		);
+	});
+	// 修改推荐状态
+	$('.recommend').click( function() {
+		var that = $(this);
+		$.get(
+			'{:U("Goods/ajaxRecommendGoods")}',
+			{
+				id:that.attr('data-id'),
+				recommend:that.attr('data-recommend'),
+			},
+			function ( data ) {
+				if ( data == 1 ) {
+					if (that.attr('data-recommend') == 0 ) {
+						// console.log(data);
+						that.text('推荐中');
+						that.attr('data-recommend', '1');
+						that.attr('class','text-success');
+					} else if ( that.attr('data-recommend') == 1 ) {
+						that.text('不推荐');
+						that.attr('data-recommend', '0');
+						that.attr('class','text-danger');
+					}
+					// console.log('成功');
+				} else {
+					alert('修改失败');
+				}
+			},
+			'json'
+		);
+	});
+	// 查看版本
+	$('.version').click( function() {
+		var that = $(this);
+		$.get(
+			'{:U("Goods/ajaxVersionGoods")}',
+			{
+				id:that.attr('data-id'),
+			},
+			function( data ) {
+				console.log(data);
+				if ( data ) {
+					$("center tr").next().remove();
+					var str = '';
+					for (var i = 0; i < data.vname.length; i++) {
+						if( data.color[i].length > 1 ) {
+							str += '<tr><td rowspan="'+data.color[i].length+'">'+data.vname[i]+'</td>';
+							str += '<td style="width:440px" rowspan="'+data.color[i].length+'">'+data.vinfo[i][0]+'</td>';
+							
+							
+						} else if(data.color[i].length == 1) {
+							str += '<tr><td>'+data.vname[i]+'</td>';
+							str += '<td style="width:440px">'+data.vinfo[i][0]+'</td>';
+							// str += '<td>'+data.price[i][i]+'</td>';
+						}
+						for( var c = 0; c < data.color[i].length; c++ ){
+							if( c > 0 ) {
+								str +="</tr><tr>";
+							}
+							str += '<td>'+data.price[i]+'</td>';
+							// console.log(data.invertory[i][c]);
+							str += '<td>'+data.colorname[i][c]+'</td>';
+							str += '<td><div style="width:40px;height:40px;border:1px solid #000;border-radius:20px;background-color:'+data.color[i][c]+'"></div></td>';
+							// str += '<td>'+data.color[i][c]+'</td>';
+							str += '<td>'+data.invertory[i][c]+'</td>';
+							str += '<td>';
+							// console.log(data.basename[i]);
+							// for ( var x = 0; x < data.pic[i].length; x++ ) {
+							str += '<img style="width:40px" src="__ROOT__/Public/imgs/'+data.gid+'/'+data.basename[i][c]+'-'+data.pic[0][c]+'"  />';
+							// }
+							str += '</td></tr>';
+						}
+					}
+				
+					$(".versions").append(str);
+				} else {
+					alert('查看版本失败');
+				}
+			},
+			'json'
+		);
+	});
+	// 查看详情
+	$('.xqing').click( function() {
+		var that = $(this);
+		$.get(
+			'{:U("Goods/ajaxXqingGoods")}',
+			{
+				id:that.attr('data-id'),
+			},
+			function( data ) {
+				 if ( data ) {
+				 	$('.pic img').remove();
+				 	var basename = (data['0']);
+				 	var str = '';
+				 	for ( var i = 0; i < data['pic'].length; i++) {
+				 		str += '<img style="width:850px" src="__ROOT__/Public/imgs/'+basename+'son/'+basename+'-'+data['pic'][i]+'" >';
+				 	}
+				 	$('.pic').append(str);
+				 } else {
+				 	alert('详情加载失败');
+				 }
+			},
+			'json'
+		);
+	});
+	// 删除的ajax
+	$('.delete').click( function(){
+		var that = $(this);
+		$.get(
+			'{:U("Goods/ajaxDeleteGoods")}',
+			{
+				id:that.attr('data-id'),
+			},
+			function( data ) {
+				if ( data ) {
+					that.parent().parent().remove();
+				} else {
+					alert('删除失败');
+				}
+			},
+			'json'
+		);
+	});
+	// 编辑商品
+	$('.savas').click( function() {
+		var that = $(this);
+			$('.goodsinfo').attr('value',that.attr('data-goodsinfo'));
+			$('.gname').attr('value',that.attr('data-name'));
+			$('.gids').attr('value',that.attr('data-id'));
+		$.get(
+			'{:U("Goods/ajaxSavaGoods")}',
+			{
+				tid:that.attr('data-tid'),
+				bid:that.attr('data-bid'),
+			},
+			function( data ) {
+				$(".select>option").remove();
+				var str = '';
+				str += '<option value="'+data[2]['vid']+'" selected>'+data[2]['vname']+'</option>';
+				for ( var i = 0; i < data[3].length; i++ ) {
+					str += '<option value="'+data[3][i]['id']+'">'+data[3][i]['typename']+'</option>';
+				}
+				$('.select').append(str);
+
+				$(".brands>option").remove();
+				var strs = '';
+				strs += '<option value="'+data[0]['bid']+'" selected>'+data[0]['bname']+'</option>';
+				for ( var j = 0; j < data[1].length; j++ ) {
+					strs += '<option value="'+data[1][j]['id']+'">'+data[1][j]['brands']+'</option>';
+				}
+				$('.brands').append(strs);
+			},
+			'json'
+		);
+	});
+	// 查看参数
+	$('.parameter').click( function() {
+		var that = $(this);
+		$.get(
+			'{:U("Goods/ajaxParameterGoods")}',
+			{
+				id:that.attr('data-id'),
+			},
+			function( data ) {
+				if ( data ) {
+					$(".canshu div").remove();
+					$(".canshu button").remove();
+					var str = '';
+					for ( var i = 0; i < data['parameter'].length; i++) {
+						str += '<div class="form-group"><br />';
+						str += '<label style="margin:10px" for="exampleInputName2">参数:</label>';
+						str += '<input type="text" name="cname" style="width:150px" readOnly="true"  class="form-control" id="exampleInputName2" value="'+data['parameter'][i]+'">';
+						str += '</div><div class="form-group"><br />';
+						str += '<label style="margin:10px" for="exampleInputEmail2">值:</label>';
+						str += '<input readOnly="true" name="zname" data-id="'+data['pid'][i]+'" style="width:550px" type="text" class="form-control" id="exampleInputEmail2" value="'+data['ptext'][i]+'">';
+						str += '</div>';
+						str += '<button style="margin-top:20px"  type="button" class="savecanshu btn btn-primary" onclick="return editCanShu(this)" >编辑</button>';
+					}
+					str += '<div style="margin-bottom:50px"></div>';
+					$('.canshu').append(str);
+				}
+			},
+			'json'
+		);
+	});
+	// 编辑参数
+	// $('.canshu').on('click','.savecanshu',function(){
+	// 	var that = $(this);
+	// 	$(this).prev().children('input[data-id]').attr('readOnly', '');
+	// 	// console.log(that);	
+	// 	// alert(1);
+	// 	// that.previousSbiling.attr('readOnly').remove();
+	// 	// $id = that.attr('data-id');
+	// 	// $('.ids').attr('value',$id);
+	// 	// $('.brand').attr('value',$ss);
+	// });
+
+	function editCanShu(obj){
+		$(obj).prev('div').children('input[data-id]').attr('readOnly', false)
+		$(obj).prev('div').prev('div').children('.form-control').attr('readOnly', false);
+		var str = '';
+		str += '<button style="margin-top:20px" type="button" onclick="submit1(this)" class="btn btn-default">提交</button>';
+		$(obj).next().before(str);
+		$(obj).remove();
+	}
+	function submit1(obj) {
+		$.post('{:U("Goods/ajaxSubmitGoods")}',
+		 { 
+		 	cname:$(obj).prevAll().eq(1).children('input').val(),
+		 	zname:$(obj).prevAll().eq(0).children('input').val(),
+		 	id:$(obj).prevAll().eq(0).children('input').attr('data-id'),
+		 },
+   		function(data){
+     		if( data[0] == 1) {
+     			console.log(data);
+     			$(obj).prevAll().eq(1).children('input').attr('value',data[1]['pname']);
+     			$(obj).prevAll().eq(1).children('input').attr('readOnly',true);
+     			$(obj).prevAll().eq(0).children('input').attr('value',data[1]['ptext']);
+     			$(obj).prevAll().eq(0).children('input').attr('readOnly',true);
+     			var str = '';
+				str += '<button style="margin-top:20px"  type="button" class="savecanshu btn btn-primary" onclick="return editCanShu(this)" >编辑</button>';
+				$(obj).next().before(str);
+				$(obj).remove();
+     		} else {
+     			alert('您没有更改任何内容');
+     		}
+   }, "json");
+	}
+</script>

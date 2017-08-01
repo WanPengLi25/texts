@@ -1,0 +1,538 @@
+<include file="Common/head" />
+	<!-- <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail/base.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail/comm.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail/detail.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail/media_detail.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail/b1.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail/g1.min.css"> -->
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/detail/showGoods.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/list.css">
+	<div class="breadcrumbs">
+        <div style="width:1226px" class="container">
+            <a href="{:U('GoodsList/showGoodsList',array('tid'=>0))}">首页</a>
+            <span class="">&gt;</span>
+            {$goods[name]}
+        </div>
+    </div>
+	
+	<!--主体开始-->
+	<main id="main" class="site-main">
+
+		<form action="{:U('Detail/detail')}" method="post">
+
+
+			<input type="hidden" id="gids" name="gid" value="{$goods[id]}">
+			<input id="vids" type="hidden" name="vid" value="{$goods[brand][0][id]}">
+			<input id="cids" type="hidden" name="cid" value="{$goods[color][0][id]}">
+
+			<section id="prod-intro" class="wraper prod-intro">
+
+				<aside class="main-left intro-left" >
+
+					<img id="img" style="width:414px;height:414px; margin-bottom:12px" src="__PUBLIC__/imgs/{$goods[id]}/{$goods[basename]}-{$goods[pic][0]}" class="prod-pic">
+
+					<center class="img">	
+						<foreach name="goods[pic]" item="v">
+							<div style="display:inline-block;margin-left:10px; border:1px solid #ccc;width:70px;height:70px;">
+								<img width="70px" height="70px" class="pic" onclick="pic(this)" src="__PUBLIC__/imgs/{$goods[id]}/{$goods[basename]}-{$v}" alt="">
+							</div>
+						</foreach>
+					</center>
+				</aside>
+				<section class="main-right intro-right">
+					<header style="background:white" class="prod-title">
+						<h2 style="font-weight:lighter" class="name">{$goods[name]}</h2>
+						<span style="font-size:20px;margin-top:10px" class="price">{$goods[brand][0][price]}元</span>
+						<a href="" class="link">深入了解产品</a>
+					</header>
+					<p class="tip">
+						{$goods[goodsinfo]}
+					</p>
+					<section class="options">
+						<hgroup class="opt-title">
+							<h3>选择版本</h3>
+							<h4 class="vinfo desc">{$goods[brand][0][vinfo]}</h4>	
+						</hgroup>
+						<ul class="opt-ul">
+							<foreach name="goods[brand]" item="v">
+								<li class="colorli">
+									<input  class="option-btns" type="radio" name="version"  hidden>
+									<label style="border:1px solid #ccc;" data-id="{$v.id}" data-vname="{$v.vname}"  class="a opt-item" >{$v.vname}</label>
+								</li>
+							</foreach>
+						</ul>
+					</section>
+					<section class="options">
+						<hgroup class="opt-title">
+							<h3>选择颜色</h3>
+						</hgroup>
+						<ul class="ul opt-ul" >
+							<foreach name="goods[color]" item="v">
+								<li class="colorlis">
+									<input  class="option-btns" type="radio" name="color" hidden>
+									<label style="border:1px solid #ccc;"  onclick="color(this)"  data-id="{$v.id}" class="color opt-item" >
+										<div style="background:{$v.color}" class="i_color i_white"></div>
+										<span>{$v.colorname}</span>
+									</label>
+								</li>
+							</foreach>
+						</ul>
+					</section>
+					<article>
+						<h3 class="notice">支持7天无理由退货</h3>
+						<p class="desc">一面科技，一面艺术</p>
+						<button style="margin-top:20px;color:#FC6402;" type="submit"  class="btn btn-default">加入购物车</button>
+							<a id="div1"href=""></a>
+					</article>
+				</section>
+			</section>
+		</form>
+	</main>
+	<div id="nav" style="height:70px;width:100%; background:#fff; text-align:center;z-index:99;">	
+	  <span ><a class="
+describe" style="font-size:25px;line-height: 70px; color:#ccc;margin:0 30px; display: inline-block;" href="#div1">详情描述</a></span> 
+	        <span ><a class="spec" data-gid="{$goods[id]}" style="font-size:25px;line-height: 70px; color:#ccc;margin:0 30px; display: inline-block;";  href="#div1">规格参数</a></span> 
+	        <span ><a class="thesun" style="font-size:25px;line-height: 70px; color:#ccc;margin:0 30px; display: inline-block;";  href="#div1">评价晒单</a></span>
+	        <span ><a class="ask" style="font-size:25px;line-height: 70px; color:#ccc;margin:0 30px; display: inline-block;";  href="#div1">商品提问</a></span> 
+	</div>
+	<!-- 详情 -->
+	<div id="load" name="vnames"></div>
+	<!-- 规格 -->
+	<div id="speca"></div>
+	<!-- 评价 -->
+	<div id="thesun" style="width:1226px;margin:0 auto;">
+
+    </div>
+    <div class="tw"></div>
+
+    <!-- 提问 -->
+    <div id="ask">
+   	</div>
+   	<!-- 为你推荐开始 -->
+    <if condition="$recommend neq 0">
+    <div style="background:#f5f5f5;margin-top:-20px">
+        <div class="wntj">
+            <span class="left">为你推荐</span>
+            <div class="right">
+                <span id="w1" style="border:1px solid #e0e2e8; color:#e0e2e8" class="fa fa-angle-left left" onmousedown="
+                w3.style='transform:translateX(0px);';
+                w1.style='border:1px solid #e0e2e8;color:#e0e2e8;';
+                w2.style='border:1px solid #000;color:#000;'"></span>  
+                <span id="w2" style="border:1px solid black;" class="fa fa-angle-right left" onmousedown="
+                w3.style='transform:translateX(-1226px);';
+                w2.style='border:1px solid #e0e2e8;color:#e0e2e8;';
+                w1.style='border:1px solid #000;color:#000;'"></span>
+            </div>
+        </div>
+        <div class="wntj-list">
+            <div id="w3" class="wntj-list-main">
+                    <foreach name="recommend" item="vo" key="k">
+                        <in name="k" value="0,5">
+                            <div class="wntj-list-main-td1 left">
+                                <a class="wntj-list-main-td-a1" href="{:U('Detail/detail', array('gid'=>$vo['id']))}"><img width="140px" height="140px" src="__PUBLIC__/imgs/{$vo[id]}/{$vo[cover]}" /></a><br>
+                                <a class="wntj-list-main-td-a2" href="{:U('Detail/detail', array('gid'=>$vo['id']))}">{$vo.name}</a>
+                                <p style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:0 10px" class="wntj-list-main-td-p1">{$vo.goodsinfo}</p>
+                                <p class="wntj-list-main-td-p2">{$vo.price}元</p>
+                            </div>
+                        <else />
+                            <div class="wntj-list-main-td2 left">
+                                <a class="wntj-list-main-td-a1" href="{:U('Detail/detail', array('gid'=>$vo['id']))}"><img width="140px" height="140px" src="__PUBLIC__/imgs/{$vo[id]}/{$vo[cover]}" /></a><br>
+                                <a class="wntj-list-main-td-a2" href="{:U('Detail/detail', array('gid'=>$vo['id']))}">{$vo.name}</a>
+                                <p style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:0 10px" class="wntj-list-main-td-p1">{$vo.goodsinfo}</p>
+                                <p class="wntj-list-main-td-p2">{$vo.price}元</p>
+                            </div>
+                        </in>
+                    </foreach>
+            </div>
+        </div>
+    </div>
+    </if>
+        <!-- 为你推荐结束 -->
+	<include file="Common/footer" />
+<script>
+	// 版本选择
+	$('.a').click( function(){
+		var that = $(this);
+		$('.a').attr('style','border:1px solid #ccc');
+		that.attr('style','border:1px solid red');
+		
+		$('#vids').attr('value',that.attr('data-id'));
+		// $('#vnames').attr('value',that.attr('data-vname'));
+
+		$.get(
+			'{:U("Detail/ajaxVersion")}',
+			{
+				vid:that.attr('data-id'),
+			},
+			function( data ) {
+				console.log(data);
+				$('.ul li').remove();
+				var str = '';
+				for ( var i = 0; i < data['color'].length; i++ ) {
+					str += '<li>';
+					str += '<input class="option-btns" type="radio" name="color" hidden>';
+						str += '<label data-id="'+data['color'][i]['id']+'"; style="border:1px solid #ccc"; onclick="color(this)" class="color opt-item">';
+					str += '<div style="background:'+data['color'][i]['color']+'" class="i_color i_white"></div>';
+					str += '<span>'+data['color'][i]['colorname']+'</span>';
+					str += '</label>';
+					str += '</li>';
+				}
+
+				$('.ul').append(str);
+				$('.price').html(data['price'][0]['price']+'元');
+				$('.vinfo').html(data['price'][0]['vinfo']);
+			},
+			'json'
+		);
+	});
+	// 颜色选择
+	function color(obj)
+	{
+		$('.color').attr('style','border:1px solid #ccc');
+		$(obj).attr('style','border:1px solid red');
+		var cid = $(obj).attr('data-id');
+		$('#cids').attr('value',cid);
+		$.get(
+			'{:U("Detail/ajaxColor")}',
+			{
+				cid:$(obj).attr('data-id'),
+			},
+			function( data ) {
+				console.log(data);
+				$('.img div').remove();
+				var str = '';
+				for ( i = 0; i < data['pic'].length; i++ ) {
+					str += '<div style="display:inline-block;margin-left:10px;  border:1px solid #ccc;width:70px;height:70px;">';
+					str += '<img width="70px" height="70px" class="pic" onclick="pic(this)" src="__PUBLIC__/imgs/{$goods[id]}/'+data['basename']+'-'+data['pic'][i]+'" alt="">';
+					str += '</div>';
+				}
+				if ( data['invertory'] == 0 ) {
+					$(obj).attr('style','border:1px solid #ccc');
+					$(obj).find("span").text('暂无商品');
+				}
+				$('.img').append(str);
+				// $('#colors').attr('value',data['color']);
+				// $('#colornames').attr('value',data['colorname']);
+				// $('#invertorys').attr('value',data['invertory']);
+				// $('#covers').attr('value',data['cover']);
+
+			},
+			'json'
+		);
+	}
+	// 图片
+	function pic(obj) 
+	{
+		$('.pic').attr('style','border:1px solid #ccc');
+		$(obj).attr('style','border:1px solid red');
+		var url = $(obj).attr('src');
+		$('#img').attr('src',url);
+	}
+	// 导航
+	$.fn.smartFloat = function() { 
+	    var position = function(element) { 
+	    	// console.log(element);
+	        var top = element.position().top; //当前元素对象element距离浏览器上边缘的距离 
+	        var pos = element.css("position"); //当前元素距离页面document顶部的距离 
+	        $(window).scroll(function() { //侦听滚动时 
+	            var scrolls = $(this).scrollTop();
+	            // console.log(scrolls); 
+	            if (scrolls > top) { //如果滚动到页面超出了当前元素element的相对页面顶部的高度 
+	                if (window.XMLHttpRequest) { //如果不是ie6 
+	                    element.css({ //设置css 
+	                        position: "fixed", //固定定位,即不再跟随滚动 
+	                        top: 0 //距离页面顶部为0 
+	                    }).addClass("shadow"); //加上阴影样式.shadow 
+	                } else { //如果是ie6 
+	                    element.css({ 
+	                        top: scrolls  //与页面顶部距离 
+	                    });     
+	                } 
+	            }else { 
+	                element.css({ //如果当前元素element未滚动到浏览器上边缘，则使用默认样式 
+	                    position: pos, 
+	                    top: top 
+	                }).removeClass("shadow");//移除阴影样式.shadow 
+	            } 
+	        }); 
+	    }; 
+	    return $(this).each(function() { 
+	        position($(this));                          
+	    }); 
+	}; 
+	$(function(){ 
+	    $("#nav").smartFloat(); 
+	});
+	// 规格参数显示
+	$('.spec').click( function()
+	{
+		var that = $(this);
+		$.get(
+			'{:U("Detail/ajaxSpec")}',
+			{
+				gid:that.attr('data-gid'),
+				cid:$('#cids').attr('value'),
+			},
+			function( data ) {
+				if ( data ) {
+
+					$('#speca div').remove();
+					var srt = '';
+					srt += '<div id="nav" style="background:#F5F5F5;" class="leave">';
+					srt += '<div style="width:1226px;height:500px;background:#F5F5F5; opacity:0.9; margin:0 auto;overflow:hidden;">';
+					srt += '<p style="font-size:35px;text-align:center;color:#ccc">规格参数</p>';
+					srt += '<div style="background:#fff;margin-left:100px;float:left;position:relative;overflow:hidden;">';
+					srt += '<img style="width:200px;height:200px; margin-top:55px; float:left;" src="__PUBLIC__/imgs/{$goods[id]}'+'/'+data['cover'][0]['cover']+'">';
+
+					srt += '<div style="float:left;margin-left:100px;width:760px; height:250px; margin:30px; ">';
+					srt += '<ul>';
+					for ( var i = 0; i < data['spec'].length; i++ ) {
+						srt += '<li style="width:333px;height:50px; font-size:18px;float:left;margin-bottom:8px;margin-right:27px">'+data['spec'][i]['pname']+':'+data['spec'][i]['ptext']+'</li>';
+					}
+					srt += '</ul></div></div></div></div>';
+				} else {
+					var srt = '';
+					$('#speca p').remove();
+					srt += '<p style="font-size:35px;text-align:center;color:red">还没有参数小米人正在努力设置！！！</p>';
+				}
+				$('#speca').append(srt);
+				$('#speca').show();
+				$("#thesun").hide();
+				$("#ask").hide();
+				$("div[name='vnames']").hide();
+			},
+			'json'
+		);
+	});
+	// 详情显示
+	$('.describe').click( function() {
+		$('#speca').hide();
+		$("#thesun").hide();
+		$("#ask").hide();
+		$("div[name='vnames']").show();
+	});
+
+	// 异步加载
+	$(window).on('scroll', function () {
+
+		var browserHeight = $(this).height();
+
+		var documentHeight = $(document).height();
+
+		var scrollTop = $(window).scrollTop();
+
+		if ( scrollTop + browserHeight  >= documentHeight ) {
+			$.get(
+				'{:U("Detail/ajaxLoads")}',
+				{	
+					gid:$('#gids').attr('value'),
+				},
+
+				function (data) {
+					$('#load center').remove();
+					var str = '';
+						str += '<center>';
+					for ( var i = 0; i < data.length; i++ ) {
+						
+						str += '<img style="width:95%"; src="__PUBLIC__/imgs/'+{$goods[id]}+'son/'+{$goods[id]}+'-'+data[i]+'">';
+					}
+						str += '</center>';
+					$('#load').append(str);
+				},
+				'json'
+			);
+		}
+	});
+	// 评论
+	$('.thesun').click( function()
+	{
+		var that = $(this);
+		$.get(
+			'{:U("Detail/ajaxTheSun")}',
+			{
+				gid:$('#gids').attr('value'),
+			},
+			function( data ) {
+				if ( !data.length == 0 ) {
+
+					$('#thesun div').remove();
+					var str = '';
+					for ( var i = 0; i < data.length; i++ ) {
+		    			str += '<div style="margin-bottom:30px;" class="goods-detail">';
+		        		str += '<div class="goods-detail-comment J_itemBox hasContent" id="goodsCommentContent" style="display: block;">';
+		            	str += '<div class="goods-detail-comment-content" id="J_commentDetailBlock">';
+		                str += '<div class="container">';
+		                str += '<div class="row">';
+		                str += '<div class="span14 goods-detail-comment-list">';
+		                str += '<ul class="comment-box-list" id="J_supComment">';
+		                str += '<li style="background:#F5F5F5"; class="item-rainbow-4">'; 
+		                str += '<div class="user-image">'; 
+		                str += '<img src="__PUBLIC__/imgs/{$goods[id]}/{$goods[basename]}-{$goods[pic][0]}"/>' 
+		                str += '</div>';
+		                if( data[i]['star'] == 4 || data[i]['star'] == 5 ){
+			                str += '<div class="user-emoj"> 超爱<i class="iconfont"></i></div>';	
+		                }else if( data[i]['star'] == 2 || data[i]['star'] == 3 ){
+		                	str += '<div class="user-emoj"> 喜欢<i class="iconfont"></i></div>';
+		                }else{
+		                	str += '<div class="user-emoj"> 一般<i class="iconfont"></i></div>';
+		                }
+		                str += '<div class="user-name-info">'; 
+		                str += '<span class="user-name">'+data[i]['name']+'</span>'; 
+		                str += '<span class="user-time">'+data[i]['time']+'</span>'; 
+		                str += '<span class="pro-info"></span></div>';  
+		                str += '<div class="user-hand-block">'; 
+		                str += '<a href="javascript:void(0);" class="J_hasHelp "> <i class="fa fa-thumbs-up"></i>赞&nbsp;';
+		                str += '<span class="amount"></span></a></div> ';
+		                str += '<dl class="user-comment">'; 
+		                str += '<dt class="user-comment-content J_commentContent">'; 
+		                str += '<p class="content-detail">'; 
+		                str += '<a href="javascript:;">'+data[i]['evaluate']+'</a></p>';
+		                str += '<div class="content-img format-1">';  
+		                str += '<div style="width:600px" class="img-0 img-block J_canZoomImg showimg">';
+		                for ( var j = 0; j < data[i]['pic'].length; j++ ) {
+
+			                str += '<img class="commentImg" src="__PUBLIC__/imgs/'+data[i]['basename']+'/'+{$goods[id]}+'-'+data[i]['pic'][j]+'" style="width: 180px; margin-top: -26.6667px; float:left">'; 
+		                }
+		                str += '<div class="loader loader-gray"></div></div></div></dt>';   
+		                // str += '<dd class="user-comment-self-input">';
+		                // str += '<div class="input-block">'; 
+		                // str += '<input type="text" placeholder="回复楼主" class="J_commentAnswerInput">'; 
+		                // str += '<a href="javascript:void(0);" class="btn  answer-btn J_commentAnswerBtn"></a></div></dd>'; 
+		                // str += '<dd class="user-comment-answer">'; 
+		                // str += '<img class="self-image" src="__PUBLIC__/imgs/{$goods[id]}/{$goods[basename]}-{$goods[pic][0]}">';
+		                // str += '<p>回复信息<br />';
+		                // str += '<span class="official-name">官方回复 </span>'; 
+		                // str += '</p>';
+		                // str += '</dd>';
+		                str += '</dl></li></ul></div></div></div></div></div></div>';
+					}
+				} else {
+					$('#thesun p').remove();
+					var str = '';
+					str += '<p style="font-size:35px;text-align:center;color:red">还没有评论，赶紧下单评论哦！！！</p>';
+				}
+				$('#thesun').append(str);
+				$('#thesun').show();
+				$("div[name='vnames']").hide();
+				$("#speca").hide();
+				$("#ask").hide();
+
+			},
+			'json'
+		);
+	});
+	$('.ask').click( function(){
+		var that = $(this);
+		$.get(
+			'{:U("Detail/ajaxAsk")}',
+			{
+				gid:$('#gids').attr('value'),
+			},
+			function( data ) {
+				$('#ask div').remove();
+				var str = '';
+				str += '<div  style="background:#f5f5f5;">';
+				str += '<p style="font-size:35px;text-align:center;color:#ccc">商品提问</p>';
+				str += '<div style="width:50%; margin:0 auto;overflow:hidden;margin-bottom:20px">';
+				str += '<input id="input" style="width:60%;float:left; height:40px;" type="text">';
+				str += '<a  style=" float:left;  display:block;height:40px; width:18%;margin-left:10px; text-align:center;line-height:40px;background:darkorange;color:#fff" onclick="asks()" href="javascript:;">搜索</a>';
+				str += '<a  style=" float:left;  display:block;height:40px; width:18%;margin-left:10px; text-align:center;line-height:40px;background:#337AB7;color:#fff" onclick="tw()" href="javascript:;">提问</a>';
+				str += '</div>';
+				str += '<div style="width:80%;margin:0 auto; background:#fff">';
+				str += '<div class="con"><div>';
+				for ( var i = 0; i < data.length; i++ ) {
+				str += '<div style="width:48%;height:180px;float:left;margin-left:12px;margin-top:10px;  border:0px solid red">';
+
+				str += '<span  style="font-size:20px;margin:10px; color:red">'+data[i]['content']+'</span>';
+				str += '<span class="time" style="font-size:15px;margin:10px; color:#ccc">'+data[i]['time']+'</span>';
+
+				str += '<p class="reply" style="font-size:15px;margin:10px; color:#ccc">'+data[i]['reply']+'</p>';
+				str += '</div>';
+				}
+				str += '</div></div></div></div>';
+	   			$('#ask').append(str);
+	   			$('#ask').show();
+				$('#thesun').hide();
+				$("div[name='vnames']").hide();
+				$("#speca").hide();
+			},
+				'json'
+			);
+	});
+	// 搜索
+	function asks(){
+		$.get(
+			'{:U("Detail/ajaxAsks")}',
+			{
+				gid:$('#gids').attr('value'),
+				input:$('#input').val(),
+			},
+			function( data ) {
+				// console.log(data.length);	
+					$('.con div').remove();
+					var str = '';
+					str += '<div>';
+
+				for( var i = 0; i < data.length; i++ ) {
+					str += '<div style="width:48%;height:180px;float:left;margin-left:12px;margin-top:10px;  border:0px solid red">';
+					str += '<span  style="font-size:20px;margin:10px; color:red">'+data[i]['content']+'</span>';
+					str += '<span class="time" style="font-size:15px;margin:10px; color:#ccc">'+data[i]['time']+'</span>';
+
+					str += '<p class="reply" style="font-size:15px;margin:10px; color:#ccc">'+data[i]['reply']+'</p>';
+					str += '</div>';
+				}
+					str += '</div>';
+					$('.con').append(str);
+			},
+			'json'
+		);
+	};
+	function tw(){
+		var str = '';
+		str += '<div style="background:#f5f5f5;">';
+		str += '<p style="font-size:35px;text-align:center;color:#ccc">商品提问</p>';
+		str += '<div style="width:80%;height:400px;margin:0 auto; background:#fff">';
+		str += '<div style="width:60%;height:40px;border:0px solid red;margin:0 auto ">';
+		str += '<span style="font-size:25px;">用户名:</span>';
+		str += '<span style="font-size:20px;color:red">{$userInfo["name"]}</span>';
+		str += '<span style="font-size:20px;margin-left:20px">提问商品:</span>';
+		str += '<span style="font-size:20px;margin-left:20px;color:red">{$goods[name]}</span></div><center>';
+		str += '<div style="width:60%;margin:0 auto;margin-top:20px">';
+		str += '<textarea  name="text" id="text" cols="90" rows="10"></textarea></div>';
+		str += '<a  style=" float:left;  display:block;height:40px; width:18%;margin-left:10px; text-align:center;line-height:40px;margin-left:40%;margin-top:20px; background:darkorange;color:#fff" onclick="tws()" href="javascript:;">提问</a></center></div></div>';
+		$('#ask div').remove();
+		$('#ask').append(str);
+	};
+	function tws(){
+		var name = '{$userInfo["name"]}';
+		if( !name ) {
+			alert('没有登录！');
+		}
+		$.post(
+			'{:U("Detail/tws")}',
+			{
+				gid:$('#gids').attr('value'),
+				text:$('#text').val(),
+				uid:28,
+			},
+			function ( data ) {
+				$('#ask div').remove();
+					var str = '';
+				if ( data == 0) {
+					str += '<div>';
+					str += '<p style="font-size:35px;text-align:center;color:red">提问失败</p>';	
+					str += '</div>';
+					$('#ask').append(str);
+				} else {
+					$('#ask div').remove();
+					str += '<div>';
+					str += '<p style="font-size:35px;text-align:center;color:#008AD4">提问成功</p>';	
+					str += '</div>';
+					$('#ask').append(str);
+				}
+			}
+		)
+	}
+$('.colorli label:first()').css('border', '1px solid red');
+$('.colorlis label:first()').css('border', '1px solid red');
+</script>

@@ -1,0 +1,95 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/object/css/heart-myorder.css">
+
+<div class="horder">
+    <span>我的订单</span>
+    <span>请谨防钓鱼链接或诈骗电话，<a href="#">了解更多 > </a><span>
+</div>
+
+<div class="horderfix">
+    <div class="horderfixp">
+        <a href="#">全部有效订单</a>
+        <span>|</span>
+        <a href="#">待支付</a>
+        <span>|</span>
+        <a href="#">待收货</a>
+        <span>|</span>
+        <a href="#">已关闭</a>
+    </div>
+    <div class="horderfix-search right">
+        <form class="right" action="#">
+            <input type="text right" name="osearch" placeholder="订单号">
+            <button class="horderfix-search-button right"><p class="fa fa-search"></p></button>
+        </form>  
+    </div>
+    <div style="clear:both"></div>
+</div>
+<foreach name="list[1]" item="v">
+<if condition="count($list[0]) neq 0">
+<div class="hordermain">
+    <div class="homainst">
+        <div>
+            <span>等待付款</span>
+        </div>
+    </div>
+    <div class="homainmsg">
+        <div>
+            <span>{$v.time} |{$v.name}| 订单号：{$v.id}</span>
+        </div>
+        <div>
+            <span>订单金额：<b>{$v.total}</b>元</span>
+        </div>
+    </div>
+    <div class="homlist">
+        <div class="homlistleft">
+            <foreach name="list[0]" item="vo">
+                <div class="homlleftl">
+                    <div class="homllimg">
+                        <a href="#"><img src="__PUBLIC__/imgs/{$vo.gid}/{$vo.cover}" width="80"></a>
+                    </div>
+                    <div class="homllmsg">
+                        <a href="#">{$vo.gname} {$vo.vname} {$vo.colorname}</a><br>
+                        <a href="#">{$vo.price}元×{$vo.num}</a>
+                    </div>
+                </div>
+            </foreach>   
+        </div>
+        <div class="homlistright">
+        <if condition="$list[1][0]['ostatus'] eq 1">
+            <a href="action.php?a=opay&oid=<?=$row['id']?>">立即支付</a>
+        </if>
+        <if condition="$list[1][0]['ostatus'] eq 2">
+            <a href="action.php?a=opay&oid=<?=$row['id']?>">等待发货</a>
+        </if>
+        <if condition="$list[1][0]['ostatus'] eq 3">
+            <a href="action.php?a=opay&oid=<?=$row['id']?>">确认收货</a>
+        </if>
+        <if condition="$list[1][0]['ostatus'] eq 4">
+            <a href="action.php?a=opay&oid=<?=$row['id']?>">已完成</a>
+        </if>
+        <if condition="$list[1][0]['ostatus'] eq 5">
+            <a href="action.php?a=opay&oid=<?=$row['id']?>">已取消</a>
+        </if>
+            <a href="heart.php?x=4&oid=<?=$row['id']?>">订单详情</a>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+</div>
+<else />
+<div class="hordermain">
+    <h1 style="text-align:center;line-height:70px;color:orange;">没有相关订单</h1>
+</div>
+</if>
+</foreach>
+<div class="homlistrightbran">
+    
+     <span style="float:right">
+    <a href="heart.php?x=1&p=1<?=$osearch?>">首页</a> |
+    <a href="heart.php?x=1&p=<?=($p-1).$osearch?>">上一页</a> |
+    <a href="heart.php?x=1&p=<?=($p+1).$osearch?>">下一页</a> |
+    <a href="heart.php?x=1&p=<?=$totalPage.$osearch?>">尾页</a>
+    </span>
+</div>
+<div id="page" class="manu">
+    {$show}
+</div>
+

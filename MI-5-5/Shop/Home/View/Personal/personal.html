@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+
+<!-- 加载尾部文件 -->
+<include file="Common/head" />
+
+<!-- <link rel="stylesheet" href="__PUBLIC__/Common/personal/base.min.css"> -->
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/personal/main.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/list.css">
+ --><style type="text/css">
+.cursor{
+    cursor:pointer;
+}
+.container {
+    width: 1226px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.row {
+    margin-left: -14px;
+
+}
+.span4 {
+    width: 234px;
+    float: left;
+    margin-left: 14px;
+    min-height: 1px;
+}
+.uc-nav-box {
+    margin-bottom: 12px;
+}
+.uc-nav-box .box-hd {
+    height: 52px;
+}
+.uc-nav-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.uc-sub-box {
+    padding: 36px 0;
+    width: 234px;
+    float: left;
+
+}
+.uc-main-box {
+    padding: 36px 0;
+    width:978px;
+    height:100%;
+    float: right;
+}
+
+.title{
+    width:138px;
+    height:52px;
+}
+.uc-box {
+    background: #fff;
+}
+.page-main {
+    background: #f5f5f5;
+}
+.user-main{
+    width: 1349px;
+    height: 600px;
+}
+.container {
+    width: 1226px;
+    height:61px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.breadcrumbs {
+    height: 40px;
+    font-size: 12px;
+    line-height: 40px;
+    background: #f5f5f5;
+    color: #616161;
+}
+.uc-nav-list a{
+    color: #757575;
+    height: 16px;
+}
+</style>
+
+<div class="breadcrumbs">
+    <div class="container page-main">
+        <a >首页</a><span>&gt;</span><span>个人中心</span>
+    </div>
+</div>
+
+<div style="overflow:hidden;width:100%;margin-bottom:20px;background:#f5f5f5" class="page-main user-main">
+    <div style="width:1266px;overflow:hidden;margin:0 auto;height:auto;background:#f5f5f5" class="container">
+        <div style="width:100%;" class="row">
+            <div style="float:left;" class="span4">
+                <div class="uc-box uc-sub-box">
+                    <div class="uc-nav-box">
+                        <div class="box-hd">
+                            <h3 class="title">订单中心</h3>
+                        </div>
+                        <div class="box-bd">
+                            <ul class="uc-nav-list">
+                                <li><a data-value="order" class="cursor">我的订单</a></li>
+                                <li><a data-value="appraise" class="cursor">评价晒单</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="uc-nav-box">
+                        <div class="box-hd">
+                            <h3 class="title">个人中心</h3>
+                        </div>
+                        <div class="box-bd">
+                            <ul class="uc-nav-list">
+                                <li><a data-value="userinfo" class="cursor">我的个人中心</a></li>
+                               <!--  <li><a data-value="reviews" class="cursor">消息通知</a></li>
+                                <li><a data-value="commodity" class="cursor">喜欢的商品</a></li> -->
+                                <li><a data-value="address" class="cursor">收货地址</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="uc-nav-box">
+                        <div class="box-hd">
+                            <h3 class="title">账户管理</h3>
+                        </div>
+                        <div class="box-bd">
+                            <ul class="uc-nav-list">
+                                <li><a data-value="edituserinfo" class="cursor">个人信息</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-top:0;height:auto" class="uc-box uc-main-box" style="float:right;">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div style="clear:both"></div>
+    <include file="Common/footer" />
+
+<script type="text/javascript">
+    $.get(
+        '{:U('Personal/index',array('cateId'=>$where))}',
+
+        {},
+
+        function(data){
+            
+            console.log(data);
+
+            //把整个模板内容返回到指定的div中
+            $('.uc-main-box').html(data);
+    },
+    'json'
+    );
+$('.row a').click(function () {
+
+    var that = $(this);
+
+    var cateId = $(this).attr('data-value');
+    // console.log($(this).attr('data-value'));
+
+    $.get(
+        '{:U('Personal/index')}',
+
+        {cateId: cateId},
+
+        function(data){
+            
+            console.log(data);
+
+            //把整个模板内容返回到指定的div中
+            $('.uc-main-box').html(data);
+    },
+    'json'
+    );    
+});
+</script>

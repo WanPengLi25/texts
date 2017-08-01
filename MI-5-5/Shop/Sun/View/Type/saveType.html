@@ -1,0 +1,17 @@
+﻿<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" />{$title}
+	</div>
+	<div class="rightmain">
+		<div class="ind_main center-block">
+			<h2 class="text-center">编辑分类</h2>
+			
+			<form action="{:U('Type/saveType')}" method="post">
+				<input type="hidden" name="id" value="{$id}">
+				<span class="lead">分类名:</span>
+				<input value="{$list}" type="text" name="typename" />
+				<button class="btn btn-success btn-primary btn-sm">编辑分类</button>
+			</form>
+		</div>
+	</div>
+</div>

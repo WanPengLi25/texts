@@ -1,0 +1,188 @@
+<br/>
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" /> 站点管理 &gt; <span>广告列表</span>
+	</div>
+	<div class="rightmain">
+	<!-- 加载css样式 -->
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/bootstrap/css">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Sun/css/chenxustyle.css">
+		<!-- 加载dropzone默认样式 -->
+		<link rel="stylesheet" href="__PUBLIC__/Common/dropzone/css/dropzone.css" />
+
+	<!-- 加载js样式 -->
+		<script type="text/javascript" src="__PUBLIC__/Common/jquery.js"></script>
+		<!-- 加载dropzone的js -->
+		<script src="__PUBLIC__/Common/dropzone/js/dropzone.js"></script>
+	
+		<center>
+			<h2>广告列表</h2>
+
+			<div class="Boa_addboard">
+				<div class="Boa_leftbox">
+					<!--搜索部分开始-->
+					<form action="{:U('Board/boardList')}" method="post">
+						<div>
+							<div class="col-xs-4">
+		    					<input type="text" class="form-control" placeholder="请输入序号" name="id" />
+		  					</div>
+		  					<div class="col-xs-4">
+		    					<input type="text" class="form-control" placeholder="请输入站点名称" name="keyword" />
+		  					</div>
+		  					<div class="Boa_searchbox col-xs-1">
+								<button class="btn btn-info btn-search">查找</button> 
+		  					</div>  
+						</div>
+					</form>
+					<!--搜索部分结束-->
+				</div>
+				<div class="Boa_rigthbox">
+					<a href="{:U('Board/addboard')}" class="btn btn-info">添加广告</a>
+				</div>	
+			</div>
+			<br/>
+			<table class="table table-hover" >
+				<tr>
+					<th class="text-center">序号</th>
+					<th class="text-center">站点名称</th>
+					<th class="text-center">站点类型</th>
+					<th class="text-center">图片</th>
+					<th class="text-center">图片链接</th>
+					<th class="text-center">状态</th>
+					<th class="text-center">操作</th>
+				</tr>
+				<foreach name="boardlist" item="vo">
+					<tr class="text-center">
+						<td style="vertical-align: middle">{$vo.id}</td>
+						<td style="vertical-align: middle">{$vo.name}</td>
+						<if condition='$vo.type eq 0'>
+							<td class="type" style="vertical-align: middle">logo</td>
+						<elseif condition='$vo.type eq 1' />
+							<td class="type" style="vertical-align: middle">固定广告</td>
+						<elseif condition='$vo.type eq 2' />
+							<td class="type" style="vertical-align: middle">智能硬件广告</td>
+						<elseif condition='$vo.type eq 3' />
+							<td class="type" style="vertical-align: middle">搭配</td>
+						<elseif condition='$vo.type eq 4' />
+							<td class="type" style="vertical-align: middle">配件</td>
+						<elseif condition='$vo.type eq 5' />
+							<td class="type" style="vertical-align: middle">周边</td>
+						</if>
+
+						<td style="vertical-align: middle">
+							<!-- for循环 -->
+							<for start="0" end='count($vo[url])'>
+								<!-- <img alt='345' height='80' width='80' src='__PUBLIC__/{$vo[url][$i]}' /> -->
+								<img alt='345' height='80' width='80' src='__PUBLIC__/{$vo[url][$i]}' />
+							</for>
+						</td>
+
+						<td style="vertical-align: middle">{$vo.link}</td>
+
+						<if condition='$vo.status eq 0'>
+							<td style="vertical-align: middle" class="status Boa_cursor" data-status="{$vo.status}">
+							<font class="text-danger">禁用</font>	
+							</td>
+						<else />
+							<td style="vertical-align: middle" class="status Boa_cursor" data-status="{$vo.status}">
+							<font class="text-success">启用</font>	
+							</td>
+						</if>
+						
+						<td style="vertical-align: middle">
+							<a class="btn btn-primary btn-info" href="{:U('Board/updataBoard', 'id='.$vo['id'])}">编辑</a>
+							<a href="javascript:;" data-id="{$vo.id}" class="del btn btn-danger">删除</a>
+						</td>
+					</tr>
+
+				</foreach>
+			</table>
+			<div id="page" class="manu">
+				{$show}
+			</div>
+		</center>
+		
+		<!-- 写js -->
+		<script>
+		
+			//给删除按钮添加点击事件
+			$('table .del').click(function (){
+
+				// alert(1);
+				var that = $(this);
+
+				$.get(
+					'{:U("Board/ajaxDeleteBoard")}',//URL
+
+					{id: that.attr('data-id')},//发送数据
+
+					function (data) {
+
+						// console.log(data);
+						
+						if (data==1) {
+
+							//点击删除a标签所在的那一行
+							that.parent().parent().remove();
+						} else {
+
+							alert('删除失败');
+						}
+
+					},
+					'json'
+
+				);
+			});
+
+			//给状态绑定点击事件
+			//获取table下所有tr
+			var objs = $('table').find('tr');
+			for(i = 1 ; i<objs.length; i++) {
+
+				//给状态绑定事件
+				$(objs[i]).children('td').eq(5).on('click', function () {
+					// alert(1);
+					//把$this存起来
+					var that = $(this);
+
+					//ajax请求
+					$.get(
+						'{:U("Board/changeStat")}',//URL
+						{
+							'id':that.prevAll().eq(4).html(),
+							'status':that.attr('data-status'),
+						},
+						function (data) {
+
+							if(data['stat'] > 0) {
+
+								console.log(data);
+								that.html(data['info']);
+								that.attr('data-status', data['res']);
+							}
+						},
+						'json'
+					);
+				});
+			}
+
+			//给编辑按钮按钮绑定事件
+			// $(".mybtn").click(function(){
+
+			// 	var that = $(this);
+			// 	// alert(1);
+
+			// 	//点击的时候找到id
+			// 	var id = that.attr('data-id');
+			// 	// console.log(id);
+ 				
+			// 	//给隐藏域里面的
+			// 	$('#id').val(id);
+			// 	$('#form').attr("action","{:U('Board/updataBoard')}");
+
+			// }); 
+		</script>
+
+	</div>
+</div>

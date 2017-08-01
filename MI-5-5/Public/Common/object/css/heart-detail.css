@@ -1,0 +1,188 @@
+/*订单详情*/
+.hdetail{
+    width:900px;
+    font-family:'宋体';
+    padding:34px 34px 0 34px;
+    overflow:hidden;
+    margin:0 auto;
+}
+/*标题*/
+.hdp{
+    line-height:30px;
+    font-size:30px;
+    color:#757575;
+    margin-bottom:20px;
+}
+/*订单地址*/
+.hdaddress{
+    width:900px;
+    overflow:hidden;
+}
+/*标题*/
+.hdatitle{
+    font-size:20px;
+    color:#757575;
+}
+/*具体*/
+.hdad1{
+    width:900px;
+    height:30px;
+    border-bottom:1px solid #b0b0b0;
+    line-height:30px;
+    padding-left:20px;
+    font-size:12px;
+}
+.hdad1t{
+    width:90px;
+    height:30px;
+    font-size:14px;
+    color:#454545;
+    float:left;
+    text-align:right;
+}
+.hdad1p{
+    width:790px;
+    height:30px;
+    color:#757575;
+    float:right;
+}
+/*商品*/
+.hdgoods{
+    width:900px;
+    overflow:hidden;
+    margin-top:10px;
+}
+/*商品标题*/
+.hdgtitle{
+    font-size:20px;
+    color:#757575;
+}
+/*列表*/
+.hdglist{
+    width:900px;
+    height:50px;
+    border-bottom:1px solid #b0b0b0;
+    padding:5px 0;
+    margin:0 auto;
+}
+.hdglistmain{
+    width:900px;
+    height:30px;
+    padding:10px 0;
+}
+.hdglm-img{
+    width:30px;
+    height:30px;
+    float:left;
+}
+.hdglm-name{
+    width:500px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    padding-left:10px;
+    float:left;
+}
+.hdglm-price{
+    width:110px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    color:#424242;
+    text-align:center;
+    float:left;
+}
+.hdglm-num{
+    width:80px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    color:#424242;
+    text-align:center;
+    float:left;
+}
+.hdglm-total{
+    width:150px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    color:darkorange;
+    text-align:center;
+    float:left;
+}
+/*总结*/
+.hdgcount{
+    width:900px;
+    height:105px;
+    padding:20px 0;
+    /*margin-left:-20px;*/
+}
+.hdgcount ul{
+    width:300px;
+    height:103px;
+    float:right;
+}
+.hdgcount ul li{
+    width:280px;
+    font-size:14px;
+    text-align:right;
+    line-height:28px;
+    color:orange;
+    padding-left:10px;
+    position:relative;
+}
+.hdgcountspan1{
+    width:90px;
+    height:28px;
+    display:block;
+    text-align:right;
+    font-size:14px;
+    color:#757575;
+    line-height:28px;
+    position:absolute;
+    left:0;
+}
+.hdgcountspan2{
+    width:90px;
+    height:28px;
+    display:block;
+    text-align:right;
+    font-size:14px;
+    color:#757575;
+    line-height:28px;
+    position:absolute;
+    padding-top:10px;
+    left:0;
+}
+.hdgcountspan3{
+    color:darkorange;
+    line-height:35px;
+    font-size:35px;
+}
+/*结算按钮*/
+.hdgbutton{
+    width:350px;
+    height:40px;
+    margin:0 auto;
+    padding:20px 0;
+}
+.hdgbutton a:first-child{
+    width:150px;
+    height:40px;
+    background:darkorange;
+    color:white;
+    text-align:center;
+    line-height:40px;
+    font-size:24px;
+    display:block;
+}
+.hdgbutton a:last-child{
+    width:150px;
+    height:40px;
+    background:#757575;
+    color:white;
+    text-align:center;
+    line-height:40px;
+    font-size:24px;
+    display:block;
+}

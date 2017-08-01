@@ -1,0 +1,32 @@
+﻿<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" />{$title}
+	</div>
+	<div class="rightmain">
+		<div class="ind_main center-block">
+			<table class="table table-striped">
+				<h2 class="text-center">服务器信息</h2>
+				<tr>
+					<th>系统环境</th>
+					<td>{$serverInfo['server_version']}</td>
+				</tr>
+				<tr>
+					<th>服务器时间</th>
+					<td>{$serverInfo['server_time']}</td>
+				</tr>
+				<tr>
+					<th>浏览器类型</th>
+					<td>{$serverInfo['browser_type']}</td>
+				</tr>
+				<tr>
+					<th>文件上传限制</th>
+					<td>{$serverInfo['max_upload']}</td>
+				</tr>
+				<tr>
+					<th>脚本执行时限</th>
+					<td>{$serverInfo['max_ex_time']}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

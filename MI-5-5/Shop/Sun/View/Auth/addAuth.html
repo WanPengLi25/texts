@@ -1,0 +1,78 @@
+<br/>
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" /> 权限管理 &gt; <span>添加权限</span>
+	</div>
+	<div class="rightmain">
+		<div class="Aut_addmain">
+			<h2 class="text-center">添加权限</h2>
+			<form class="Aut_addform" method="post">
+			  	<div class="form-group">
+			    	<label for="name"><h4>认证规则</h4></label>
+			    	<input type="text" class="form-control" id="name" placeholder="模块/控制器/方法名" name="name">
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="title"><h4>权限名</h4></label>
+			    	<input type="text" class="form-control" id="title" placeholder="权限名" name="title">
+			  	</div>
+			  	<div class="form-group">
+				  	<h4>状态</h4>
+				  	<select style="margin-top:10px" class="form-control" name="status">
+					  	<option value="1">启用</option>
+					  	<option value="0">禁用</option>
+					</select>
+				</div>
+			  <button type="submit" class="btn btn-info btn-block btn-lg" disabled>添加</button>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+	var stat = 0;
+	$('input[name=name]').on('focusout', function () {
+		$(this).next('p').remove();
+		check( $(this), $(this).val(), /^[a-zA-Z]+\/[a-zA-Z]+\/[a-zA-Z]+$/, ['合法规则名', '非法规则名'] );
+	}).on('focus', function () {
+		$(this).next('p').remove();
+		var info = '<p style="margin-top:10px;" class="text-info">规则名：模块/控制器/方法</p>';
+		$(this).after(info);
+	});
+
+	$('input[name=title]').on('focusout', function () {
+		$(this).next('p').remove();
+		check( $(this), $(this).val(), /[\u4e00-\u9fa5]{1,10}/, ['合法权限名', '非法权限名'] );
+	}).on('focus', function () {
+		$(this).next('p').remove();
+		var info = '<p style="margin-top:10px;" class="text-info">权限名：中文，1-10位</p>';
+		$(this).after(info);
+	});
+
+	function check (obj, val, pat, info) {
+		if(val.match(pat)) {
+			stat1(0);
+			var info = '<p style="margin-top:10px;" class="text-success">'+info[0]+'</p>';
+			obj.after(info);
+		} else {
+			stat1(1);
+			var info = '<p style="margin-top:10px;" class="text-danger">'+info[1]+'</p>';
+			obj.after(info);
+		}
+	}
+
+	function stat1 (x) {
+		if(x == 0) {
+			stat += 1;
+		} else if(x == 1) {
+			stat -= 1;
+		}
+		if(stat<0) stat = 0;
+		if(stat>2) stat = 2;
+
+		if(stat == 2) {
+			$('button').prop({disabled:false});
+		} else {
+			$('button').prop({disabled:true});
+		}
+
+	}
+</script>

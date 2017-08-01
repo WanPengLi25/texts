@@ -1,0 +1,75 @@
+﻿<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" />{$title}
+	</div>
+	<div class="rightmain">
+		<div class="ind_main center-block">
+			<h2 class="text-center">添加分类组</h2>
+			
+			<form class="form-inline" action="{:U('TypeGroup/addTypeGroup')}" method="post">
+				<div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label">分类组名：</label>
+				    <div class="col-sm-10">
+				      <input type="typename" class="form-control" name="typename">
+				    </div>
+				</div><br>
+				<div class="form-group">
+		    		<label for="exampleInputName2">显示模式:</label>
+		    		<select type="text" class="form-control" id="exampleInputName2" name="vs">
+		    			<option value="0" selected="true">1</option>
+		    			<option value="1" selected="true">2</option>
+		    			<option value="2" selected="true">3</option>
+		    		</select>
+		  		</div>
+		  		<br>
+		  		<div class="form-group">
+		    		<label for="exampleInputName2">分类:</label>
+		    		<select type="text" class="form-control" id="exampleInputName2" name="type[]">
+		    			<option value="0" selected="true" disabled="disabled">--选择分类--</option>
+						<foreach name="TypeGroup" item="vo">
+		    				<option value="{$vo.id}">{$vo.typename}</option>
+		    			</foreach>
+		    		</select>
+		  		</div>
+	  			<a style="margin-left:20px;margin-right:20px" class="cs fa fa-plus" href="javascript:;"></a>
+			  	<br>
+			  	<button type="submit" class="btn btn-default">添加分类组</button>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+
+	$('select[name!=vs]').focusout(function () {
+
+		$(this).parent().nextAll('div').remove()
+
+	});
+
+	$('.cs').click( function () {
+		var that = $(this);
+		i1='';
+		$('select[name!=vs]').each(function () {
+			i1 += $(this).val()+',';
+			});
+		// alert(i1);
+		$.get(
+			'{:U("TypeGroup/ajaxAddTypeGroup")}',
+			{
+				id:i1,
+			},function ( data ) {
+				if ( data.length ) {
+
+					var str;
+					for ( var k in data ) {
+						str += '<option value="'+data[k]['id']+'">'+data[k]['typename']+'</option>';
+					};
+					that.before('<div class="form-group"><label for="exampleInputName2"></label><select type="text" class="form-control" id="exampleInputName2" name="type[]"><option value="0" selected="true" disabled="disabled">--选择分类--</option>'+str+'</select></div>');
+				} else {
+					alert('添加失败');
+				}
+			},'json'
+		);
+
+	});
+</script>

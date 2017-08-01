@@ -1,0 +1,454 @@
+header{
+    width:100%;
+    height:100px;
+    border-bottom:2px solid darkorange;
+}
+.hmain{
+    width:1226px;
+    height:74px;
+    position:relative;
+    display:line-block;
+    margin:0 auto;
+}
+/*头部logo*/
+.hmlogo{
+    width:93px;
+    height:48px;
+    float:left;
+    margin-top:26px;
+}
+/*头部标题*/
+.hmtitle{
+    width:500px;
+    height:48px;
+    font-family:'宋体';
+    vertical-align:bottom;
+    line-height:48px;
+    float:left;
+    margin-top:26px;
+}
+.hmtitle span{
+    font-size:30px;
+}
+/*我的订单*/
+.hmorder{
+    width:48px;
+    height:40px;
+    text-align:center;
+    font-size:12px;
+    line-height:40px;
+    padding:0 5px;
+    margin-top:34px;
+    float:right;
+}
+.hmorder a{
+    color:#999;
+}
+.hmorder a:hover{
+    color:orange;
+}
+/*个人中心*/
+.hmuser{
+    width:120px;
+    height:40px;
+    background:#fff;
+    text-align: center;
+    line-height:40px;
+    font-size: 13px;
+    margin:34px 6px 0;
+    position:relative;
+    float:right;
+    cursor:pointer;
+}
+.hmuser a{
+    color:#b0b0b0;
+}
+.hmuser span{
+    font-size:16px;
+    padding-left:5px;
+}
+.hmuser:hover{
+    background:white;
+    color:darkorange;
+}
+.hmuser:hover .a{
+    color:darkorange;
+}
+.hmuser:hover .hmuserul{
+    display:block;
+}
+.hmuserul{
+    width:120px;
+    /*height:40px;*/
+    background:white;
+    position:absolute;
+    display:none;
+    z-index:100;
+    top:40px;
+}
+.hmuserul ul li{
+    width:60px;
+    height:24px;
+    line-height:24px;
+    padding:3px 30px;
+}
+.hmuserul ul li a{
+    color:black;
+}
+.hmuserul ul li:hover a{
+    color:darkorange;
+}
+/*登录、注册*/
+.hmlogin{
+    background:white;
+    line-height:40px;
+    color:#999;
+    font-size:12px;
+    margin:34px 6px 0;
+}
+.hm-fg{
+    margin-top:12px;
+    color:#999;
+    margin-top:43px;
+}
+/*结算*/
+.order{
+    width:100%;
+    height:auto;
+    background:#f5f5f5;
+    padding:40px 0 60px;
+}
+/*主体*/
+.omain{
+    width:1226px;
+    height:auto;
+    background:white;
+    padding-top:48px;
+    margin:0 auto;
+}
+/*收货地址*/
+.omaddress{
+    width:1130px;
+    height:auto;
+    padding:0 48px;
+}
+/*地址标题*/
+.omatitle{
+    font-size:18px;
+    font-family:'宋体';
+    color:#555;
+}
+/*地址主体*/
+.omamain{
+    width:1148px;
+    overflow:hidden;
+    margin-left:-18px;
+}
+/*输出地址*/
+.omamnum{
+    width:268px;
+    height:178px;
+    border:1px solid #b0b0b0;
+    float:left;
+    margin-left:17px;
+    margin-bottom:24px;
+}
+.omamnum:hover{
+    border:1px solid #757575;
+}
+.omamnum dl{
+    padding:15px 24px 0;
+}
+.omamnum dl dt{
+    margin-bottom:10px;
+}
+.omamnum dl dt span:first-child{
+    line-height:32px;
+    font-size:14px;
+    color:#b0b0b0;
+    display:block;
+    float:right;
+}
+.omamnum dl dt span:last-child{
+    line-height:32px;
+    font-size:18px;
+}
+.omamnum dl dd:nth-child(2){
+    font-size:14px;
+    line-height:22px;
+    color:#757575;
+}
+.omamnum dl dd:nth-child(3){
+    height:44px;
+    font-size:12px;
+    line-height:22px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    word-wrap:break-word;
+    color:#757575;
+}
+.omamnum dl dd:nth-child(4){
+    font-size:14px;
+    line-height:22px;
+    color:#757575;
+}
+/*添加地址*/
+.omamnum2{
+    width:268px;
+    height:109px;
+    border:1px solid #b0b0b0;
+    float:left;
+    text-align:center;
+    color:#d0d0d0;
+    margin-left:17px;
+    margin-bottom:24px;
+    padding-top:69px;
+}
+.omamnum2:hover{
+    border:1px solid #757575;
+    color:#757575;
+}
+.omamnum2:hover span i{
+    color:#757575;
+}
+.omamnum2 span i{
+    font-size:40px;
+    color:#e0e0e0;
+    cursor:pointer;
+}
+/*添加地址*/
+.haform1{
+    width:100%;
+    height:100%;
+    background:rgba(128,128,128,0.5);
+    position:fixed;
+    top:0;
+    left:0;
+    display:none;
+}
+.haform1 form{
+    width:334px;
+    height:360px;
+    border:1px solid orange;
+    background:white;
+    padding:40px 15px 30px 15px;
+    margin:50px auto;
+}
+.haform1finp{
+    width:300px;
+    height:40px;
+    border:1px solid #e0e0e0;
+    padding:0 17px;
+    display:block;
+    margin:0 auto 10px;
+}
+.haform1ftex{
+    width:300px;
+    height:60px;
+    border:1px solid #e0e0e0;
+    font-size:14px;
+    font-family:'宋体';
+    padding:5px 17px 0;
+    display:block;
+    margin:0 auto 10px;
+}
+.haform1frad{
+    margin:5px 5px 0 17px;
+}
+.haf1sub{
+    width:300px;
+    height:40px;
+    margin:20px auto 0;
+}
+#haf1subinp{
+    width:140px;
+    height:40px;
+    background:darkorange;
+    border:0;
+    text-align:center;
+    font-size:12px;
+    color:white;
+    cursor:pointer;
+    float:left;
+    display:block;
+}
+.haf1sub span{
+    width:140px;
+    height:40px;
+    background:#4c4c4c;
+    text-align:center;
+    font-size:12px;
+    line-height:40px;
+    color:white;
+    cursor:pointer;
+    display:block;
+    float:right;
+}
+/*支付.配送方式*/
+.ompay{
+    width:1130px;
+    height:40px;
+    border-bottom:1px solid #b0b0b0;
+    padding:25px 0;
+    margin:0 48px;
+}
+.ompayleft{
+    width:150px;
+    height:38px;
+    float:left;
+}
+.ompayleft h3{
+    line-height:38px;
+    font-family:'宋体';
+}
+.ompayright{
+    height:40px;
+    line-height:40px;
+    font-size:14px;
+    color:darkorange;
+    float:left;
+}
+/*商品上方*/
+.omgoodstitle{
+    width:1130px;
+    height:41px;
+    border-bottom:1px solid #b0b0b0;
+    margin:0 auto;
+}
+.omgoodstitleleft{
+    height:40px;
+    line-height:40px;
+    font-family:'宋体';
+    float:left;
+}
+.omgoodstitleright{
+    height:40px;
+    line-height:40px;
+    float:right;
+}
+.omgoodstitleright a{
+    font-size:14px;
+    color:#b0b0b0;
+}
+/*商品*/
+.omgoods{
+    width:1130px;
+    height:50px;
+    border-bottom:1px solid #b0b0b0;
+    padding:5px 0;
+    margin:0 auto;
+}
+.omgoodsmain{
+    width:1130px;
+    height:30px;
+    padding:10px 0;
+}
+.omgm-img{
+    width:30px;
+    height:30px;
+    float:left;
+}
+.omgm-name{
+    width:650px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    padding-left:10px;
+    float:left;
+}
+.omgm-price{
+    width:150px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    color:#424242;
+    text-align:center;
+    float:left;
+}
+.omgm-status{
+    width:100px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    color:#424242;
+    text-align:center;
+    float:left;
+}
+.omgm-total{
+    width:190px;
+    height:30px;
+    line-height:30px;
+    font-size:14px;
+    color:darkorange;
+    text-align:center;
+    float:left;
+}
+/*结算*/
+.omgcount{
+    width:1130px;
+    height:105px;
+    padding:20px 0;
+    margin:0 48px;
+}
+.omgcount ul{
+    width:300px;
+    height:103px;
+    float:right;
+}
+.omgcount ul li{
+    width:300px;
+    /*height:28px;*/
+    font-size:14px;
+    text-align:right;
+    line-height:28px;
+    color:orange;
+    padding-left:10px;
+    position:relative;
+}
+.omgcountspan1{
+    width:90px;
+    height:28px;
+    display:block;
+    text-align:right;
+    font-size:14px;
+    color:#757575;
+    line-height:28px;
+    position:absolute;
+    left:0;
+}
+.omgcountspan2{
+    width:90px;
+    height:28px;
+    display:block;
+    text-align:right;
+    font-size:14px;
+    color:#757575;
+    line-height:28px;
+    position:absolute;
+    padding-top:10px;
+    left:0;
+}
+.omgcountspan3{
+    color:darkorange;
+    line-height:35px;
+    font-size:35px;
+}
+/*结算按钮*/
+.omgbutton{
+    width:1130px;
+    height:40px;
+    margin:0 48px;
+    padding:20px 0;
+}
+.omgbutton input{
+    width:180px;
+    height:40px;
+    background:darkorange;
+    border:0;
+    color:white;
+    text-align:center;
+    line-height:40px;
+    font-size:20px;
+    /*display:block;*/
+    float:right;
+}

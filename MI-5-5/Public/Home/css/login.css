@@ -1,0 +1,119 @@
+header{
+    width:1146px;
+    height:98px;
+    margin:0 auto;
+}
+#loginbody{
+    width:1246px;
+    height:525px;
+    padding:33px 0;
+    margin:0 auto;
+    background:url('../img/login/banner1.jpg') round;
+}
+.loginform{
+    width:400px;
+    height:525px;
+    margin-right:60px;
+    background:#f3f3f3;
+}
+.LFheader{
+    width:100%;
+    height:75px;
+    text-align:center;
+    font-size:25px;
+    line-height:75px;
+    color: #454545;
+}
+.LFheader span{
+    color:#e0e0e0;
+    padding:0 30px;
+}
+#lfa1,#lfa2{
+    color: #858585;
+}
+#lfa1:hover,#lfa2:hover{
+    color: orange;
+}
+.LFmain{
+    text-align: center;
+}
+.LFmain input:nth-child(1){
+    width: 310px;
+    height: 22px;
+    padding: 13px 14px;
+    background: #f3f3f3;
+    border: 1px solid #d0d0d0;
+    margin: 10px auto 20px;
+    display: block;
+}
+.LFmain input:nth-child(2){
+    width: 310px;
+    height: 22px;
+    padding: 13px 14px;
+    background: #f3f3f3;
+    border: 1px solid #d0d0d0;
+    margin: 0 auto 20px;
+    display: block;
+}
+.LFmain input:nth-child(3){
+    width: 340px;
+    height: 50px;
+    background: darkorange;
+    font-size: 18px;
+    color: white;
+    border: 1px solid #e0e0e0;
+    margin: 0 auto;
+}
+.LFmainbottom{
+    width:100%;
+    text-align: center;
+    font-size: 14px;
+    color:#858585;
+    margin-top:20px;
+}
+.LFmainbottom span{
+    margin: 0 10px;
+}
+.LFmainbottom a{
+    color: #858585;
+}
+.LFmainbottom a:hover{
+    color:orange;
+}
+.LFbottom{
+    text-align: center;
+    margin-top:90px;
+}
+.LFbottom span{
+    font-size: 14px;
+    color:#b5b5b5;
+    line-height: 50px;
+}
+.LFbottom a{
+    padding: 0 15px;
+}
+footer{
+    width:1246px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 60px;
+
+}
+.Fp1{
+    color: #858585;
+    font-size: 12px;
+}
+.Fp1 span{
+    padding :0 8px;
+}
+.Fp1 a{
+    color: #858585;
+}
+.Fp1 a:hover{
+    color:#555555;
+}
+.Fp2{
+    color: #858585;
+    font-size:12px;
+    line-height: 60px;
+}

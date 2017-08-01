@@ -1,0 +1,134 @@
+<br/>
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" /> 订单管理 &gt; 查看订单 &gt; <!--<span>添加用户</span>-->
+	</div>
+	<div class="rightmain">
+		<h2 class="text-center">订单管理</h2>
+		<form style="width:40%;margin:0 auto" action="{:U('index')}" method="get">
+			<div class="col-xs-4">
+				<input class="form-control" value="{$id}" placeholder="请输入订单号" type="text" name="id">
+			</div>
+			<div class="col-xs-4">
+				<input class="form-control" value="{$name}" placeholder="请输入用户名" type="text" name="keyword">
+			</div>
+			<button class="btn btn-success">搜索</button>
+		</form>
+		<br />
+		<table class="table table-hover">
+			<tr>
+				<th>订单号</th>
+				<!-- <th>用户名</th> -->
+				<th>下单时间</th>
+				<th>收件人信息</th>
+				<th>订单总价</th>
+				<th>状态</th>
+				<th>操作</th>
+			</tr>
+		<foreach name="list" item="vo">	
+			<tr>
+				<td>{$vo.oid}</td>
+				<!-- <td>{$vo.name}</td> -->
+				<td>{$vo.time}</td>
+				<td>姓名:{$vo.oname}&nbsp;&nbsp;地址:{$vo.address}&nbsp;&nbsp;联系方式:{$vo.phone}</td>
+				<td>{$vo.total}</td>
+				<if condition='$vo.ostatus eq 1'>
+					<td class="text-primary">待付款</td>
+				<elseif condition='$vo.ostatus eq 2' />
+					<td class="text-danger">待发货</td>
+				<elseif condition='$vo.ostatus eq 3' />
+					<td class="text-info">待收货</td>
+				<elseif condition='$vo.ostatus eq 4' />
+					<td class="text-warning">已完成</td>
+				</if>
+				
+				<td style="width:300px">
+				<if condition="$vo.ostatus eq 2">
+					<a class="delivery" href="javascript:;" data-value='{$vo.oid}'>发货</a> 
+				</if>
+					<a class="orderon" href="javascript:;" data-value="{$vo.oid}" data-toggle="modal" data-target=".bs-example-modal-lg">订单详情</a>
+				</td>
+			</tr>
+		</foreach>
+		</table>
+		<div class="manu">
+			{$show}
+		</div>
+	</div>
+</div>
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <h2 class="text-center">订单详情</h2>
+		<table id="d1" class="table table-hover">
+			<tr>
+				<th>商品</th>
+				<th>商品名</th>
+				<th>商品编号</th>
+				<th>单价</th>
+				<th>购买数量</th>
+				<th>订单总价</th>
+				<!-- <th>商品属性</th> -->
+			</tr>	
+		</table>
+    </div>
+  </div>
+</div>
+
+	<script type="text/javascript" src="__PUBLIC__/Common/jquery.js"></script>
+	<script>
+			
+				//绑定点击事件
+				$('table .delivery').click(function(){
+					
+
+					var that = $(this);
+					//获取到点击到哪一行的id
+					var currenId = $(this).attr("data-value")
+					
+					//ajax的请求php
+					$.get("{:U('Order/delivery')}",{id:currenId},function(data){
+
+
+						//判断返回来的数据等于则成功 等于0则失败
+						if (data == 1){
+							that.parent().prev('td').removeClass().addClass('text-success').text('待收货');
+							that.remove();
+						} else if (data == 0) {
+
+							alert("暂时不能发货");	
+						}
+
+					},'json')		
+				});
+
+				$('table .orderon').click(function(){
+					// alert(1);
+					// console.log( $(this) );
+					//获取到点击到哪一行的id
+					var currenId = $(this).attr("data-value");
+
+					// console.log(currenId);
+
+					$.get(
+							"{:U('Orderdetail/Orderdetail')}",
+							{id:currenId},
+							function(data){
+								// console.log(data);
+								$('#d1').find('tr').eq(0).nextAll().remove();
+								var str = '';
+								for(var i = 0; i < data.length; i++) {
+
+									str += "<tr><td><img width='50px' src='./__PUBLIC__/imgs/"+data[i]['id']+'/'+data[i]['cover']+"'></td><td>"+data[i]['name']+" <span>"+data[i]['colorname']+"</span><span>"+data[i]['vname']+"</span></td><td>"+data[i]['goodsnumber']+"</td><td>"+data[i]['price']+"</td><td>"+data[i]['num']+"</td><td>"+data[i]['total']+"</td></tr>";
+
+								}
+								$('#d1').find('tr').eq(0).after(str);
+						
+							},
+							'json'
+					);
+
+				});
+			
+
+	</script>

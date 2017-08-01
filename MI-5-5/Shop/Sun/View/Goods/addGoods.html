@@ -1,0 +1,139 @@
+<br />
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" />{$title}
+	</div>
+	<center>
+	<div class="rightmain">
+		<div class="ind_main center-block">
+			<h2 class="text-center">添加商品</h2>
+			<form class="form-inline" enctype="multipart/form-data" action="{:U('Goods/addGoods')}" method="post">
+				<label>分类名</label>
+				<select name="type" class="form-control">
+				  	<option value="-1" selected="true" disabled="disabled">--分类选择--</option>
+				  	<foreach name="Type" item="vo">
+		    			<option value="{$vo.id}">{$vo.typename}</option>
+		    		</foreach>	
+				</select>
+				<label>品牌名</label>
+				<select name="version" class="form-control">
+				  	<option selected="true" disabled="disabled">--品牌选择--</option>
+				  	<foreach name="version" item="vo">
+		    			<option value="{$vo.id}">{$vo.brands}</option>
+		    		</foreach>	
+				</select><br><br>
+  				<div class="form-group">
+    				<label for="exampleInputName2">商品名：</label>
+   		 			<input type="text" name="goodname" class="form-control" id="exampleInputName2" placeholder="请输入商品的名称">
+  				</div><br><br>
+  				<div class="form-group">
+    				<label for="exampleInputEmail2">商品描述</label>
+    				<input type="text" name="gooddescribe" class="form-control" id="exampleInputEmail2" placeholder="请输入与商品有关的描述">
+  				</div><br><br>
+  				<!-- 版本的模态框 -->
+  				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edition">添加版本</button>
+				<div id="edition" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	  				<div class="editiondiv modal-dialog modal-lg" role="document">
+	    				<div class="modal-content">
+	    					<h2 class="text-center">版本图片颜色</h2>
+	    					<div class="div" style="width:600px;border-bottom:2px solid #000"><br>
+	    						<div>
+		      						<label for="exampleInputName2">版本名:</label>
+	   		 						<input data-i="0"   name="edi[0][bname]" type="text"  class="form-control" id="exampleInputName2" placeholder="请输入商品的版本">
+	   		 						<label  for="exampleInputName2">价格:</label>
+	   		 						<input type="text" name="edi[0][price]"  class="form-control" id="exampleInputName2" placeholder="请输入商品价格"><br><br>
+	   		 						<label  for="exampleInputName2">版本描述:</label>
+	   		 						<input name="edi[0][describe]" style="width:420px" type="text"  class="form-control" id="exampleInputName2" placeholder="请输入与版本相关的描述">
+	   		 					</div><br>
+	   		 					<a style="margin-bottom:20px" class="colour btn btn-default bg-warning glyphicon glyphicon-plus-sign">添加颜色</a><br>
+   		 						<div id="color" style="margin-top:10px;border-bottom:red solid 1px;width:400px" >
+	   		 						<span>颜色名:</span>
+	   		 						<input name="edi[0][shuxing][colour][]" style="width:70px" type="text"  class="form-control" id="exampleInputName2" placeholder="颜色">
+	   		 						<span>颜色:</span>
+	   		 						<input name="edi[0][shuxing][colournum][]" style="width:70px" type="color"  class="form-control" id="exampleInputName2" placeholder="颜色">
+	   		 						<span>库存:</span>
+	   		 						<input name="edi[0][shuxing][stock][]" style="width:70px" type="text"  class="form-control" id="exampleInputName2" placeholder="库存">
+	   		 						<br><br>
+	   		 						<b>封面</b>
+	   		 						<input type="file" id="pic"  name="edi[0][shuxing][0][pic]">
+	   		 						<br>
+	   		 						<b>颜色</b>
+	   		 						<input type="file" id="pic" multiple="multiple" name="edi[0][shuxing][0][]">
+   		 						</div>
+   		 						<div class="b">
+   		 						</div><br><br>
+							</div><br>
+							<div class="a"></div>
+							<a style="margin-bottom:20px" class="edition bg-danger btn btn-default glyphicon glyphicon-plus-sign">添加版本</a><br>
+							<button type="button" class="btn btn-default" data-dismiss="modal">保存</button>
+	    				</div>
+	  				</div>
+	  				<div>
+	  					
+	  				</div>
+				</div>
+				<!-- 参数表的模态框 -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#parameter">添加参数</button>
+				<div id="parameter" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	  				<div class="modal-dialog modal-lg" role="document">
+	    				<div class="modal-content">
+	      					<h2 class="text-center">参数</h2>
+	   		 					<a style="margin-bottom:20px" class="parameter bg-danger btn btn-default glyphicon glyphicon-plus-sign">添加参数</a><br>
+		   		 				<div >
+		      						<label for="exampleInputName2">参数名:</label>
+		   		 					<input name="parametername[]" type="text"  class="form-control" id="exampleInputName2" placeholder="请输入商品的参数名">
+		   		 					<label for="exampleInputName2">参数内容:</label>
+		   		 					<input name="parameter[]" type="text"  class="form-control" id="exampleInputName2" placeholder="请输入与参数名对应的参数"><br><br>
+		   		 				</div>
+		   		 				<div class="cs">
+		   		 					
+		   		 				</div>
+	   		 					<button type="button" class="btn btn-default" data-dismiss="modal">保存</button>
+	    				</div>
+	  				</div>
+				</div>
+				<!-- 详情表的模态框 -->
+				<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#details">添加详情</button>
+				<div id="details" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	  				<div class="modal-dialog modal-lg" role="document">
+	    				<div class="modal-content">
+	      					456
+	    				</div>
+	  				</div>
+				</div><br><br> --> 	<br>
+  				<button style="margin-top:30px " type="submit" class="btn btn-default">下一步</button>
+			</form>
+		</div>
+	</div>
+	</center>
+</div>
+<script>
+	// 添加颜色
+	var i = 0;
+	var j = 0;
+	$('.modal-content').on("click","a.colour",function(){
+		var that = $(this);
+		j += 1;
+		i = parseInt( $(this).parent().find('input[data-i]').attr('data-i') );
+		// console.log(that);
+		$('<div id="color" style="margin-top:10px;border-bottom:red solid 1px;width:400px"><span>颜色名:</span><input name="edi['+i+'][shuxing][colour][]" style="width:70px" type="text"  class="form-control" id="exampleInputName2" placeholder="颜色"><span>颜色:</span><input name="edi['+i+'][shuxing][colournum][]" style="width:70px" type="color"  class="form-control" id="exampleInputName2" placeholder="颜色"><span>库存:</span><input name="edi['+i+'][shuxing][stock][]" style="width:70px" type="text"  class="form-control" id="exampleInputName2" placeholder="库存"><br><br><b>封面</b><input type="file" id="pic"  name="edi['+i+'][shuxing]['+j+'][pic]"><br><b>颜色</b><input type="file" multiple="multiple" name="edi['+i+'][shuxing]['+j+'][]"><br/></div>').appendTo(that.nextAll().eq(2));
+	});
+	// 添加版本
+	$('.edition').bind("click",function(){
+		var that = $(this);
+		i += 1;
+		j = 0;
+		console.log(i);
+		
+			$('<div class="div" style="width:600px;border-bottom:2px solid #000"><br><div><label for="exampleInputName2">版本名:</label><input data-i="'+i+'" name="edi['+i+'][bname]" type="text"  class="form-control" id="exampleInputName2" placeholder="请输入商品的版本"><label  for="exampleInputName2">价格:</label><input type="text" name="edi['+i+'][price]"  class="form-control" id="exampleInputName2" placeholder="请输入商品价格"><br><br><label  for="exampleInputName2">版本描述:</label><input name="edi['+i+'][describe]" style="width:420px" type="text"  class="form-control" id="exampleInputName2" placeholder="请输入与版本相关的描述"></div><br><br><a style="margin-bottom:20px" class="colour btn btn-default bg-warning glyphicon glyphicon-plus-sign">添加颜色</a><br><div id="color" style="margin-top:10px;border-bottom:red solid 1px;width:400px"><span>颜色名:</span><input name="edi['+i+'][shuxing][colour][]" style="width:70px" type="text"  class="form-control" id="exampleInputName2" placeholder="颜色"><span>颜色:</span><input name="edi['+i+'][shuxing][colournum][]" style="width:70px" type="color"  class="form-control" id="exampleInputName2" placeholder="16进制"><span>库存:</span><input name="edi['+i+'][shuxing][stock][]" style="width:70px" type="text"  class="form-control" id="exampleInputName2" placeholder="库存"><br><br><b>封面</b><input type="file" id="pic" name="edi['+i+'][shuxing][0][pic]"><br><b>颜色</b><input type="file" multiple="multiple" name="edi['+i+'][shuxing][0][]"></div><div class="b"></div><br><br></div><br>').appendTo($('.a'));
+	});
+
+	// 添加参数
+	$('.parameter').bind("click",function(){
+		var that = $(this);
+		$('<div><label for="exampleInputName2">参数名:</label><input name="parametername[]" type="text"  class="form-control" id="exampleInputName2" placeholder="请输入商品的参数名"><label for="exampleInputName2">参数内容:</label><input name="parameter[]" type="text"  class="form-control" id="exampleInputName2" placeholder="请输入与参数名对应的参数"><br><br></div>').appendTo($('.cs'));
+		
+
+	});
+</script>
+

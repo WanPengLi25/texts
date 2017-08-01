@@ -1,0 +1,92 @@
+.regform{
+    width:750px;
+    height:450px;
+    background:white;
+    margin:25px auto 0;
+}
+.reFlogo{
+    text-align:center;
+}
+.reFtitle{
+    font-size:30px;
+    text-align:center;
+    padding-top:40px;
+}
+.reFmain{
+    text-align:center;
+}
+.reFmain form{
+    margin-top:30px;
+    position:relative;
+}
+.reFuser input{
+    width:340px;
+    height:42px;
+    border:1px solid #e0e0e0;
+    line-height:42px;
+    margin-top:20px;
+    padding-left:14px;
+}
+.reFpass input{
+    width:340px;
+    height:42px;
+    border:1px solid #e0e0e0;
+    line-height:42px;
+    margin-top:20px;
+    padding-left:14px;
+}
+.reFven{
+    width:354px;
+    /*height:42px;*/
+    margin:0 auto;
+}
+.reFven #pic{
+    width:180px;
+    height:42px;
+    border:1px solid #e0e0e0;
+    line-height:42px;
+    float:left;
+    padding-left:14px;
+    margin-top:20px;
+}
+.reFven div img{
+    width:140px;
+    height:42px;
+    /*border:1px solid #e0e0e0;*/
+    float:right;
+    margin-top:20px;
+}
+.reFven #submit{
+    width: 354px;
+    height: 50px;
+    background: darkorange;
+    font-size: 18px;
+    color: white;
+    border:0;
+    margin-top:20px;
+}
+#footer{
+    width:1000px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 40px;
+
+}
+.Fp1{
+    color: #858585;
+    font-size: 12px;
+}
+.Fp1 span{
+    padding :0 8px;
+}
+.Fp1 a{
+    color: #858585;
+}
+.Fp1 a:hover{
+    color:#555555;
+}
+.Fp2{
+    color: #858585;
+    font-size:12px;
+    line-height: 60px;
+}

@@ -1,0 +1,150 @@
+<br/>
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" /> 站点管理 &gt; <span>轮播图</span>
+	</div>
+	<div class="rightmain">
+	<!-- 加载css样式 -->
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Common/bootstrap/css">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Sun/css/chenxustyle.css">
+		<!-- 加载dropzone默认样式 -->
+		<link rel="stylesheet" href="__PUBLIC__/Common/dropzone/css/dropzone.css" />
+
+	<!-- 加载js样式 -->
+		<script type="text/javascript" src="__PUBLIC__/Common/jquery.js"></script>
+		<!-- 加载dropzone的js -->
+		<script src="__PUBLIC__/Common/dropzone/js/dropzone.js"></script>
+	
+		<center>
+			<h2>轮播图列表</h2>
+
+			<div class="Boa_addboard">
+				<div class="Boa_leftbox">
+					<!--搜索部分开始-->
+					<form action="{:U('Shuffing/shuffingList')}" method="post">
+						<div>
+							<div class="col-xs-3">
+		    					<input type="text" class="form-control" placeholder="请输入序号" name="id" />
+		  					</div>
+		  					<div class="col-xs-3">
+		    					<input type="text" class="form-control" placeholder="请输入轮播图名称" name="keyword" />
+		  					</div>
+		  					<div class="Boa_searchbox">
+								<button class="btn btn-info btn-search">查找</button> 
+		  					</div>  
+						</div>
+					</form>
+					<!--搜索部分结束-->
+				</div>
+				<div class="Boa_rigthbox">
+					<a href="{:U('Shuffing/addShuffing')}" class="btn btn-info">添加轮播图</a>
+				</div>	
+			</div>
+			<br/>
+			<table class="table table-hover">
+				<tr>
+					<th class="text-center">序号</th>
+					<th class="text-center">图片名</th>
+					<th class="text-center">图片</th>
+					<th class="text-center">图片链接</th>
+					<th class="text-center">状态</th>
+					<th class="text-center">操作</th>
+				</tr>
+				<foreach name="shuffinglist" item="vo">
+					<tr class="text-center">
+						<td>{$vo.id}</td>
+						<td>{$vo.name}</td>
+						<td>
+							<!-- for循环 -->
+							<for start="0" end='count($vo[url])'>
+								<img alt='345' height='80' width='80' src='__PUBLIC__/{$vo[url][$i]}' />
+							</for>
+						</td>
+						<td>{$vo.link}</td>
+						<if condition='$vo.status eq 0'>
+							<td style="cursor: pointer" class="status" data-status="{$vo.status}"><font class="text-danger">禁用</font></td>
+						<else />
+							<td style="cursor: pointer" class="status" data-status="{$vo.status}"><font class="text-success">启用</font></td>
+						</if>
+						
+						<td>
+							<a class="btn btn-primary btn-info" href="{:U('Shuffing/updataShuffing', 'id='.$vo['id'])}">编辑</a>
+							<a href="javascript:;" data-id="{$vo.id}" class="del btn btn-danger">删除</a>
+						</td>
+					</tr>
+				</foreach>
+			</table>
+			<div id="page" class="manu">
+				{$show}
+			</div>
+		</center>
+		
+		<!-- 写js -->
+		<script>
+		
+			//给删除按钮添加点击事件
+			$('table .del').click(function (){
+
+				// alert(1);
+				var that = $(this);
+
+				$.get(
+					'{:U("Shuffing/ajaxDeleteShuffing")}',//URL
+
+					{id: that.attr('data-id')},//发送数据
+
+					function (data) {
+
+						// console.log(data);
+						
+						if (data==1) {
+
+							//点击删除a标签所在的那一行
+							that.parent().parent().remove();
+						} else {
+
+							alert('删除失败');
+						}
+
+					},
+					'json'
+
+				);
+			});
+
+			//给状态绑定点击事件
+			//获取table下所有tr
+			var objs = $('table').find('tr');
+			for(i = 1 ; i<objs.length; i++) {
+
+				//给状态绑定事件
+				$(objs[i]).children('td').eq(4).on('click', function () {
+					// alert(1);
+					
+					//把$this存起来
+					var that = $(this);
+
+					//ajax请求
+					$.get(
+						'{:U("Shuffing/changeStat")}',//URL
+						{
+							'id':that.prevAll().eq(3).html(),
+							'status':that.attr('data-status'),
+						},
+						function (data) {
+
+							if(data['stat'] > 0) {
+
+								console.log(data);
+								that.html(data['info']);
+								that.attr('data-status', data['res']);
+							}
+						},
+						'json'
+					);
+				});
+			} 
+		</script>
+
+	</div>
+</div>

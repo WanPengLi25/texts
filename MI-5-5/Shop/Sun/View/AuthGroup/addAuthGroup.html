@@ -1,0 +1,103 @@
+<br/>
+<div class="right" id="li07">
+	<div class="right01">
+		<img src="__PUBLIC__/Sun/img/04.gif" /> 权限管理 &gt; <span>添加管理员组</span>
+	</div>
+	<div class="rightmain">
+		<div class="AuG_addform">
+			<h2 class="text-center">添加管理员组</h2>
+			<form class="Aut_addform bs-example bs-example-form" method="post" role="form">
+			  	<div class="form-group">
+			    	<label for="title"><h4>组名</h4></label>
+			    	<input type="text" class="form-control" id="title" placeholder="组名：中文，1~20" name="title">
+			  	</div>
+			  	<div class="form-group">
+				  	<h4>状态</h4>
+				  	<select style="margin-top:10px" class="form-control" name="status">
+					  	<option value="1">启用</option>
+					  	<option value="0">禁用</option>
+					</select>
+				</div>
+				<button id="rule" style="margin-bottom:10px" type="button" class="btn btn-success" data-toggle="modal" data-target="#model1">添加权限</button>
+
+				<div id="model1" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+				  	<div class="modal-dialog modal-sm" role="document">
+				    	<div class="modal-content">
+				    		<div class="panel panel-info">
+							  	<div class="panel-heading">选择权限</div>
+							  	<div class="panel-body">
+							<if condition="$info neq 0">
+							  	<foreach name="info" item="v">
+									<label class="checkbox-inline">
+								  		<input type="checkbox" title="rule" value="{$v.id}" name="rule[]"> {$v.title} {$v.name}
+									</label><br>
+								</foreach>
+							<else />
+								<p class="text-center text-danger">没有数据</p>
+							</if>
+							  	</div>
+							</div>
+				    	</div>
+				  	</div>
+				</div>
+			  	<button type="submit" class="btn btn-info btn-block btn-lg" disabled>添加</button>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+
+	var stat = 0;
+	var flag = 0;
+
+	$('input[name=title]').on('focusout', function () {
+		$(this).next('p').remove();
+		check( $(this), $(this).val(), /[\u4e00-\u9fa5]{1,20}/, ['合法组名', '非法组名'] );
+	}).on('focus', function () {
+		$(this).next('p').remove();
+		var info = '<p style="margin-top:10px;" class="text-info">组名：中文，1-20位</p>';
+		$(this).after(info);
+	});
+
+	function check (obj, val, pat, info) {
+		if(val.match(pat)) {
+			stat1(0);
+			var info = '<p style="margin-top:10px;" class="text-success">'+info[0]+'</p>';
+			obj.after(info);
+		} else {
+			stat1(1);
+			var info = '<p style="margin-top:10px;" class="text-danger">'+info[1]+'</p>';
+			obj.after(info);
+		}
+	}
+
+	function stat1 (x) {
+		if(x == 0) {
+			stat += 1;
+		} else if(x == 1) {
+			stat -= 1;
+		}
+		if(stat<0) stat = 0;
+		if(stat>2) stat = 2;
+
+		if(stat == 2) {
+			$('button[type=submit]').prop({disabled:false});
+		} else {
+			$('button[type=submit]').prop({disabled:true});
+		}
+
+	}
+
+	$('input[title=rule]').click(function () {
+		if( $(this).is(':checked') ) {
+			flag += 1;
+		} else {
+			flag -=1
+		}
+		if(flag < 0) flag = 0;
+		if(flag > 0)
+			stat1(1);
+		else
+			stat1(1);
+	});
+</script>
